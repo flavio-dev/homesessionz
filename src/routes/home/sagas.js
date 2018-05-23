@@ -2,17 +2,14 @@ import { take, call, put } from 'redux-saga/effects'
 
 import whatwgFetch from 'utils/fetch'
 
-import { setListUsers, GET_INITIAL_LIST_MIXES } from './actions'
+import { setListMixes, GET_INITIAL_LIST_MIXES } from './actions'
 
 export function* getSetInitialListMixes() {
-  let url = '/users/'
-  if (window.location.port.length) {
-    url = 'http://localhost:4000/users/'
-  }
+  const url = 'https://raw.githubusercontent.com/flavio-dev/homesessionz/master/data.json'
 
   try {
     const list = yield call(whatwgFetch, url)
-    yield put(setListUsers(list))
+    yield put(setListMixes(list))
   } catch (error) {
     console.log('error')
   }
