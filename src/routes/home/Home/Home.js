@@ -6,18 +6,17 @@ class Home extends Component {
     super(props)
 
     this.state = {
-      listCloudcastKeys: []
+      listCloudcastKeys: [],
+      cloudcastDetails: {}
     }
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log('getDerivedStateFromProps props = ', props)
-    console.log('getDerivedStateFromProps state = ', state)
-    let newState = Object.assign({}, this.state)
+    let newState = Object.assign({}, state)
     if (props.listCloudcastKeys.length > state.listCloudcastKeys.length) {
       newState.listCloudcastKeys = props.listCloudcastKeys
+      newState.cloudcastDetails = props.cloudcastDetails
     }
-
     return newState
   }
 
@@ -27,6 +26,17 @@ class Home extends Component {
         <header className={styles.HomeHeader}>
           <h1 className={styles.HomeTitle}>Welcome to React</h1>
         </header>
+        {this.state.listCloudcastKeys.map((key, index) => {
+          const cloudcast = this.state.cloudcastDetails[key]
+          if (cloudcast) {
+            return <div key={key}>
+              <img className={styles.HomeImg} src={cloudcast.pictures.large} />
+              <p>{cloudcast.name}</p>
+            </div>
+          } else {
+            return null
+          }
+        })}
         <p className={styles.HomeIntro}>
           To get started, edit <code>src/Home.js</code> and save to reload.
         </p>
