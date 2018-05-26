@@ -2,6 +2,25 @@ import React, { Component } from 'react'
 import styles from './Home.css'
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      listCloudcastKeys: []
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('getDerivedStateFromProps props = ', props)
+    console.log('getDerivedStateFromProps state = ', state)
+    let newState = Object.assign({}, this.state)
+    if (props.listCloudcastKeys.length > state.listCloudcastKeys.length) {
+      newState.listCloudcastKeys = props.listCloudcastKeys
+    }
+
+    return newState
+  }
+
   render() {
     return (
       <div className={styles.Home}>
