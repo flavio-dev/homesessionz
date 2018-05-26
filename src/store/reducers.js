@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import appReducers from 'routes/home/reducers'
+import homeReducers from 'routes/home/reducers'
+import appReducers from 'app/reducers'
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
+    homeReducers,
     appReducers,
     ...asyncReducers
   })

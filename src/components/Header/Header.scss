@@ -1,0 +1,13 @@
+@import "globals.scss";
+
+.Header {
+  background-color: $color-white;
+  border-bottom: 5px solid $color-milk-chocolate;
+  color: $color-blue-sky;
+  font-family: $title-font-family;
+}
+
+.HeaderLogo {
+  animation: Home-logo-spin infinite 20s linear;
+  height: 80px;
+}

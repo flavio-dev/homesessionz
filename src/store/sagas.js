@@ -1,10 +1,11 @@
 import createSagaMiddleware from 'redux-saga'
-import { fork } from 'redux-saga/effects'
+import { call } from 'redux-saga/effects'
 
-import { watchGetInitialListMixes } from 'routes/home/sagas'
+import { getInitialListMixesFromGithub, getExample } from 'app/sagas'
 
 export const sagaMiddleware = createSagaMiddleware()
 
 export function* rootSaga() {
-  yield fork(watchGetInitialListMixes)
+  yield call(getInitialListMixesFromGithub)
+  yield call(getExample)
 }
