@@ -1,22 +1,27 @@
-import { call, put, race, take } from 'redux-saga/effects'
+import { call, put, race, take, select } from 'redux-saga/effects'
 
 import whatwgFetch from 'utils/fetch'
+import slugToKey from 'utils/slugToKey'
 import getEnvUrlPrefix from 'utils/envUrl'
 import initialListOfMixes from 'data.json'
 
 import {
   setInitialListMixesFromGithub,
   setCurrentCloudcastEmbed,
+  setCloudcastEmbedDetails,
   setCloudcastDetails,
   SET_LIST_MIXES_GITHUB,
+  GET_CURRENT_CLOUDCAST_EMBED,
   SET_CLOUDCAST_DETAILS
 } from './actions'
+
+import { getCloudcastDetails } from './selectors'
 
 export function* getInitialListMixesFromGithub() {
   yield put(setInitialListMixesFromGithub(initialListOfMixes))
 }
 
-function* getCloudcastDetails({cloudcastKey}) {
+function* getCloudcastDetailsCall(cloudcastKey) {
   const prefixUrl = getEnvUrlPrefix()
   const url = prefixUrl + '/cloudcast' + cloudcastKey
   try {
@@ -35,9 +40,8 @@ export function * watchGetCloudcastDetails() {
     })
 
     if (initial) {
-      console.log('Hello we are in initial = ', initial)
       for (let i = 0; i < initial.listMixes.length; i++) {
-        yield call(getCloudcastDetails, {cloudcastKey: initial.listMixes[i]})
+        yield call(getCloudcastDetailsCall, initial.listMixes[i])
       }
     }
 
@@ -47,14 +51,29 @@ export function * watchGetCloudcastDetails() {
   }
 }
 
-export function* getEmbedHtml() {
-  const prefixUrl = getEnvUrlPrefix()
-  const url = prefixUrl + '/cloudcast/NetilRadio/s%C3%B8unds-fl%C3%B8ating-ar%C3%B8und-apr182-by-this-is-a-pr%C3%B8ject-21st-april-2018/embed-json' // eslint-disable-line
-  try {
-    const embedJson = yield call(whatwgFetch, url)
-    console.log('example =D  =  ', embedJson)
-    yield put(setCurrentCloudcastEmbed(embedJson.html))
-  } catch (error) {
-    console.log('error')
+function* getEmbedHtml(key, slug) {
+  const keyFromSlug = slugToKey(slug)
+  const cloudcastsInStore = yield select(getCloudcastDetails)
+  if (cloudcastsInStore[keyFromSlug] && cloudcastsInStore[keyFromSlug].embedHtml) {
+    yield put(setCurrentCloudcastEmbed(cloudcastsInStore[keyFromSlug].embedHtml))
+  } else {
+    const prefixUrl = getEnvUrlPrefix()
+    const url = prefixUrl + '/cloudcast' + key + 'embed-json'
+    try {
+      const embedJson = yield call(whatwgFetch, url)
+      let tempStr = embedJson.html
+      const embedHtml = [tempStr.slice(0, embedJson.html.indexOf('light=1')), 'autoplay=1&amp;', tempStr.slice(embedJson.html.indexOf('light=1'))].join('') // eslint-disable-line
+      yield put(setCurrentCloudcastEmbed(embedHtml))
+      yield put(setCloudcastEmbedDetails(embedHtml, keyFromSlug))
+    } catch (error) {
+      console.log('error')
+    }
+  }
+}
+
+export function * watchGetEmbedHtml() {
+  while (true) {
+    const payload = yield take(GET_CURRENT_CLOUDCAST_EMBED)
+    yield call(getEmbedHtml, payload.key, payload.slug)
   }
 }

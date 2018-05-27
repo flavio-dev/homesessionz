@@ -4,7 +4,7 @@ const initialState = ''
 export const setCurrentCloudastEmbedReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_CLOUDCAST_EMBED:
-      return action.cloudcast
+      return action.embedHtml
     default:
       return state
   }

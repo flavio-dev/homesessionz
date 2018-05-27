@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import styles from './Home.css'
 
 class Home extends Component {
@@ -30,7 +32,10 @@ class Home extends Component {
           const cloudcast = this.state.cloudcastDetails[key]
           if (cloudcast) {
             return <div key={key}>
-              <img className={styles.HomeImg} src={cloudcast.pictures.large} />
+              <img
+                src={cloudcast.pictures.large}
+                onClick={() => this.props.getCurrentCloudcastEmbed(cloudcast.key, cloudcast.slug)}
+              />
               <p>{cloudcast.name}</p>
             </div>
           } else {
@@ -43,6 +48,10 @@ class Home extends Component {
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  getCurrentCloudcastEmbed: PropTypes.func.isRequired
 }
 
 export default Home
