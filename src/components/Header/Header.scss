@@ -1,13 +1,57 @@
 @import "globals.scss";
 
 .Header {
-  background-color: $color-white;
-  border-bottom: 5px solid $color-milk-chocolate;
-  color: $color-blue-sky;
-  font-family: $title-font-family;
+  background-color: $color-quiet-black;
+  border-bottom: 5px solid $color-white;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  a {
+    color: $color-white;
+  }
+
+  @media #{$medium-and-up} {
+      height: 100px;
+  }
+}
+
+.HeaderInner {
+  @include default-wrapper-width();
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 80px;
+
+  @media #{$medium-and-up} {
+    height: 100px;
+  }
+}
+
+.HeaderPlaceholder {
+  display: none;
+  width: 135px;
+
+  @media #{$medium-and-up} {
+    display: block;
+  }
+}
+
+.HeaderMenu {
+  display: flex;
+  justify-content: space-between;
+  width: 135px;
 }
 
 .HeaderLogo {
-  animation: Home-logo-spin infinite 20s linear;
+  filter: grayscale(100%);
   height: 80px;
+  width: 80px;
+
+  @media #{$medium-and-up} {
+    height: 100px;
+    width: 100px;
+  }
 }

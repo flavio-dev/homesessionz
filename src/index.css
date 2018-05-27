@@ -19,23 +19,7 @@ body {
   background-color: #F4F9FF;
   font-family: "Comfortaa", cursive; }
 
-button {
-  transition: all 0.3s ease;
-  background-color: #00A0CC;
-  border: 5px solid #00A0CC;
-  border-radius: 5px;
-  color: #F4F9FF;
-  cursor: pointer;
-  float: right;
-  font-family: "Comfortaa", cursive;
-  font-size: 20px;
-  padding: 5px 15px; }
-  button:hover {
-    background-color: #F4F9FF;
-    color: #00A0CC; }
-
 a {
-  color: #00A0CC;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }

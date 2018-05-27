@@ -1,0 +1,19 @@
+@import "globals.scss";
+
+.Footer {
+  background-color: $color-quiet-black;
+  color: $color-white;
+  height: 120px;
+  width: 100%;
+
+  a {
+    color: $color-white;
+  }
+}
+
+.FooterInner {
+  @include default-wrapper-width();
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,9 @@
+@import "globals.scss";
+
+.LayoutContainer {
+  top: 100px;
+
+  @media #{$medium-and-up} {
+      top: 120px;
+  }
+}

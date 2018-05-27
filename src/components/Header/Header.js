@@ -1,11 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import styles from './Header.css'
-import logo from './logo.svg'
+import wave from './wave.gif'
 
 export const Header = () => (
   <div className={styles.Header}>
-    <img src={logo} className={styles.HeaderLogo} alt='logo' />
+    <div className={styles.HeaderInner}>
+      <div className={styles.HeaderPlaceholder} />
+      <img src={wave} className={styles.HeaderLogo} alt='høme sessiønz' />
+      <div className={styles.HeaderMenu}>
+        <Link to='/about'>abøut</Link>
+        <Link to='/contact'>cøntact</Link>
+      </div>
+    </div>
   </div>
 )
 
