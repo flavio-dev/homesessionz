@@ -2,6 +2,7 @@ import { call, put, race, take } from 'redux-saga/effects'
 
 import whatwgFetch from 'utils/fetch'
 import getEnvUrlPrefix from 'utils/envUrl'
+import initialListOfMixes from 'data.json'
 
 import {
   setInitialListMixesFromGithub,
@@ -12,14 +13,7 @@ import {
 } from './actions'
 
 export function* getInitialListMixesFromGithub() {
-  const url = 'https://raw.githubusercontent.com/flavio-dev/homesessionzserver/master/data.json'
-
-  try {
-    const list = yield call(whatwgFetch, url)
-    yield put(setInitialListMixesFromGithub(list))
-  } catch (error) {
-    console.log('error')
-  }
+  yield put(setInitialListMixesFromGithub(initialListOfMixes))
 }
 
 function* getCloudcastDetails({cloudcastKey}) {
