@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import CloudcastHomeContainer from 'components/CloudcastHomeContainer'
+import CloudcastHomePlacebo from 'components/CloudcastHomeContainer/CloudcastHomePlacebo'
 
 import styles from './Home.css'
 
@@ -35,6 +36,10 @@ class Home extends Component {
             return null
           }
         })}
+        <CloudcastHomePlacebo />
+        <CloudcastHomePlacebo />
+        <CloudcastHomePlacebo />
+        <CloudcastHomePlacebo />
       </div>
     )
   }

@@ -1,17 +1,28 @@
 @import "globals.scss";
 
-.CloudcastHome {
+%CloudcastHome {
   flex: 1 0 200px;
   margin: 0 10px 20px;
 
   @media #{$medium-and-up} {
-    flex: 1 0 270px;
+    flex-basis: 235px;
     margin: 0 12px 20px;
   }
 
   @media #{$large-and-up} {
+    flex-basis: 270px;
     margin: 0 20px 20px;
   }
+}
+
+.CloudcastHome {
+  @extend %CloudcastHome;
+}
+
+.CloudcastHomePlacebo {
+  @extend %CloudcastHome;
+
+  margin-bottom: 0;
 }
 
 .CloudcastHomeImg {
