@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import CloudcastHomeContainer from 'components/CloudcastHomeContainer'
+
 import styles from './Home.css'
 
 class Home extends Component {
@@ -28,13 +30,7 @@ class Home extends Component {
         {this.state.listCloudcastKeys.map((key, index) => {
           const cloudcast = this.state.cloudcastDetails[key]
           if (cloudcast) {
-            return <div key={key}>
-              <img
-                src={cloudcast.pictures.large}
-                onClick={() => this.props.getCurrentCloudcastEmbed(cloudcast.key, cloudcast.slug)}
-              />
-              <p>{cloudcast.name}</p>
-            </div>
+            return <CloudcastHomeContainer cloudcast={cloudcast} />
           } else {
             return null
           }
