@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 import CloudcastHomeContainer from 'components/CloudcastHomeContainer'
 import CloudcastHomePlacebo from 'components/CloudcastHomeContainer/CloudcastHomePlacebo'
@@ -31,7 +30,7 @@ class Home extends Component {
         {this.state.listCloudcastKeys.map((key, index) => {
           const cloudcast = this.state.cloudcastDetails[key]
           if (cloudcast) {
-            return <CloudcastHomeContainer cloudcast={cloudcast} />
+            return <CloudcastHomeContainer cloudcast={cloudcast} key={key} />
           } else {
             return null
           }
@@ -43,10 +42,6 @@ class Home extends Component {
       </div>
     )
   }
-}
-
-Home.propTypes = {
-  getCurrentCloudcastEmbed: PropTypes.func.isRequired
 }
 
 export default Home
