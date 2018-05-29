@@ -36,18 +36,33 @@
 
 .HeaderPlaceholder {
   display: none;
+  font-size: 28px;
   font-weight: bold;
-  width: 148px;
 
   @media #{$medium-and-up} {
+    width: 170px;
     display: block;
+  }
+
+  @media #{$large-and-up} {
+    max-width: 217px;
+    width: 17%;
   }
 }
 
 .HeaderMenu {
   display: flex;
   justify-content: space-between;
-  width: 148px;
+  width: 140px;
+
+  @media #{$medium-and-up} {
+    width: 170px;
+  }
+
+  @media #{$large-and-up} {
+    max-width: 217px;
+    width: 17%;
+  }
 }
 
 .HeaderLogo {
