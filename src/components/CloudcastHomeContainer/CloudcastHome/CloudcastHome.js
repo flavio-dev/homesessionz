@@ -16,6 +16,7 @@ class CloudcastHome extends Component {
     return (
       <div className={styles.CloudcastHome}>
         <img
+          alt={this.props.cloudcast.name}
           className={styles.CloudcastHomeImg}
           src={this.props.cloudcast.pictures.large}
           onClick={() => this.props.getCurrentCloudcastEmbed(this.props.cloudcast.key, this.props.cloudcast.slug)}

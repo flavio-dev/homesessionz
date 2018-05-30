@@ -15,6 +15,15 @@
 .FooterInner {
   @include default-wrapper-width();
   padding-top: 20px;
+}
+
+.FooterSocial {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+.FooterCopyrights {
+  float: right;
+  margin-top: 20px;
 }
