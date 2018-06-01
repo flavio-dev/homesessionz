@@ -16,11 +16,39 @@ th, td {
   vertical-align: baseline; }
 
 body {
-  background-color: #F4F9FF;
+  background-color: #fcfcfc;
   color: #0f1121;
   font-family: "Comfortaa", cursive; }
+
+button,
+input[type="submit"] {
+  transition: all 0.3s ease;
+  background-color: #0f1121;
+  border: 2px solid #0f1121;
+  border-radius: 5px;
+  color: #fcfcfc;
+  cursor: pointer;
+  padding: 10px 15px; }
+  button:hover,
+  input[type="submit"]:hover {
+    background-color: #fcfcfc;
+    color: #0f1121; }
 
 a {
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
+
+input[type="text"],
+textarea {
+  transition: border 0.3s ease;
+  background-color: #fcfcfc;
+  border: 2px solid #c4c4c4;
+  border-radius: 5px;
+  padding: 10px 15px; }
+  input[type="text"]:focus,
+  textarea:focus {
+    border-color: #0f1121; }
+  input[type="text"]::placeholder,
+  textarea::placeholder {
+    color: #c4c4c4; }

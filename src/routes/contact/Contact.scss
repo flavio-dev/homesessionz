@@ -1,4 +1,17 @@
 @import "globals.scss";
 
 .Contact {
+
+}
+
+.ContactForm {
+  input[type="text"], textarea {
+    display: block;
+    margin-bottom: 15px;
+    width: 88%;
+
+    @media #{$medium-and-up} {
+      width: 250px;
+    }
+  }
 }
