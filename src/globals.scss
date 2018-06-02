@@ -3,10 +3,10 @@ $base-font-family: "Comfortaa", cursive;
 // Media Query Ranges
 $small-screen-up: 601px !default;
 $medium-screen-up: 1051px !default;
-$large-screen-up: 1201px !default;
+// $large-screen-up: 1201px !default;
 $small-screen: 600px !default;
 $medium-screen: 1050px !default;
-$large-screen: 1200px !default;
+// $large-screen: 1200px !default;
 
 $small-screen-inner-width: 95%;
 $medium-and-up-inner-width: 90%;
@@ -20,6 +20,9 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
 $color-quiet-black: #0f1121;
 $color-white: #fcfcfc;
 $color-grey: #c4c4c4;
+
+$height-header-small: 85px;
+$height-header-big: 105px;
 
 @mixin default-wrapper-width() {
   margin-left: auto;

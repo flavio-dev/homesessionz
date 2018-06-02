@@ -1,11 +1,55 @@
 @import "globals.scss";
 
-.Home {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+.HomeVideoWrapper {
+  position: fixed;
+  width: 100%;
+  z-index: -100;
+}
 
-  @media #{$medium-and-up} {
-    justify-content: space-between;
+%HomeVideo {
+  object-fit: cover;
+  width: 100%;
+}
+
+.HomeVideoSmall {
+  @extend %HomeVideo;
+  display: none;
+
+  @media #{$small-and-down} {
+    display: block;
   }
+}
+
+.HomeVideoMedium {
+  @extend %HomeVideo;
+  display: none;
+
+  @media #{$medium-only} {
+    display: block;
+  }
+}
+
+.HomeVideoLarge {
+  @extend %HomeVideo;
+  display: none;
+  height: 582px;
+
+  @media #{$large-and-up} {
+    display: block;
+  }
+}
+
+.HomeGridWrapper {
+  padding-top: 56.25%;
+
+  @media #{$large-and-up} {
+    padding-top: 582px;
+  }
+}
+
+.HomeGrid {
+  display: flex;
+  background-color: $color-white;
+  flex-wrap: wrap;
+  padding-top: 20px;
 }

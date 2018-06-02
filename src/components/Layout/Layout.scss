@@ -1,14 +1,9 @@
 @import "globals.scss";
 
 .LayoutContainer {
-  @include default-wrapper-width();
-  padding: 100px 0 20px;
+  padding: $height-header-small 0 0;
 
   @media #{$medium-and-up} {
-    padding: 120px 0 40px;
-  }
-
-  @media #{$large-and-up} {
-    padding-top: 130px;
+    padding: $height-header-big 0 0;
   }
 }
