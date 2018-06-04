@@ -26,7 +26,12 @@ class CloudcastHome extends Component {
           }}
           className={styles.CloudcastHomeImg}
         />
-        <p>{this.props.cloudcast.name}</p>
+        {this.props.cloudcast.name && this.props.cloudcast.name.length &&
+          <a href={this.props.cloudcast.slug} className={styles.CloudcastHomeText}>{this.props.cloudcast.name}</a>
+        }
+        {(!this.props.cloudcast.name || !this.props.cloudcast.name.length) &&
+          <div className={styles.CloudcastHomeTextPlaceholder} />
+        }
       </div>
     )
   }
