@@ -27,10 +27,11 @@ export const getCurrentCloudcastEmbed = (key, slug) => {
   }
 }
 
-export const setCloudcastDetails = (details) => {
+export const setCloudcastDetails = (details, index) => {
   return {
     type: SET_CLOUDCAST_DETAILS,
-    details
+    details,
+    index
   }
 }
 

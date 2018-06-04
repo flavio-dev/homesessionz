@@ -1,4 +1,4 @@
-import { call, put, race, take, select } from 'redux-saga/effects'
+import { call, fork, put, take, select } from 'redux-saga/effects'
 
 import whatwgFetch from 'utils/fetch'
 import slugToKey from 'utils/slugToKey'
@@ -11,8 +11,7 @@ import {
   setCloudcastEmbedDetails,
   setCloudcastDetails,
   SET_LIST_MIXES_GITHUB,
-  GET_CURRENT_CLOUDCAST_EMBED,
-  SET_CLOUDCAST_DETAILS
+  GET_CURRENT_CLOUDCAST_EMBED
 } from './actions'
 
 import { getCloudcastDetails } from './selectors'
@@ -21,33 +20,24 @@ export function* getInitialListMixesFromGithub() {
   yield put(setInitialListMixesFromGithub(initialListOfMixes))
 }
 
-function* getCloudcastDetailsCall(cloudcastKey) {
+function* getCloudcastDetailsCall(cloudcastKey, index) {
   const prefixUrl = getEnvUrlPrefix()
   const url = prefixUrl + '/cloudcast' + cloudcastKey
   try {
     const cloudDetails = yield call(whatwgFetch, url)
-    yield put(setCloudcastDetails(cloudDetails))
+    yield put(setCloudcastDetails(cloudDetails, index))
   } catch (error) {
     console.log('error')
   }
 }
 
 export function * watchGetCloudcastDetails() {
-  while (true) {
-    const { initial, specific } = yield race({
-      initial: take(SET_LIST_MIXES_GITHUB),
-      specific: take(SET_CLOUDCAST_DETAILS)
-    })
-
-    if (initial) {
-      for (let i = 0; i < initial.listMixes.length; i++) {
-        yield call(getCloudcastDetailsCall, initial.listMixes[i])
-      }
-    }
-
-    if (specific) {
-      console.log('Hello we are in specific')
-    }
+  const initial = yield take(SET_LIST_MIXES_GITHUB)
+  for (let i = 0; i < initial.listMixes.length; i++) {
+    yield put(setCloudcastDetails({
+      slug: i.toString()
+    }, i))
+    yield fork(getCloudcastDetailsCall, initial.listMixes[i], i)
   }
 }
 

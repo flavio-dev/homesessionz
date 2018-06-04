@@ -8,7 +8,9 @@ export const setListCloudcastKeysReducer = (state = initialState, action) => {
       let newState = state.slice(0)
       const key = slugToKey(action.details.slug)
       if (newState.indexOf(key) === -1) {
-        newState.push(key)
+        typeof newState[action.index] !== 'undefined'
+          ? newState[action.index] = key
+          : newState.push(key)
       }
       return newState
     default:

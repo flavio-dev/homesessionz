@@ -13,17 +13,31 @@ class CloudcastHome extends Component {
   }
 
   render() {
+    const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.large
+      ? this.props.cloudcast.pictures.large
+      : ''
+
     return (
       <div className={styles.CloudcastHome}>
-        <img
-          alt={this.props.cloudcast.name}
+        <div
+          style={{
+            backgroundImage: 'url(' + largePicUrl + ')',
+            backgroundSize: 'cover'
+          }}
           className={styles.CloudcastHomeImg}
-          src={this.props.cloudcast.pictures.large}
-          onClick={() => this.props.getCurrentCloudcastEmbed(this.props.cloudcast.key, this.props.cloudcast.slug)}
         />
         <p>{this.props.cloudcast.name}</p>
       </div>
     )
+  }
+}
+
+CloudcastHome.defaultProps = {
+  cloudcast: {
+    pictures: {
+      large: ''
+    },
+    name: ''
   }
 }
 

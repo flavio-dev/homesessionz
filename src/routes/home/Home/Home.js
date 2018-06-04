@@ -22,10 +22,8 @@ class Home extends Component {
 
   static getDerivedStateFromProps(props, state) {
     let newState = Object.assign({}, state)
-    if (props.listCloudcastKeys.length > state.listCloudcastKeys.length) {
-      newState.listCloudcastKeys = props.listCloudcastKeys
-      newState.cloudcastDetails = props.cloudcastDetails
-    }
+    newState.listCloudcastKeys = props.listCloudcastKeys
+    newState.cloudcastDetails = props.cloudcastDetails
     return newState
   }
 
@@ -40,7 +38,7 @@ class Home extends Component {
         <div className={styles.HomeGridWrapper}>
           <h1 className={styles.HomeTitle}>høme sessiønz</h1>
           <div className={styles.HomeGrid}>
-            {this.state.listCloudcastKeys.map((key, index) => {
+            {this.state.listCloudcastKeys.map((key) => {
               const cloudcast = this.state.cloudcastDetails[key]
               if (cloudcast) {
                 return <CloudcastHomeContainer cloudcast={cloudcast} key={key} />

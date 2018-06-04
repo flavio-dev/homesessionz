@@ -6,6 +6,7 @@ export const setCloudcastDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CLOUDCAST_DETAILS:
       let newState = Object.assign({}, state)
+      newState[action.index.toString()] = null
       newState[slugToKey(action.details.slug)] = action.details
       return newState
     case SET_CLOUDCAST_EMBED_DETAILS:
