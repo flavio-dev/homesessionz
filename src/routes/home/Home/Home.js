@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import CloudcastHomeContainer from 'components/CloudcastHomeContainer'
 import CloudcastHomePlacebo from 'components/CloudcastHomeContainer/CloudcastHomePlacebo'
+import Video from 'components/Video'
 
 import styles from './Home.css'
 
@@ -31,17 +32,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div className={styles.HomeVideoWrapper}>
-          <video autoPlay muted loop className={styles.HomeVideoSmall}>
-            <source src={smallHomeVid} type='video/mp4' />
-          </video>
-          <video autoPlay muted loop className={styles.HomeVideoMedium}>
-            <source src={mediumHomeVid} type='video/mp4' />
-          </video>
-          <video autoPlay muted loop className={styles.HomeVideoLarge}>
-            <source src={largeHomeVid} type='video/mp4' />
-          </video>
-        </div>
+        <Video
+          smallVid={smallHomeVid}
+          mediumVid={mediumHomeVid}
+          largeVid={largeHomeVid}
+        />
         <div className={styles.HomeGridWrapper}>
           <h1 className={styles.HomeTitle}>høme sessiønz</h1>
           <div className={styles.HomeGrid}>

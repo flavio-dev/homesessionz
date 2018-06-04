@@ -1,0 +1,40 @@
+@import "globals.scss";
+
+.VideoWrapper {
+  position: fixed;
+  width: 100%;
+  z-index: -10;
+}
+
+%Video {
+  object-fit: cover;
+  width: 100%;
+}
+
+.VideoSmall {
+  @extend %Video;
+  display: none;
+
+  @media #{$small-and-down} {
+    display: block;
+  }
+}
+
+.VideoMedium {
+  @extend %Video;
+  display: none;
+
+  @media #{$medium-only} {
+    display: block;
+  }
+}
+
+.VideoLarge {
+  @extend %Video;
+  display: none;
+  height: 582px;
+
+  @media #{$large-and-up} {
+    display: block;
+  }
+}

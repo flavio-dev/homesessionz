@@ -1,46 +1,8 @@
 @import "globals.scss";
 
-.HomeVideoWrapper {
-  position: fixed;
-  width: 100%;
-  z-index: -10;
-}
-
-%HomeVideo {
-  object-fit: cover;
-  width: 100%;
-}
-
-.HomeVideoSmall {
-  @extend %HomeVideo;
-  display: none;
-
-  @media #{$small-and-down} {
-    display: block;
-  }
-}
-
-.HomeVideoMedium {
-  @extend %HomeVideo;
-  display: none;
-
-  @media #{$medium-only} {
-    display: block;
-  }
-}
-
-.HomeVideoLarge {
-  @extend %HomeVideo;
-  display: none;
-  height: 582px;
-
-  @media #{$large-and-up} {
-    display: block;
-  }
-}
-
 .HomeGridWrapper {
   padding-top: 56.25%;
+  position: relative;
 
   @media #{$large-and-up} {
     padding-top: 582px;
