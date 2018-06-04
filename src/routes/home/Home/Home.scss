@@ -3,7 +3,7 @@
 .HomeVideoWrapper {
   position: fixed;
   width: 100%;
-  z-index: -100;
+  z-index: -10;
 }
 
 %HomeVideo {
@@ -44,6 +44,33 @@
 
   @media #{$large-and-up} {
     padding-top: 582px;
+  }
+}
+
+.HomeTitle {
+  color: $color-white;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  margin-top: 22%;
+  position: absolute;
+  text-shadow: 4px 4px 2px $color-quiet-black-opacity;
+  top: 0;
+  width: 100%;
+
+  @media #{$small-and-down} {
+    font-size: 34px;
+    font-size: 10vw;
+  }
+
+  @media #{$medium-and-up} {
+    font-size: 65px;
+    font-size: 10vw;
+  }
+
+  @media #{$large-and-up} {
+    margin-top: 230px;
+    font-size: 120px;
   }
 }
 

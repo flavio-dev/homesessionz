@@ -43,6 +43,7 @@ class Home extends Component {
           </video>
         </div>
         <div className={styles.HomeGridWrapper}>
+          <h1 className={styles.HomeTitle}>høme sessiønz</h1>
           <div className={styles.HomeGrid}>
             {this.state.listCloudcastKeys.map((key, index) => {
               const cloudcast = this.state.cloudcastDetails[key]
