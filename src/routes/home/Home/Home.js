@@ -50,6 +50,7 @@ class Home extends Component {
             <CloudcastHomePlacebo />
             <CloudcastHomePlacebo />
             <CloudcastHomePlacebo />
+            <CloudcastHomePlacebo />
           </div>
         </div>
       </div>
