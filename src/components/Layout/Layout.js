@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './Layout.css'
+import './Layout.css'
 
 import Header from 'components/Header'
 import Footer from 'components/Footer'
@@ -10,7 +10,7 @@ import CloudcastPlayerContainer from 'components/CloudcastPlayerContainer'
 export const Layout = ({ children }) => (
   <div>
     <Header />
-    <div className={styles.LayoutContainer}>
+    <div className='LayoutContainer'>
       {children}
     </div>
     <Footer />

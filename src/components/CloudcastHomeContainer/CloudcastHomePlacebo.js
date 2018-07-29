@@ -1,9 +1,9 @@
 import React from 'react'
 
-import styles from './CloudcastHome/CloudcastHome.css'
+import './CloudcastHome/CloudcastHome.css'
 
 export const CloudcastHomePlacebo = () => (
-  <div className={styles.CloudcastHomePlacebo} />
+  <div className='CloudcastHomePlacebo' />
 )
 
 export default CloudcastHomePlacebo

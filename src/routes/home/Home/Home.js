@@ -4,7 +4,7 @@ import CloudcastHomeContainer from 'components/CloudcastHomeContainer'
 import CloudcastHomePlacebo from 'components/CloudcastHomeContainer/CloudcastHomePlacebo'
 import Video from 'components/Video'
 
-import styles from './Home.css'
+import './Home.css'
 
 import smallHomeVid from './homeSmall.m4v'
 import mediumHomeVid from './homeMedium.m4v'
@@ -35,9 +35,9 @@ class Home extends Component {
           mediumVid={mediumHomeVid}
           largeVid={largeHomeVid}
         />
-        <div className={styles.HomeGridWrapper}>
-          <h1 className={styles.HomeTitle}>høme sessiønz</h1>
-          <div className={styles.HomeGrid}>
+        <div className='HomeGridWrapper'>
+          <h1 className='HomeTitle'>høme sessiønz</h1>
+          <div className='HomeGrid'>
             {this.state.listCloudcastKeys.map((key) => {
               const cloudcast = this.state.cloudcastDetails[key]
               if (cloudcast) {

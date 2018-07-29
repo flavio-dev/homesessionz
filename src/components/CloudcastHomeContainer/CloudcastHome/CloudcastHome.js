@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import styles from './CloudcastHome.css'
+import './CloudcastHome.css'
 
 class CloudcastHome extends Component {
   constructor(props) {
@@ -19,19 +19,19 @@ class CloudcastHome extends Component {
       : ''
 
     return (
-      <div className={styles.CloudcastHome}>
+      <div className='CloudcastHome'>
         <div
           style={{
             backgroundImage: 'url(' + largePicUrl + ')',
             backgroundSize: 'cover'
           }}
-          className={styles.CloudcastHomeImg}
+          className='CloudcastHomeImg'
         />
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&
-          <Link to={this.props.cloudcast.slug} className={styles.CloudcastHomeText}>{this.props.cloudcast.name}</Link>
+          <Link to={this.props.cloudcast.slug} className='CloudcastHomeText'>{this.props.cloudcast.name}</Link>
         }
         {(!this.props.cloudcast.name || !this.props.cloudcast.name.length) &&
-          <div className={styles.CloudcastHomeTextPlaceholder} />
+          <div className='CloudcastHomeTextPlaceholder' />
         }
       </div>
     )
