@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import styles from './CloudcastHome.css'
@@ -27,7 +28,7 @@ class CloudcastHome extends Component {
           className={styles.CloudcastHomeImg}
         />
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&
-          <a href={this.props.cloudcast.slug} className={styles.CloudcastHomeText}>{this.props.cloudcast.name}</a>
+          <Link to={this.props.cloudcast.slug} className={styles.CloudcastHomeText}>{this.props.cloudcast.name}</Link>
         }
         {(!this.props.cloudcast.name || !this.props.cloudcast.name.length) &&
           <div className={styles.CloudcastHomeTextPlaceholder} />
