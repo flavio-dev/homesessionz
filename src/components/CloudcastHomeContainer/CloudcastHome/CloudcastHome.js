@@ -5,20 +5,6 @@ import PropTypes from 'prop-types'
 import './CloudcastHome.css'
 
 class CloudcastHome extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      beingPlayed: this.props.isPlaying
-    }
-
-    // this.setCurrentCloudcastUrl = this.setCurrentCloudcastUrl.bind(this)
-  }
-
-  // setCurrentCloudcastUrl() {
-  //
-  // }
-
   render() {
     const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.large
       ? this.props.cloudcast.pictures.large
@@ -33,7 +19,7 @@ class CloudcastHome extends Component {
           }}
           className='CloudcastHomeImg'
           onClick={() => {
-            this.props.setCurrentCloudcastUrl(this.props.cloudcast.url)
+            this.props.setCurrentCloudcast(this.props.cloudcast.url)
             this.props.setIsPlaying(true)
           }}
         />
@@ -59,7 +45,7 @@ CloudcastHome.defaultProps = {
 }
 
 CloudcastHome.propTypes = {
-  setCurrentCloudcastUrl: PropTypes.func.isRequired,
+  setCurrentCloudcast: PropTypes.func.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
   cloudcast: PropTypes.object,
   isPlaying: PropTypes.bool

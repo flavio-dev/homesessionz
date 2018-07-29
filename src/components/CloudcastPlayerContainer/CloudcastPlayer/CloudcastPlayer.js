@@ -8,7 +8,7 @@ class CloudcastPlayer extends Component {
   render() {
     return <div className='CloudcastPlayer'>
       <MixcloudPlayer
-        url={this.props.currentCloudcastUrl}
+        url={this.props.currentCloudcast}
         height='60px'
         width='100%'
         playing={this.props.isPlaying}
@@ -21,7 +21,7 @@ class CloudcastPlayer extends Component {
 
 CloudcastPlayer.propTypes = {
   setIsPlaying: PropTypes.func,
-  currentCloudcastUrl: PropTypes.string,
+  currentCloudcast: PropTypes.string,
   isPlaying: PropTypes.bool.isRequired
 }
 
