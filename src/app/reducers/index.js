@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux'
 
-import setCurrentCloudcastEmbedReducer from './currentCloudcast'
+import setCurrentCloudcastUrlReducer from './currentCloudcast'
 import setInitialListFromGithubReducer from './initialListFromGithub'
+import setIsPlayingReducer from './isPlaying'
 import setCloudcastDetailsReducer from './cloudcastDetails'
 import setListCloudcastKeysReducer from './listCloudcastKeys'
 
 export default combineReducers({
-  currentCloudcastEmbed: setCurrentCloudcastEmbedReducer,
+  currentCloudcastUrl: setCurrentCloudcastUrlReducer,
   cloudcastDetails: setCloudcastDetailsReducer,
   listCloudcastKeys: setListCloudcastKeysReducer,
-  initialListFromGithub: setInitialListFromGithubReducer
+  initialListFromGithub: setInitialListFromGithubReducer,
+  isPlaying: setIsPlayingReducer
 })

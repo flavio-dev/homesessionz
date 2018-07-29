@@ -1,13 +1,13 @@
-import { SET_CURRENT_CLOUDCAST_EMBED } from '../actions'
+import { SET_CURRENT_CLOUDCAST_URL } from '../actions'
 
 const initialState = ''
-export const setCurrentCloudastEmbedReducer = (state = initialState, action) => {
+export const setCurrentCloudastUrlReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_CURRENT_CLOUDCAST_EMBED:
-      return action.embedHtml
+    case SET_CURRENT_CLOUDCAST_URL:
+      return action.url
     default:
       return state
   }
 }
 
-export default setCurrentCloudastEmbedReducer
+export default setCurrentCloudastUrlReducer

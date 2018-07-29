@@ -12,6 +12,16 @@ export const getCurrentEmbedCloudcast = createSelector(
   appReducer => appReducer.currentCloudcastEmbed
 )
 
+export const getCurrentCloudcastUrl = createSelector(
+  [getAppReducers],
+  appReducer => appReducer.currentCloudcastUrl
+)
+
+export const getIsPlaying = createSelector(
+  [getAppReducers],
+  appReducer => appReducer.isPlaying
+)
+
 export const getCloudcastDetails = createSelector(
   [getAppReducers],
   appReducer => appReducer.cloudcastDetails

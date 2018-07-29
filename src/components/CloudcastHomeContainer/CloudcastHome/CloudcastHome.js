@@ -9,9 +9,15 @@ class CloudcastHome extends Component {
     super(props)
 
     this.state = {
-      beingPlayed: false
+      beingPlayed: this.props.isPlaying
     }
+
+    // this.setCurrentCloudcastUrl = this.setCurrentCloudcastUrl.bind(this)
   }
+
+  // setCurrentCloudcastUrl() {
+  //
+  // }
 
   render() {
     const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.large
@@ -26,6 +32,10 @@ class CloudcastHome extends Component {
             backgroundSize: 'cover'
           }}
           className='CloudcastHomeImg'
+          onClick={() => {
+            this.props.setCurrentCloudcastUrl(this.props.cloudcast.url)
+            this.props.setIsPlaying(true)
+          }}
         />
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&
           <Link to={this.props.cloudcast.slug} className='CloudcastHomeText'>{this.props.cloudcast.name}</Link>
@@ -33,6 +43,7 @@ class CloudcastHome extends Component {
         {(!this.props.cloudcast.name || !this.props.cloudcast.name.length) &&
           <div className='CloudcastHomeTextPlaceholder' />
         }
+        <div onClick={() => this.props.setIsPlaying(!this.props.isPlaying)}>PALYPAUSE</div>
       </div>
     )
   }
@@ -48,8 +59,10 @@ CloudcastHome.defaultProps = {
 }
 
 CloudcastHome.propTypes = {
-  getCurrentCloudcastEmbed: PropTypes.func.isRequired,
-  cloudcast: PropTypes.object
+  setCurrentCloudcastUrl: PropTypes.func.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
+  cloudcast: PropTypes.object,
+  isPlaying: PropTypes.bool
 }
 
 export default CloudcastHome
