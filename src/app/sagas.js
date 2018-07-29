@@ -3,7 +3,6 @@ import { call, fork, put, take, select } from 'redux-saga/effects'
 import whatwgFetch from 'utils/fetch'
 import slugToKey from 'utils/slugToKey'
 import getEnvUrlPrefix from 'utils/envUrl'
-import initialListOfMixes from 'data.json'
 
 import {
   setInitialListMixesFromGithub,
@@ -17,6 +16,10 @@ import {
 import { getCloudcastDetails } from './selectors'
 
 export function* getInitialListMixesFromGithub() {
+  const initialListOfMixes = yield call(
+    whatwgFetch,
+    'https://raw.githubusercontent.com/flavio-dev/homesessionzserver/master/data.json'
+  )
   yield put(setInitialListMixesFromGithub(initialListOfMixes))
 }
 

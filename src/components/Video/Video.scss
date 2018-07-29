@@ -1,6 +1,7 @@
 @import "globals.scss";
 
 .VideoWrapper {
+  background-color: $color-quiet-black;
   position: fixed;
   width: 100%;
   z-index: -10;
