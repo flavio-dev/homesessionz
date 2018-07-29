@@ -5,6 +5,7 @@
   background-color: $color-quiet-black;
   border-bottom: 5px solid $color-white;
   color: $color-white;
+  font-size: large;
   height: 80px;
   position: fixed;
   top: 0;
@@ -16,7 +17,7 @@
   }
 
   @media #{$medium-and-up} {
-    font-size: larger;
+    font-size: x-large;
     height: 100px;
   }
 }
@@ -41,7 +42,7 @@
   font-weight: bold;
 
   @media #{$medium-and-up} {
-    width: 170px;
+    width: 190px;
     display: block;
   }
 
@@ -57,7 +58,7 @@
   width: 140px;
 
   @media #{$medium-and-up} {
-    width: 170px;
+    width: 190px;
   }
 
   @media #{$large-and-up} {

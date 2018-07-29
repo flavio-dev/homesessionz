@@ -36,6 +36,15 @@
   }
 }
 
+.HomeSection {
+  background-color: $color-white;
+  padding-top: 20px;
+}
+
+.HomeSectionInner {
+  @include default-wrapper-width();
+}
+
 .HomeGrid {
   display: flex;
   background-color: $color-white;

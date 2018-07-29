@@ -2,7 +2,7 @@ import { SET_CURRENT_CLOUDCAST } from '../actions'
 
 const initialState = ''
 
-export const setCurrentCloudastUrlReducer = (state = initialState, action) => {
+export const setCurrentCloudcastReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_CLOUDCAST:
       return action.url
@@ -11,4 +11,4 @@ export const setCurrentCloudastUrlReducer = (state = initialState, action) => {
   }
 }
 
-export default setCurrentCloudastUrlReducer
+export default setCurrentCloudcastReducer

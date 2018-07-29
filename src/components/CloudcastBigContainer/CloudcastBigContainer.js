@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { setCurrentCloudcast, setIsPlaying } from 'app/actions'
 import { getIsPlaying, getCurrentCloudcast } from 'app/selectors'
 
-import CloudcastHome from './CloudcastHome'
+import CloudcastBig from './CloudcastBig'
 
 const mapActionCreators = (dispatch) => ({
   setCurrentCloudcast: (url) => dispatch(setCurrentCloudcast(url)),
@@ -14,4 +14,4 @@ const mapStateToProps = (state) => ({
   isPlaying: getIsPlaying(state)
 })
 
-export default connect(mapStateToProps, mapActionCreators)(CloudcastHome)
+export default connect(mapStateToProps, mapActionCreators)(CloudcastBig)
