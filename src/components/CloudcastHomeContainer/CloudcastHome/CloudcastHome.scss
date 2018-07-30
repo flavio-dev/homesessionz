@@ -64,6 +64,18 @@
   }
 }
 
+.CloudcastHomeImg.CloudcastHomeImgPlaying {
+  &:after {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .CloudcastHomePlayButton {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
 .CloudcastHomePlayButton {
   @include transitions(all);
   left: 50%;

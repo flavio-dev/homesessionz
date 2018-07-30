@@ -34,7 +34,9 @@ class CloudcastHome extends Component {
       : ''
 
     let PlayPauseButton = <PlayIcon />
+    let classCloudcastImg = 'CloudcastHomeImg'
     if (this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
+      classCloudcastImg = classCloudcastImg + ' CloudcastHomeImgPlaying'
       PlayPauseButton = <PauseIcon />
     }
 
@@ -45,7 +47,7 @@ class CloudcastHome extends Component {
             backgroundImage: 'url(' + largePicUrl + ')',
             backgroundSize: 'cover'
           }}
-          className='CloudcastHomeImg'
+          className={classCloudcastImg}
           onClick={this.playPauseTrigger}
         >
           <div className='CloudcastHomePlayButton'>
