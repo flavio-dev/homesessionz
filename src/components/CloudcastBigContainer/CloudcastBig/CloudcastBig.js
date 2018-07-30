@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import PlayIcon from 'components/PlayIcon'
@@ -47,12 +48,13 @@ class CloudcastBig extends Component {
     }
 
     return (
-      <div onClick={this.playPauseTrigger}>
+      <div>
         <div
           style={{
             backgroundImage: 'url(https://thumbnailer.mixcloud.com/unsafe/320x320/profile/8/f/8/c/fd5a-c4d5-45aa-8424-b5c40719cdd5)',// eslint-disable-line
           }}
           className={classCloudcastImgSmall}
+          onClick={this.playPauseTrigger}
         >
           <div className='CloudcastBigPlayButton'>
             {PlayPauseButton}
@@ -64,12 +66,19 @@ class CloudcastBig extends Component {
             backgroundImage: 'url(https://thumbnailer.mixcloud.com/unsafe/600x600/profile/8/f/8/c/fd5a-c4d5-45aa-8424-b5c40719cdd5)',// eslint-disable-line
           }}
           className={classCloudcastImgBig}
+          onClick={this.playPauseTrigger}
         >
           <div className='CloudcastBigPlayButton'>
             {PlayPauseButton}
           </div>
           <div className='CloudcastBigImgTitle font--medium'>{this.props.cloudcast.name}</div>
         </div>
+        {this.props.cloudcast.description && this.props.cloudcast.description.length &&
+          <Link to={this.props.cloudcast.slug} className='CloudcastBigText'>{this.props.cloudcast.description}</Link>
+        }
+        {(!this.props.cloudcast.description || !this.props.cloudcast.description.length) &&
+          <div className='CloudcastBigTextPlaceholder' />
+        }
       </div>
     )
   }

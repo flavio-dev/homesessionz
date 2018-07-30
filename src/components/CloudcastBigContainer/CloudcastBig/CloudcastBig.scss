@@ -4,6 +4,7 @@
   background-color: $color-grey;
   background-size: cover;
   background-position: center;
+  margin-bottom: 15px;
   padding-top: 50%;
   position: relative;
   width: 100%;
@@ -89,4 +90,19 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 40%;
+}
+
+.CloudcastBigText {
+  color: $color-quiet-black;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: lowercase;
+	white-space: nowrap;
+}
+
+.CloudcastBigTextPlaceholder {
+  background-color: $color-grey;
+  height: 18px;
+  width: 95%;
 }
