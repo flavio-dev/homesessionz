@@ -10,6 +10,7 @@ $medium-screen: 1050px !default;
 
 $small-screen-inner-width: 95%;
 $medium-and-up-inner-width: 90%;
+$max-screen-width: 1240px;
 
 $medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
 $large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
@@ -28,6 +29,7 @@ $height-header-big: 105px;
 @mixin default-wrapper-width() {
   margin-left: auto;
   margin-right: auto;
+  max-width: $max-screen-width;
   width: $small-screen-inner-width;
 
   @media #{$medium-and-up} {

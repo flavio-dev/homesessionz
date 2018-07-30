@@ -29,14 +29,13 @@ class CloudcastBig extends Component {
   }
 
   render() {
-    // src={this.props.cloudcast.pictures && this.props.cloudcast.pictures.large}\
-    // const smallPicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['320wx320h']
-    //   ? this.props.cloudcast.pictures.large
-    //   : ''
-    //
-    // const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.extra_large
-    //   ? this.props.cloudcast.pictures.large
-    //   : ''
+    const smallPicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['320wx320h']
+      ? this.props.cloudcast.pictures['320wx320h']
+      : ''
+
+    const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['640wx640h']
+      ? this.props.cloudcast.pictures['640wx640h']
+      : ''
 
     let PlayPauseButton = <PlayIcon />
     let classCloudcastImgSmall = 'CloudcastBigImgSmall'
@@ -51,7 +50,7 @@ class CloudcastBig extends Component {
       <div>
         <div
           style={{
-            backgroundImage: 'url(https://thumbnailer.mixcloud.com/unsafe/320x320/profile/8/f/8/c/fd5a-c4d5-45aa-8424-b5c40719cdd5)',// eslint-disable-line
+            backgroundImage: 'url(' + smallPicUrl + ')'
           }}
           className={classCloudcastImgSmall}
           onClick={this.playPauseTrigger}
@@ -63,7 +62,7 @@ class CloudcastBig extends Component {
         </div>
         <div
           style={{
-            backgroundImage: 'url(https://thumbnailer.mixcloud.com/unsafe/600x600/profile/8/f/8/c/fd5a-c4d5-45aa-8424-b5c40719cdd5)',// eslint-disable-line
+            backgroundImage: 'url(' + largePicUrl + ')'
           }}
           className={classCloudcastImgBig}
           onClick={this.playPauseTrigger}

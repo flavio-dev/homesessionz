@@ -56,24 +56,24 @@ class Home extends Component {
               <CloudcastBigContainer cloudcast={firstCloudcast} />
             </div>
           </section>
-          <div className='HomeGrid HomeSection'>
-            {this.state.listCloudcastKeys.map((key, index) => {
-              if (index === 0 || index === this.state.isFeaturedCloudcast.index) {
-                return null
-              }
+          <div className='HomeGridWrapper HomeSection'>
+            <div className='HomeGrid'>
+              {this.state.listCloudcastKeys.map((key, index) => {
+                if (index === 0 || index === this.state.isFeaturedCloudcast.index) {
+                  return null
+                }
 
-              const cloudcast = this.state.cloudcastDetails[key]
-              if (cloudcast) {
-                return <CloudcastHomeContainer cloudcast={cloudcast} key={key} />
-              } else {
-                return null
-              }
-            })}
-            <CloudcastHomePlacebo />
-            <CloudcastHomePlacebo />
-            <CloudcastHomePlacebo />
-            <CloudcastHomePlacebo />
-            <CloudcastHomePlacebo />
+                const cloudcast = this.state.cloudcastDetails[key]
+                if (cloudcast) {
+                  return <CloudcastHomeContainer cloudcast={cloudcast} key={key} />
+                } else {
+                  return null
+                }
+              })}
+              <CloudcastHomePlacebo />
+              <CloudcastHomePlacebo />
+              <CloudcastHomePlacebo />
+            </div>
           </div>
         </div>
       </div>

@@ -4,8 +4,9 @@
   background-color: $color-grey;
   background-size: cover;
   background-position: center;
+  cursor: pointer;
   margin-bottom: 15px;
-  padding-top: 50%;
+  padding-top: 56%;
   position: relative;
   width: 100%;
 
@@ -36,7 +37,7 @@
   }
 
   @media #{$large-and-up} {
-    padding-top: 400px;
+    padding-top: 450px;
   }
 }
 
@@ -85,11 +86,16 @@
 .CloudcastBigPlayButton {
   @include transitions(all);
   left: 50%;
+  max-width: 350px;
   position: absolute;
   opacity: 0;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 40%;
+
+  @media #{$medium-and-up} {
+    width: 33%;
+  }
 }
 
 .CloudcastBigText {
