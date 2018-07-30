@@ -1,6 +1,6 @@
 @import "globals.scss";
 
-.HomeGridWrapper {
+.HomeWrapper {
   padding-top: 56.25%;
   position: relative;
 
@@ -38,16 +38,34 @@
 
 .HomeSection {
   background-color: $color-white;
-  padding-top: 20px;
+  padding-top: 30px;
+
+  @media #{$medium-and-up} {
+    padding-top: 40px;
+  }
+
+  @media #{$large-and-up} {
+    padding-top: 50px;
+  }
 }
 
 .HomeSectionInner {
   @include default-wrapper-width();
+
+  h2 {
+    margin-bottom: 20px;
+
+    @media #{$medium-and-up} {
+      margin-bottom: 30px;
+    }
+
+    @media #{$large-and-up} {
+      margin-bottom: 40px;
+    }
+  }
 }
 
 .HomeGrid {
   display: flex;
-  background-color: $color-white;
   flex-wrap: wrap;
-  padding-top: 20px;
 }

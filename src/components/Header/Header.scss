@@ -5,7 +5,6 @@
   background-color: $color-quiet-black;
   border-bottom: 5px solid $color-white;
   color: $color-white;
-  font-size: large;
   height: 80px;
   position: fixed;
   top: 0;
@@ -17,7 +16,6 @@
   }
 
   @media #{$medium-and-up} {
-    font-size: x-large;
     height: 100px;
   }
 }
@@ -42,7 +40,7 @@
   font-weight: bold;
 
   @media #{$medium-and-up} {
-    width: 190px;
+    width: 200px;
     display: block;
   }
 
@@ -55,10 +53,10 @@
 .HeaderMenu {
   display: flex;
   justify-content: space-between;
-  width: 140px;
+  width: 180px;
 
   @media #{$medium-and-up} {
-    width: 190px;
+    width: 200px;
   }
 
   @media #{$large-and-up} {

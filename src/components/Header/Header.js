@@ -13,7 +13,7 @@ export const Header = () => (
       <Link to='/'>
         <img src={wave} className='HeaderLogo' alt='høme sessiønz' />
       </Link>
-      <div className='HeaderMenu'>
+      <div className='HeaderMenu font--large'>
         <Link to='/about'>abøut</Link>
         <Link to='/contact'>cøntact</Link>
       </div>

@@ -18,12 +18,25 @@ th, td {
 body {
   background-color: #fcfcfc;
   color: #0f1121;
-  font-family: "Comfortaa", "Open Sans"; }
+  font-family: "Comfortaa", "Open Sans";
+  font-size: 15px; }
+  @media only screen and (min-width: 601px) {
+    body {
+      font-size: 17px; } }
 
 a {
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
 
-h2 {
-  font-size: large; }
+h2, .font--large {
+  font-size: 23px; }
+  @media only screen and (min-width: 601px) {
+    h2, .font--large {
+      font-size: 25px; } }
+
+h3, .font--medium {
+  font-size: 18px; }
+  @media only screen and (min-width: 601px) {
+    h3, .font--medium {
+      font-size: 20px; } }

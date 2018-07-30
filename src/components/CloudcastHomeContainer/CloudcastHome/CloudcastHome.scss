@@ -2,16 +2,16 @@
 
 %CloudcastHome {
   flex: 1 0 200px;
-  margin: 0 10px 20px;
+  margin: 0 10px 30px;
 
   @media #{$medium-and-up} {
     flex-basis: 235px;
-    margin: 0 12px 20px;
+    margin: 0 12px 30px;
   }
 
   @media #{$large-and-up} {
     flex-basis: 270px;
-    margin: 0 20px 20px;
+    margin: 0 20px 30px;
   }
 }
 

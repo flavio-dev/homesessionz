@@ -1,3 +1,92 @@
-.CloudcastBig {
-  display: block;
+@import "globals.scss";
+
+%CloudcastBigImg {
+  background-color: $color-grey;
+  background-size: cover;
+  background-position: center;
+  padding-top: 50%;
+  position: relative;
+  width: 100%;
+
+  &:after {
+    @include transitions(all);
+    content: '';
+    background: $color-quiet-black-opacity;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &:focus:after,
+  &:hover:after
+  {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  &:focus .CloudcastBigPlayButton,
+  &:hover .CloudcastBigPlayButton
+  {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  @media #{$large-and-up} {
+    padding-top: 400px;
+  }
+}
+
+.CloudcastBigImgSmall {
+  @extend %CloudcastBigImg;
+  @media #{$medium-and-up} {
+    display: none;
+  }
+}
+
+.CloudcastBigImgBig {
+  @extend %CloudcastBigImg;
+  @media #{$small-and-down} {
+    display: none;
+  }
+}
+
+.CloudcastBigImgSmall.CloudcastBigImgPlaying,
+.CloudcastBigImgBig.CloudcastBigImgPlaying {
+  &:after {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .CloudcastBigPlayButton {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+.CloudcastBigImgTitle {
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,$color-quiet-black-opacity 100%);
+  box-sizing: border-box;
+  color: $color-white;
+  bottom: 0;
+  left: 0;
+  padding: 80px 10px 10px 10px;
+  position: absolute;
+  width: 100%;
+
+  @media #{$medium-and-up} {
+    padding: 80px 20px 20px 20px;
+  }
+}
+
+.CloudcastBigPlayButton {
+  @include transitions(all);
+  left: 50%;
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
 }
