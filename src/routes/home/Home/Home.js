@@ -42,22 +42,22 @@ class Home extends Component {
           mediumVid={mediumHomeVid}
           largeVid={largeHomeVid}
         />
-        <div className='HomeWrapper'>
-          <h1 className='HomeTitle'>høme sessiønz</h1>
-          <section className='HomeSection'>
-            <div className='HomeSectionInner'>
+        <div className='home__wrapper'>
+          <h1 className='home__title'>høme sessiønz</h1>
+          <section className='home__section'>
+            <div className='home__sectionInner'>
               <h2>featured</h2>
               <CloudcastBigContainer cloudcast={this.state.isFeaturedCloudcast.cloudcast} />
             </div>
           </section>
-          <section className='HomeSection'>
-            <div className='HomeSectionInner'>
+          <section className='home__section'>
+            <div className='home__sectionInner'>
               <h2>latest</h2>
               <CloudcastBigContainer cloudcast={firstCloudcast} />
             </div>
           </section>
-          <div className='HomeGridWrapper HomeSection'>
-            <div className='HomeGrid'>
+          <div className='home__grid home__section'>
+            <div className='home__grid__inner'>
               {this.state.listCloudcastKeys.map((key, index) => {
                 if (index === 0 || index === this.state.isFeaturedCloudcast.index) {
                   return null
