@@ -2,7 +2,7 @@
 
 %ch {
   @media #{$small-and-down} {
-    align-items: center;
+    align-items: start;
     display: flex;
     margin: 0 10px 30px;
     width: 100%;
@@ -21,6 +21,7 @@
 
 .ch {
   @extend %ch;
+  text-transform: lowercase;
 }
 
 .ch__placebo {
@@ -55,13 +56,14 @@
   width: 50%;
 }
 
-.ch__text {
-  color: $color-quiet-black;
-  text-transform: lowercase;
-
+.ch__details {
   @media #{$small-and-down} {
     flex: 1 1 65%;
   }
+}
+
+.ch__text {
+  color: $color-quiet-black;
 }
 
 .ch__text-placeholder {
@@ -71,5 +73,23 @@
 
   @media #{$small-and-down} {
     width: 50%;
+  }
+}
+
+.ch__tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+
+  @media #{$medium-and-up} {
+    & > :nth-child(n+3) {
+      display: none;
+    }
+  }
+
+  @media #{$small-and-down} {
+    & > :not(:first-child) {
+      display: none;
+    }
   }
 }

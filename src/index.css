@@ -42,3 +42,9 @@ h3, .font--medium {
   @media only screen and (min-width: 601px) {
     h3, .font--medium {
       font-size: 20px; } }
+
+.font--small {
+  font-size: 12px; }
+  @media only screen and (min-width: 601px) {
+    .font--small {
+      font-size: 15px; } }
