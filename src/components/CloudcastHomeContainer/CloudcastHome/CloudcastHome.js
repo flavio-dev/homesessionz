@@ -65,8 +65,8 @@ class CloudcastHome extends Component {
           }
           {(!this.props.cloudcast.tags || !this.props.cloudcast.tags.length) &&
             <div className='ch__tags'>
-              <Tag name='&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' />
-              <Tag name='&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;' />
+              <Tag style={{width: 75}} name='&nbsp;' />
+              <Tag style={{width: 50}} name='&nbsp;' />
             </div>
           }
           {this.props.cloudcast.name && this.props.cloudcast.name.length &&

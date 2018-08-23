@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 
 import './Tag.css'
 
-export const Tag = ({name}) => (
-  <span className='font--small tag'>{name}</span>
+export const Tag = ({name, style}) => (
+  <span className='font--small tag' style={style}>{name}</span>
 )
 
 Tag.propTypes = {
-  key: PropTypes.string,
+  style: PropTypes.object,
   name: PropTypes.string
 }
 
