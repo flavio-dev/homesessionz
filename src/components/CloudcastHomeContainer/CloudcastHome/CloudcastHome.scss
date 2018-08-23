@@ -79,7 +79,6 @@
 .ch__tags {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px;
 
   @media #{$medium-and-up} {
     & > :nth-child(n+3) {

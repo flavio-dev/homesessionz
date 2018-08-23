@@ -107,7 +107,7 @@
 .cb__tags {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 
   @media #{$small-and-down} {
     & > :nth-child(n+4) {

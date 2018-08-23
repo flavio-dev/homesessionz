@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
@@ -16,16 +16,18 @@ class CloudcastHome extends Component {
   }
 
   playPauseTrigger() {
-    if (this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
-      // the current player playing is this one. so we pause.
-      this.props.setIsPlaying(false)
-    } else if (!this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
-      // the current player not playing. so we play.
-      this.props.setIsPlaying(true)
-    } else {
-      // another cloudcast is being played. we load this one and play
-      this.props.setCurrentCloudcast(this.props.cloudcast.url)
-      this.props.setIsPlaying(true)
+    if (this.props.cloudcast.url) {
+      if (this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
+        // the current player playing is this one. so we pause.
+        this.props.setIsPlaying(false)
+      } else if (!this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
+        // the current player not playing. so we play.
+        this.props.setIsPlaying(true)
+      } else {
+        // another cloudcast is being played. we load this one and play
+        this.props.setCurrentCloudcast(this.props.cloudcast.url)
+        this.props.setIsPlaying(true)
+      }
     }
   }
 
@@ -59,7 +61,7 @@ class CloudcastHome extends Component {
           {this.props.cloudcast.tags && this.props.cloudcast.tags.length &&
             <div className='ch__tags'>
               {this.props.cloudcast.tags.map((tag) => {
-                return <div key={tag.key}><Tag name={tag.name} /></div>
+                return <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
               })}
             </div>
           }
