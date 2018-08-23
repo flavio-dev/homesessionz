@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import PlayIcon from 'components/PlayIcon'
 import PauseIcon from 'components/PauseIcon'
+import Tag from 'components/Tag'
 
 import './CloudcastBig.css'
 
@@ -72,6 +73,13 @@ class CloudcastBig extends Component {
           </div>
           <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
         </div>
+        {this.props.cloudcast.tags && this.props.cloudcast.tags.length &&
+          <div className='cb__tags'>
+            {this.props.cloudcast.tags.map((tag) => {
+              return <div key={tag.key}><Tag name={tag.name} /></div>
+            })}
+          </div>
+        }
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&
           <Link to={this.props.cloudcast.slug} className='cb__title font--medium'>{this.props.cloudcast.name}</Link>
         }

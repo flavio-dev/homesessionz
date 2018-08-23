@@ -103,3 +103,15 @@
     display: none;
   }
 }
+
+.cb__tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+
+  @media #{$small-and-down} {
+    & > :nth-child(n+4) {
+      display: none;
+    }
+  }
+}
