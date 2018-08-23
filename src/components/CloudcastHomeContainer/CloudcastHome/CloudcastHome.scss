@@ -1,11 +1,15 @@
 @import "globals.scss";
 
 %ch {
-  flex: 1 0 200px;
-  margin: 0 10px 30px;
+  @media #{$small-and-down} {
+    align-items: center;
+    display: flex;
+    margin: 0 10px 30px;
+    width: 100%;
+  }
 
   @media #{$medium-and-up} {
-    flex-basis: 235px;
+    flex: 1 0 235px;
     margin: 0 12px 30px;
   }
 
@@ -32,6 +36,13 @@
 .ch__img {
   @include cloudcast-image(".ch__play-button", ".ch__img-playing");
   padding-top: 100%;
+
+  @media #{$small-and-down} {
+    width: 85px;
+    margin-bottom: 0;
+    margin-right: 15px;
+    padding-top: 85px;
+  }
 }
 
 .ch__play-button {
@@ -47,6 +58,10 @@
 .ch__text {
   color: $color-quiet-black;
   text-transform: lowercase;
+
+  @media #{$small-and-down} {
+    flex: 1 1 65%;
+  }
 }
 
 .ch__text-placeholder {

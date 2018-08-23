@@ -47,7 +47,7 @@ class CloudcastBig extends Component {
     }
 
     return (
-      <div>
+      <div className='cb'>
         <div
           style={{
             backgroundImage: 'url(' + smallPicUrl + ')'
@@ -72,6 +72,12 @@ class CloudcastBig extends Component {
           </div>
           <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
         </div>
+        {this.props.cloudcast.name && this.props.cloudcast.name.length &&
+          <Link to={this.props.cloudcast.slug} className='cb__title font--medium'>{this.props.cloudcast.name}</Link>
+        }
+        {(!this.props.cloudcast.name || !this.props.cloudcast.name.length) &&
+          <div className='cb__title-placeholder'>{this.props.cloudcast.name}</div>
+        }
         {this.props.cloudcast.description && this.props.cloudcast.description.length &&
           <Link to={this.props.cloudcast.slug} className='cb__text'>{this.props.cloudcast.description}</Link>
         }

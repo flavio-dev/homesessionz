@@ -68,6 +68,14 @@
 
 .home__grid {
   background-color: $color-white;
+
+  hr {
+      display: block;
+      height: 2px;
+      border: 0;
+      border-top: 1px solid $color-quiet-black;
+      padding: 0;
+  }
 }
 
 .home__grid__inner {

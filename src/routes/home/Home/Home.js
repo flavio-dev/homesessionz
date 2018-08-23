@@ -45,19 +45,20 @@ class Home extends Component {
         <div className='home__wrapper'>
           <h1 className='home__title'>høme sessiønz</h1>
           <section className='home__section'>
-            <div className='home__sectionInner'>
+            <div className='home__section__inner'>
               <h2>featured</h2>
               <CloudcastBigContainer cloudcast={this.state.isFeaturedCloudcast.cloudcast} />
             </div>
           </section>
           <section className='home__section'>
-            <div className='home__sectionInner'>
+            <div className='home__section__inner'>
               <h2>latest</h2>
               <CloudcastBigContainer cloudcast={firstCloudcast} />
             </div>
           </section>
           <div className='home__grid home__section'>
-            <div className='home__grid__inner'>
+            <hr />
+            <div className='home__grid__inner home__section'>
               {this.state.listCloudcastKeys.map((key, index) => {
                 if (index === 0 || index === this.state.isFeaturedCloudcast.index) {
                   return null
