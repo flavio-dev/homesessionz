@@ -1,6 +1,6 @@
 @import "globals.scss";
 
-%CloudcastHome {
+%ch {
   flex: 1 0 200px;
   margin: 0 10px 30px;
 
@@ -15,26 +15,26 @@
   }
 }
 
-.CloudcastHome {
-  @extend %CloudcastHome;
+.ch {
+  @extend %ch;
 }
 
-.CloudcastHomePlacebo {
-  @extend %CloudcastHome;
+.ch__placebo {
+  @extend %ch;
 
   margin-bottom: 0;
 }
 
-.CloudcastHomePlaceholder {
+.ch__placeholder {
   width: 100%;
 }
 
-.CloudcastHomeImg {
-  @include cloudcast-image(".CloudcastHomePlayButton", ".CloudcastHomeImgPlaying");
+.ch__img {
+  @include cloudcast-image(".ch__play-button", ".ch__img-playing");
   padding-top: 100%;
 }
 
-.CloudcastHomePlayButton {
+.ch__play-button {
   @include transitions(all);
   left: 50%;
   position: absolute;
@@ -44,12 +44,12 @@
   width: 50%;
 }
 
-.CloudcastHomeText {
+.ch__text {
   color: $color-quiet-black;
   text-transform: lowercase;
 }
 
-.CloudcastHomeTextPlaceholder {
+.ch__text-placeholder {
   background-color: $color-grey;
   height: 18px;
   width: 95%;
