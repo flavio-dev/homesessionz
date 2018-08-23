@@ -70,11 +70,11 @@
   background-color: $color-white;
 
   hr {
-      display: block;
-      height: 2px;
-      border: 0;
-      border-top: 1px solid $color-quiet-black;
-      padding: 0;
+    border: 0;
+    border-top: 1px solid $color-quiet-black;
+    display: block;
+    height: 2px;
+    padding: 0;
   }
 }
 

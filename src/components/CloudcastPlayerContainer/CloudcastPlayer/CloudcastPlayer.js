@@ -12,8 +12,16 @@ class CloudcastPlayer extends Component {
         height='60px'
         width='100%'
         playing={this.props.isPlaying}
-        onPlay={() => this.props.setIsPlaying(true)}
-        onPause={() => this.props.setIsPlaying(false)}
+        onPlay={() => {
+          if (!this.props.isPlaying) {
+            this.props.setIsPlaying(true)
+          }
+        }}
+        onPause={() => {
+          if (this.props.isPlaying) {
+            this.props.setIsPlaying(false)
+          }
+        }}
       />
     </div>
   }
