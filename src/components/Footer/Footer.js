@@ -6,10 +6,10 @@ import InstaIcon from 'components/InstaIcon'
 import HeartIcon from 'components/HeartIcon'
 
 export const Footer = () => (
-  <div className='Footer'>
-    <div className='FooterInner'>
+  <div className='footer'>
+    <div className='footer__inner'>
       <a href='https://www.instagram.com/homesessionz/' target='_blank'><InstaIcon /></a>
-      <div className='FooterText'>
+      <div className='footer__text'>
         <div>
           made with <HeartIcon /> by <a href='https://github.com/flavio-dev'>flaviø</a>
         </div>

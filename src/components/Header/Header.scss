@@ -1,6 +1,6 @@
 @import "globals.scss";
 
-.Header {
+.header {
   @include transitions(height);
   background-color: $color-quiet-black;
   border-bottom: 5px solid $color-white;
@@ -20,7 +20,7 @@
   }
 }
 
-.HeaderInner {
+.header__inner {
   @include transitions(height);
   @include default-wrapper-width();
   align-items: center;
@@ -34,7 +34,7 @@
   }
 }
 
-.HeaderPlaceholder {
+.header__placeholder {
   display: none;
   font-size: 28px;
   font-weight: bold;
@@ -49,7 +49,7 @@
   }
 }
 
-.HeaderMenu {
+.header__menu {
   display: flex;
   justify-content: space-between;
   width: 180px;
@@ -63,7 +63,7 @@
   }
 }
 
-.HeaderLogo {
+.header__logo {
   @include transitions(all);
   filter: grayscale(100%);
   height: 80px;

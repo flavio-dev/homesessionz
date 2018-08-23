@@ -10,7 +10,7 @@ import CloudcastPlayerContainer from 'components/CloudcastPlayerContainer'
 export const Layout = ({ children }) => (
   <div>
     <Header />
-    <div className='LayoutContainer'>
+    <div className='layout'>
       {children}
     </div>
     <Footer />

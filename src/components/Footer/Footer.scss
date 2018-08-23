@@ -1,6 +1,6 @@
 @import "globals.scss";
 
-.Footer {
+.footer {
   background-color: $color-quiet-black;
   color: $color-white;
   font-size: small;
@@ -12,12 +12,12 @@
   }
 }
 
-.FooterInner {
+.footer__inner {
   @include default-wrapper-width();
   padding-top: 20px;
 }
 
-.FooterText {
+.footer__text {
   align-items: center;
   display: flex;
   justify-content: space-between;

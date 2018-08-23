@@ -1,19 +1,19 @@
 @import "globals.scss";
 
-.VideoWrapper {
+.video__Wrapper {
   background-color: $color-quiet-black;
   position: fixed;
   width: 100%;
   z-index: -10;
 }
 
-%Video {
+%video {
   object-fit: cover;
   width: 100%;
 }
 
-.VideoSmall {
-  @extend %Video;
+.video__small {
+  @extend %video;
   display: none;
 
   @media #{$small-and-down} {
@@ -21,8 +21,8 @@
   }
 }
 
-.VideoMedium {
-  @extend %Video;
+.video__medium {
+  @extend %video;
   display: none;
 
   @media #{$medium-only} {
@@ -30,8 +30,8 @@
   }
 }
 
-.VideoLarge {
-  @extend %Video;
+.video__large {
+  @extend %video;
   display: none;
   height: 582px;
 

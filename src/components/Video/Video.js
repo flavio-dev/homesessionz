@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 import './Video.css'
 
 export const Video = ({ smallVid, mediumVid, largeVid }) => (
-  <div className='VideoWrapper'>
-    <video autoPlay muted loop className='VideoSmall'>
+  <div className='video__Wrapper'>
+    <video autoPlay muted loop className='video__small'>
       <source src={smallVid} type='video/mp4' />
     </video>
-    <video autoPlay muted loop className='VideoMedium'>
+    <video autoPlay muted loop className='video__medium'>
       <source src={mediumVid} type='video/mp4' />
     </video>
-    <video autoPlay muted loop className='VideoLarge'>
+    <video autoPlay muted loop className='video__large'>
       <source src={largeVid} type='video/mp4' />
     </video>
   </div>
