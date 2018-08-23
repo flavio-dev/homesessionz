@@ -32,7 +32,9 @@ body {
 }
 
 a {
-  text-decoration: none;
+    @media #{$medium-and-up} {
+        text-decoration: none;
+    }
 
   &:hover {
     text-decoration: underline;

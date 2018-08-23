@@ -40,3 +40,61 @@ $height-header-big: 105px;
 @mixin transitions($property, $timing-function: ease) {
     transition: $property .3s $timing-function;
 }
+
+@mixin cloudcast-image($play-button-class, $is-playing-class) {
+  background-color: $color-grey;
+  cursor: pointer;
+  margin-bottom: 15px;
+  position: relative;
+  width: 100%;
+
+  &:after {
+    @include transitions(all);
+    content: '';
+    background: $color-quiet-black-opacity;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  @media #{$small-and-down} {
+    &:after {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    #{$play-button-class} {
+      opacity: 1;
+      z-index: 2;
+    }
+  }
+
+  &:focus:after,
+  &:hover:after
+  {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  &:focus #{$play-button-class},
+  &:hover #{$play-button-class}
+  {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  &#{$is-playing-class} {
+    &:after {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    #{$play-button-class} {
+      opacity: 1;
+      z-index: 2;
+    }
+  }
+}

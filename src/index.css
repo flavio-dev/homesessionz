@@ -24,10 +24,12 @@ body {
     body {
       font-size: 17px; } }
 
-a {
-  text-decoration: none; }
-  a:hover {
-    text-decoration: underline; }
+@media only screen and (min-width: 601px) {
+  a {
+    text-decoration: none; } }
+
+a:hover {
+  text-decoration: underline; }
 
 h2, .font--large {
   font-size: 23px; }

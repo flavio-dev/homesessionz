@@ -1,74 +1,31 @@
 @import "globals.scss";
 
-%CloudcastBigImg {
-  background-color: $color-grey;
+%cb__img {
+  @include cloudcast-image(".cb__play-button", ".cb__img-playing");
   background-size: cover;
   background-position: center;
-  cursor: pointer;
-  margin-bottom: 15px;
   padding-top: 56%;
-  position: relative;
-  width: 100%;
-
-  &:after {
-    @include transitions(all);
-    content: '';
-    background: $color-quiet-black-opacity;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  &:focus:after,
-  &:hover:after
-  {
-    opacity: 1;
-    z-index: 1;
-  }
-
-  &:focus .CloudcastBigPlayButton,
-  &:hover .CloudcastBigPlayButton
-  {
-    opacity: 1;
-    z-index: 2;
-  }
 
   @media #{$large-and-up} {
     padding-top: 450px;
   }
 }
 
-.CloudcastBigImgSmall {
-  @extend %CloudcastBigImg;
+.cb__img-small {
+  @extend %cb__img;
   @media #{$medium-and-up} {
     display: none;
   }
 }
 
-.CloudcastBigImgBig {
-  @extend %CloudcastBigImg;
+.cb__img-big {
+  @extend %cb__img;
   @media #{$small-and-down} {
     display: none;
   }
 }
 
-.CloudcastBigImgSmall.CloudcastBigImgPlaying,
-.CloudcastBigImgBig.CloudcastBigImgPlaying {
-  &:after {
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .CloudcastBigPlayButton {
-    opacity: 1;
-    z-index: 2;
-  }
-}
-
-.CloudcastBigImgTitle {
+.cb__img-title {
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,$color-quiet-black-opacity 100%);
   box-sizing: border-box;
   color: $color-white;
@@ -83,7 +40,7 @@
   }
 }
 
-.CloudcastBigPlayButton {
+.cb__play-button {
   @include transitions(all);
   left: 50%;
   max-width: 350px;
@@ -98,7 +55,7 @@
   }
 }
 
-.CloudcastBigText {
+.cb__text {
   color: $color-quiet-black;
   display: block;
   overflow: hidden;
@@ -107,7 +64,7 @@
 	white-space: nowrap;
 }
 
-.CloudcastBigTextPlaceholder {
+.cb__text-placeholder {
   background-color: $color-grey;
   height: 18px;
   width: 95%;

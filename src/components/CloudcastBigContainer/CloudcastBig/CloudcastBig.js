@@ -38,11 +38,11 @@ class CloudcastBig extends Component {
       : ''
 
     let PlayPauseButton = <PlayIcon />
-    let classCloudcastImgSmall = 'CloudcastBigImgSmall'
-    let classCloudcastImgBig = 'CloudcastBigImgBig'
+    let classCloudcastImgSmall = 'cb__img-small'
+    let classCloudcastImgBig = 'cb__img-big'
     if (this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
-      classCloudcastImgSmall = classCloudcastImgSmall + ' CloudcastBigImgPlaying'
-      classCloudcastImgBig = classCloudcastImgBig + ' CloudcastBigImgPlaying'
+      classCloudcastImgSmall = classCloudcastImgSmall + ' cb__img-playing'
+      classCloudcastImgBig = classCloudcastImgBig + ' cb__img-playing'
       PlayPauseButton = <PauseIcon />
     }
 
@@ -55,10 +55,10 @@ class CloudcastBig extends Component {
           className={classCloudcastImgSmall}
           onClick={this.playPauseTrigger}
         >
-          <div className='CloudcastBigPlayButton'>
+          <div className='cb__play-button'>
             {PlayPauseButton}
           </div>
-          <div className='CloudcastBigImgTitle font--medium'>{this.props.cloudcast.name}</div>
+          <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
         </div>
         <div
           style={{
@@ -67,16 +67,16 @@ class CloudcastBig extends Component {
           className={classCloudcastImgBig}
           onClick={this.playPauseTrigger}
         >
-          <div className='CloudcastBigPlayButton'>
+          <div className='cb__play-button'>
             {PlayPauseButton}
           </div>
-          <div className='CloudcastBigImgTitle font--medium'>{this.props.cloudcast.name}</div>
+          <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
         </div>
         {this.props.cloudcast.description && this.props.cloudcast.description.length &&
-          <Link to={this.props.cloudcast.slug} className='CloudcastBigText'>{this.props.cloudcast.description}</Link>
+          <Link to={this.props.cloudcast.slug} className='cb__text'>{this.props.cloudcast.description}</Link>
         }
         {(!this.props.cloudcast.description || !this.props.cloudcast.description.length) &&
-          <div className='CloudcastBigTextPlaceholder' />
+          <div className='cb__text-placeholder' />
         }
       </div>
     )
