@@ -1,17 +1,13 @@
-import { call, fork, put, take, select } from 'redux-saga/effects'
+import { call, fork, put } from 'redux-saga/effects'
 
 import whatwgFetch from 'utils/fetch'
 import getEnvUrlPrefix from 'utils/envUrl'
 
 import {
-  setInitialListMixesFromGithub,
   setCloudcastDetails,
-  SET_LIST_MIXES_GITHUB,
   setIndexIsFeaturedCloudcast,
   setIsFeaturedCloudcast
 } from './actions'
-
-import { getIsFeaturedCloudcast } from './selectors'
 
 export function* getInitialListMixesFromGithub() {
   const initialListOfMixes = yield call(
@@ -22,7 +18,13 @@ export function* getInitialListMixesFromGithub() {
   var day = dateObj.getDate()
   const indexFeatured = (((initialListOfMixes.length + 3) * day) % (initialListOfMixes.length - 1)) + 1
   yield put(setIndexIsFeaturedCloudcast(indexFeatured))
-  yield put(setInitialListMixesFromGithub(initialListOfMixes))
+
+  for (let i = 0; i < initialListOfMixes.length; i++) {
+    yield put(setCloudcastDetails({
+      slug: i.toString()
+    }, i))
+    yield fork(getCloudcastDetailsCall, initialListOfMixes[i], i, i === indexFeatured)
+  }
 }
 
 function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
@@ -36,16 +38,5 @@ function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
     }
   } catch (error) {
     console.log('error')
-  }
-}
-
-export function * watchGetCloudcastDetails() {
-  const initial = yield take(SET_LIST_MIXES_GITHUB)
-  const isFeaturedCloudcast = yield select(getIsFeaturedCloudcast)
-  for (let i = 0; i < initial.listMixes.length; i++) {
-    yield put(setCloudcastDetails({
-      slug: i.toString()
-    }, i))
-    yield fork(getCloudcastDetailsCall, initial.listMixes[i], i, i === isFeaturedCloudcast.index)
   }
 }

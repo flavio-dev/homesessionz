@@ -2,11 +2,6 @@ import { createSelector } from 'reselect'
 
 const getAppReducers = state => state.appReducers
 
-export const getInitialListFromGithub = createSelector(
-  [getAppReducers],
-  appReducer => appReducer.initialListFromGithub
-)
-
 export const getPlayingCloudcast = createSelector(
   [getAppReducers],
   appReducer => appReducer.playingCloudcast
