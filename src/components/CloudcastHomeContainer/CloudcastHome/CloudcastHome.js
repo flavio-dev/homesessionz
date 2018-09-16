@@ -17,15 +17,15 @@ class CloudcastHome extends Component {
 
   playPauseTrigger() {
     if (this.props.cloudcast.url) {
-      if (this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
+      if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
         // the current player playing is this one. so we pause.
         this.props.setIsPlaying(false)
-      } else if (!this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
+      } else if (!this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
         // the current player not playing. so we play.
         this.props.setIsPlaying(true)
       } else {
         // another cloudcast is being played. we load this one and play
-        this.props.setCurrentCloudcast(this.props.cloudcast.url)
+        this.props.setPlayingCloudcast(this.props.cloudcast.url)
         this.props.setIsPlaying(true)
       }
     }
@@ -38,7 +38,7 @@ class CloudcastHome extends Component {
 
     let PlayPauseButton = <PlayIcon />
     let classCloudcastImg = 'ch__img'
-    if (this.props.isPlaying && this.props.currentCloudcast === this.props.cloudcast.url) {
+    if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
       classCloudcastImg = classCloudcastImg + ' ch__img-playing'
       PlayPauseButton = <PauseIcon />
     }
@@ -93,10 +93,10 @@ CloudcastHome.defaultProps = {
 }
 
 CloudcastHome.propTypes = {
-  setCurrentCloudcast: PropTypes.func.isRequired,
+  setPlayingCloudcast: PropTypes.func.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
   cloudcast: PropTypes.object,
-  currentCloudcast: PropTypes.string,
+  playingCloudcast: PropTypes.string,
   isPlaying: PropTypes.bool
 }
 

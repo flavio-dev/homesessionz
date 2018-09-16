@@ -7,9 +7,9 @@ export const getInitialListFromGithub = createSelector(
   appReducer => appReducer.initialListFromGithub
 )
 
-export const getCurrentCloudcast = createSelector(
+export const getPlayingCloudcast = createSelector(
   [getAppReducers],
-  appReducer => appReducer.currentCloudcast
+  appReducer => appReducer.playingCloudcast
 )
 
 export const getIsFeaturedCloudcast = createSelector(

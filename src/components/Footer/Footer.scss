@@ -24,3 +24,16 @@
   margin-top: 20px;
   font-size: x-small;
 }
+
+.footer__text__flavio {
+  align-items: center;
+  display: flex;
+
+  svg {
+    margin: 0 3px;
+  }
+
+  a {
+    margin-left: 3px;
+  }
+}

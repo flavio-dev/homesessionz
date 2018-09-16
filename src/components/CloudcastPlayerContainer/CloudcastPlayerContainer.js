@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { getCurrentCloudcast, getIsPlaying } from 'app/selectors'
+import { getPlayingCloudcast, getIsPlaying } from 'app/selectors'
 import { setIsPlaying } from 'app/actions'
 
 import CloudcastPlayer from './CloudcastPlayer'
@@ -9,7 +9,7 @@ const mapActionCreators = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-  currentCloudcast: getCurrentCloudcast(state),
+  playingCloudcast: getPlayingCloudcast(state),
   isPlaying: getIsPlaying(state)
 })
 

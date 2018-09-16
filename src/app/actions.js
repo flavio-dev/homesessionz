@@ -1,13 +1,13 @@
-export const SET_CURRENT_CLOUDCAST = 'SET_CURRENT_CLOUDCAST'
+export const SET_PLAYING_CLOUDCAST = 'SET_PLAYING_CLOUDCAST'
 export const SET_IS_FEATURED_CLOUDCAST = 'SET_IS_FEATURED_CLOUDCAST'
 export const SET_INDEX_IS_FEATURED_CLOUDCAST = 'SET_INDEX_IS_FEATURED_CLOUDCAST'
 export const SET_IS_PLAYING = 'SET_IS_PLAYING'
 export const SET_LIST_MIXES_GITHUB = 'SET_LIST_MIXES_GITHUB'
 export const SET_CLOUDCAST_DETAILS = 'SET_CLOUDCAST_DETAILS'
 
-export const setCurrentCloudcast = (url) => {
+export const setPlayingCloudcast = (url) => {
   return {
-    type: SET_CURRENT_CLOUDCAST,
+    type: SET_PLAYING_CLOUDCAST,
     url
   }
 }
