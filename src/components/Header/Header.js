@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Logo from 'components/Logo'
+
 import './Header.css'
-import wave from './wave.gif'
 
 export const Header = () => (
   <div className='header'>
@@ -11,7 +12,7 @@ export const Header = () => (
         høme sessiønz
       </div>
       <Link to='/'>
-        <img src={wave} className='header__logo' alt='høme sessiønz' />
+        <Logo />
       </Link>
       <div className='header__menu font--large'>
         <Link to='/about'>abøut</Link>

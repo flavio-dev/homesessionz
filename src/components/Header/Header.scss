@@ -62,15 +62,3 @@
     width: 230px;
   }
 }
-
-.header__logo {
-  @include transitions(all);
-  filter: grayscale(100%);
-  height: 80px;
-  width: 80px;
-
-  @media #{$medium-and-up} {
-    height: 100px;
-    width: 100px;
-  }
-}

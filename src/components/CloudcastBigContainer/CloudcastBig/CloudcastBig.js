@@ -33,11 +33,11 @@ class CloudcastBig extends Component {
 
   render() {
     const smallPicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['320wx320h']
-      ? this.props.cloudcast.pictures['320wx320h']
+      ? this.props.cloudcast.pictures.extra_large
       : ''
 
     const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['640wx640h']
-      ? this.props.cloudcast.pictures['640wx640h']
+      ? this.props.cloudcast.pictures['1024wx1024h']
       : ''
 
     let PlayPauseButton = <PlayIcon />
