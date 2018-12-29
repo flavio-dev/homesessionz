@@ -2,21 +2,27 @@
 
 .slash-icon {
   fill: $color-white;
-  height: 50px;
-  left: 50%;
   opacity: 0;
   position: absolute;
-  top: 60%;
-  transform: translate(-50%, -60%);
-  width: 50px;
+  top: 25px;
+  height: 40px;
+  width: 40px;
 
   animation-name: pulseSlash;
-  animation-duration: 3s;
+  animation-duration: 4.5s;
   animation-timing-function: ease-out;
   animation-delay: 0.5s;
   animation-iteration-count: 1;
   animation-play-state: running;
   animation-fill-mode: forwards;
+
+  @media #{$medium-and-up} {
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -60%);
+    height: 50px;
+    width: 50px;
+  }
 }
 
 @keyframes pulseSlash {

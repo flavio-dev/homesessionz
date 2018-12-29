@@ -2,20 +2,13 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import PlayIcon from 'components/PlayIcon'
-import PauseIcon from 'components/PauseIcon'
+import PlayPauseIcon from 'components/PlayPauseIcon'
 import Tag from 'components/Tag'
 
 import './CloudcastHome.css'
 
 class CloudcastHome extends Component {
-  constructor(props) {
-    super()
-
-    this.playPauseTrigger = this.playPauseTrigger.bind(this)
-  }
-
-  playPauseTrigger() {
+  playPauseTrigger = () => {
     if (this.props.cloudcast.url) {
       if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
         // the current player playing is this one. so we pause.
@@ -36,11 +29,11 @@ class CloudcastHome extends Component {
       ? this.props.cloudcast.pictures.large
       : ''
 
-    let PlayPauseButton = <PlayIcon />
+    let isPlaying = false
     let classCloudcastImg = 'ch__img'
     if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
       classCloudcastImg = classCloudcastImg + ' ch__img-playing'
-      PlayPauseButton = <PauseIcon />
+      isPlaying = true
     }
 
     return (
@@ -54,7 +47,7 @@ class CloudcastHome extends Component {
           onClick={this.playPauseTrigger}
         >
           <div className='ch__play-button'>
-            {PlayPauseButton}
+            <PlayPauseIcon isPlaying={isPlaying} />
           </div>
         </div>
         <div className='ch__details'>

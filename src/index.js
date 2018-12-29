@@ -12,10 +12,10 @@ const store = createStore(initialState, history)
 // ========================================================
 // Developer Tools Setup
 // ========================================================
-if (window.devToolsExtension && process.env.NODE_ENV === 'development') {
-  window.devToolsExtension.open()
+if (window.__REDUX_DEVTOOLS_EXTENSION__ && process.env.NODE_ENV === 'development') {
+  window.__REDUX_DEVTOOLS_EXTENSION__.open()
 } else {
-  window.devToolsExtension = null
+  window.__REDUX_DEVTOOLS_EXTENSION__ = null
 }
 
 // ========================================================

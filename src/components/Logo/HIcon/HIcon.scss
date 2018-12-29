@@ -2,20 +2,27 @@
 
 .h-icon {
   fill: $color-white;
-  height: 50px;
-  left: 14px;
+  height: 40px;
+  left: -10px;
   opacity: 0;
   position: absolute;
-  top: 12px;
-  width: 50px;
+  top: 11px;
+  width: 40px;
 
   animation-name: pulseH;
-  animation-duration: 4s;
+  animation-duration: 5.25s;
   animation-timing-function: ease-out;
-  animation-delay: 1.5s;
+  animation-delay: 1s;
   animation-iteration-count: 1;
   animation-play-state: running;
   animation-fill-mode: forwards;
+
+  @media #{$medium-and-up} {
+    height: 50px;
+    left: 14px;
+    top: 12px;
+    width: 50px;
+  }
 }
 
 @keyframes pulseH {

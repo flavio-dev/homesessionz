@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import Turntable from 'components/Turntable'
+import ImagePano from 'components/ImagePano'
+import PlayPauseIcon from 'components/PlayPauseIcon'
+
+// TESTDATA\
+// import imageTemp from 'temp/image.jpeg'
+
 import slugToKey from 'utils/slugToKey'
 
 import './CloudcastDetails.css'
@@ -24,12 +31,14 @@ class CloudcastDetails extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.cloudcastDetails[this.state.currentCloudcastKey] &&
-      this.state.currentCloudcast.slug !== nextProps.cloudcastDetails[this.state.currentCloudcastKey].slug) {
-      return true
-    } else {
-      return false
-    }
+    // if (nextProps.cloudcastDetails[this.state.currentCloudcastKey] &&
+    //   this.state.currentCloudcast.slug !== nextProps.cloudcastDetails[this.state.currentCloudcastKey].slug) {
+    //   return true
+    // } else {
+    //   console.log('?????')
+    //   return false
+    // }
+    return true
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -60,11 +69,48 @@ class CloudcastDetails extends Component {
     return state
   }
 
+  playPauseTrigger = () => {
+    const cast = this.state.currentCloudcast
+    if (cast.url) {
+      if (this.props.isPlaying && this.props.playingCloudcast === cast.url) {
+        // the current player playing is this one. so we pause.
+        this.props.setIsPlaying(false)
+      } else if (!this.props.isPlaying && this.props.playingCloudcast === cast.url) {
+        // the current player not playing. so we play.
+        this.props.setIsPlaying(true)
+      } else {
+        // another cloudcast is being played. we load this one and play
+        this.props.setPlayingCloudcast(cast.url)
+        this.props.setIsPlaying(true)
+      }
+    }
+  }
+
   render() {
     const cast = this.state.currentCloudcast
+
     return (
       <div>
-        {cast.slug}
+        <div className='cd__top'>
+          <img className='cd__top__img' src={cast.pictures && cast.pictures['320wx320h']} />
+          <div className='cd__top__wrapper font--medium'>
+            <div
+              className='cd__top__play-pause'
+              onClick={this.playPauseTrigger}
+            >
+              <PlayPauseIcon reversed isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
+            </div>
+            <div>{cast.name}</div>
+            <div style={{display: 'none'}}>
+              <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
+            </div>
+          </div>
+        </div>
+        <ImagePano
+          urlSmall={cast.pictures && cast.pictures['640wx640h']}
+          urlLarge={cast.pictures && cast.pictures['1024wx1024h']}
+        />
+        {cast.audio_length}
       </div>
     )
   }
@@ -72,7 +118,11 @@ class CloudcastDetails extends Component {
 
 CloudcastDetails.propTypes = {
   match: PropTypes.object,
-  cloudcastDetails: PropTypes.object
+  cloudcastDetails: PropTypes.object,
+  setPlayingCloudcast: PropTypes.func.isRequired,
+  setIsPlaying: PropTypes.func.isRequired,
+  playingCloudcast: PropTypes.string,
+  isPlaying: PropTypes.bool
 }
 
 export default CloudcastDetails

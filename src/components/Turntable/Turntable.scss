@@ -1,0 +1,150 @@
+@import 'globals.scss';
+
+.tt {
+  margin: auto;
+  position: relative;
+  height: 512px;
+  width: 512px;
+}
+
+.tt__turntable, .tt__tonearm, .tt__vinyl {
+  position: absolute;
+}
+
+.tt__turntable {
+  width: 512px;
+}
+
+.tt__tonearm {
+  top: 86px;
+  right: 42px;
+}
+
+.tt__vinyl {
+  @include transitions(opacity);
+  height: 322px;
+  left: 50px;
+  opacity: 0;
+  top: 95px;
+  width: 322px;
+}
+
+.tt__vinyl--linear {
+  height: 100%;
+  width: 100%;
+}
+
+.tt--playing {
+  .tt__vinyl {
+    opacity: 1;
+  }
+
+  .tt__vinyl--ease {
+    animation-name: vinylRotationStart;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+  }
+
+  .tt__vinyl--linear {
+    animation-name: vinylRotationRunning;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 3.5s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+  }
+
+  .tt__tonearm {
+    animation-name: tonearmRotation;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-delay: 1.5s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+  }
+}
+
+.tt--stopping {
+  .tt__vinyl {
+    opacity: 1;
+  }
+
+  .tt__vinyl--ease {
+    animation-name: vinylRotationStop;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+  }
+
+  .tt__tonearm {
+    animation-name: tonearmRotationBack;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-play-state: running;
+    animation-fill-mode: backwards;
+  }
+}
+
+@keyframes vinylRotationStart {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes vinylRotationRunning {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes vinylRotationStop {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tonearmRotation {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: top;
+  }
+
+  100% {
+    transform: rotate(25deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes tonearmRotationBack {
+  0% {
+    transform: rotate(25deg);
+    transform-origin: top;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    transform-origin: top;
+  }
+}

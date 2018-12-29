@@ -9,7 +9,9 @@ export const Header = () => (
   <div className='header'>
     <div className='header__inner'>
       <div className='header__placeholder'>
-        høme sessiønz
+        <Link to='/'>
+          høme sessiønz
+        </Link>
       </div>
       <Link to='/'>
         <Logo />

@@ -1,0 +1,11 @@
+@import 'globals.scss';
+
+.play-icon {
+  cursor: pointer;
+  fill: $color-white;
+  width: 100%;
+}
+
+.play-icon--reversed {
+  fill: $color-quiet-black;
+}

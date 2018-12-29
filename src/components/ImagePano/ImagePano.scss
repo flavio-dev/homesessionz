@@ -1,0 +1,43 @@
+@import 'globals.scss';
+
+.ip {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // box-shadow:
+  //   inset 0px 11px 20px -8px $color-quiet-black-transparent,
+  //   inset 0px -11px 20px -8px $color-quiet-black-transparent;
+
+  .ip__content {
+    padding: 10px 0;
+  }
+
+  @media #{$medium-and-up} {
+    background-size: cover;
+
+    .ip__content {
+      padding: 20px 0;
+    }
+  }
+
+  @media #{$large-and-up} {
+    .ip__content {
+      padding: 30px 0;
+    }
+  }
+ }
+
+.ip--small {
+  display: none;
+  @media #{$small-and-down} {
+    display: block;
+  }
+}
+
+.ip--large {
+  display: none;
+  @media #{$medium-and-up} {
+    display: block;
+  }
+}

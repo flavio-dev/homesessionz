@@ -1,12 +1,18 @@
 import { connect } from 'react-redux'
-import { getCloudcastDetails } from 'app/selectors'
+import { getCloudcastDetails, getIsPlaying, getPlayingCloudcast } from 'app/selectors'
+import { setPlayingCloudcast, setIsPlaying } from 'app/actions'
 
 import CloudcastDetails from './CloudcastDetails'
 
-const mapActionCreators = () => ({})
+const mapActionCreators = (dispatch) => ({
+  setPlayingCloudcast: (url) => dispatch(setPlayingCloudcast(url)),
+  setIsPlaying: (isPlaying) => dispatch(setIsPlaying(isPlaying))
+})
 
 const mapStateToProps = (state) => ({
-  cloudcastDetails: getCloudcastDetails(state)
+  cloudcastDetails: getCloudcastDetails(state),
+  playingCloudcast: getPlayingCloudcast(state),
+  isPlaying: getIsPlaying(state)
 })
 
 export default connect(mapStateToProps, mapActionCreators)(CloudcastDetails)

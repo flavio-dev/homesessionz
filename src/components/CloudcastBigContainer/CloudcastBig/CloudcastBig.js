@@ -2,20 +2,13 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import PlayIcon from 'components/PlayIcon'
-import PauseIcon from 'components/PauseIcon'
+import PlayPauseIcon from 'components/PlayPauseIcon'
 import Tag from 'components/Tag'
 
 import './CloudcastBig.css'
 
 class CloudcastBig extends Component {
-  constructor(props) {
-    super()
-
-    this.playPauseTrigger = this.playPauseTrigger.bind(this)
-  }
-
-  playPauseTrigger() {
+  playPauseTrigger = () => {
     if (this.props.cloudcast.url) {
       if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
         // the current player playing is this one. so we pause.
@@ -40,13 +33,13 @@ class CloudcastBig extends Component {
       ? this.props.cloudcast.pictures['1024wx1024h']
       : ''
 
-    let PlayPauseButton = <PlayIcon />
+    let isPlaying = false
     let classCloudcastImgSmall = 'cb__img-small'
     let classCloudcastImgBig = 'cb__img-big'
     if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
       classCloudcastImgSmall = classCloudcastImgSmall + ' cb__img-playing'
       classCloudcastImgBig = classCloudcastImgBig + ' cb__img-playing'
-      PlayPauseButton = <PauseIcon />
+      isPlaying = true
     }
 
     return (
@@ -59,7 +52,7 @@ class CloudcastBig extends Component {
           onClick={this.playPauseTrigger}
         >
           <div className='cb__play-button'>
-            {PlayPauseButton}
+            <PlayPauseIcon isPlaying={isPlaying} />
           </div>
           <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
         </div>
@@ -71,7 +64,7 @@ class CloudcastBig extends Component {
           onClick={this.playPauseTrigger}
         >
           <div className='cb__play-button'>
-            {PlayPauseButton}
+            <PlayPauseIcon isPlaying={isPlaying} />
           </div>
           <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
         </div>
