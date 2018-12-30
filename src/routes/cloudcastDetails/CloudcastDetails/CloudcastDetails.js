@@ -29,17 +29,6 @@ class CloudcastDetails extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    // if (nextProps.cloudcastDetails[this.state.currentCloudcastKey] &&
-    //   this.state.currentCloudcast.slug !== nextProps.cloudcastDetails[this.state.currentCloudcastKey].slug) {
-    //   return true
-    // } else {
-    //   console.log('?????')
-    //   return false
-    // }
-    return true
-  }
-
   static getDerivedStateFromProps(props, state) {
     if (props.match && props.match.params && props.match.params.cloudcastId) {
       const key = slugToKey(props.match.params.cloudcastId)
