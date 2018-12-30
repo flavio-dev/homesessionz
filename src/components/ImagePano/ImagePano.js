@@ -31,8 +31,8 @@ export const ImagePano = ({urlSmall, urlLarge, children}) => {
 }
 
 ImagePano.propTypes = {
-  urlSmall: PropTypes.string.isRequired,
-  urlLarge: PropTypes.string.isRequired,
+  urlSmall: PropTypes.string,
+  urlLarge: PropTypes.string,
   children: PropTypes.node
 }
 

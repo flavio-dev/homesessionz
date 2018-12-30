@@ -4,9 +4,8 @@ import PropTypes from 'prop-types'
 import './PlayIcon.css'
 
 export const PlayIcon = ({ reversed }) => (
-  <svg className={reversed ? 'play-icon play-icon--reversed' : 'play-icon'} viewBox='0 0 24 24'>
-    <path d='M0 0h24v24H0z' fill='none' />
-    <path d='M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z' />
+  <svg className={reversed ? 'play-icon play-icon--reversed' : 'play-icon'} viewBox='0 0 510 510'>
+    <path d='M204 369.75L357 255 204 140.25v229.5zM255 0C114.75 0 0 114.75 0 255s114.75 255 255 255 255-114.75 255-255S395.25 0 255 0zm0 459c-112.2 0-204-91.8-204-204S142.8 51 255 51s204 91.8 204 204-91.8 204-204 204z' />
   </svg>
 )
 

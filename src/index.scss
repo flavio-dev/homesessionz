@@ -31,6 +31,30 @@ body {
   }
 }
 
+section {
+  padding-top: 30px;
+
+  @media #{$medium-and-up} {
+    padding-top: 40px;
+  }
+
+  @media #{$large-and-up} {
+    padding-top: 50px;
+  }
+
+  &.last {
+    padding-bottom: 30px;
+
+    @media #{$medium-and-up} {
+      padding-bottom: 40px;
+    }
+
+    @media #{$large-and-up} {
+      padding-bottom: 50px;
+    }
+  }
+}
+
 a {
     @media #{$medium-and-up} {
         text-decoration: none;
@@ -42,6 +66,7 @@ a {
 }
 
 h2, .font--large {
+  font-weight: bold;
   font-size: 23px;
 
   @media #{$medium-and-up} {
@@ -62,5 +87,17 @@ h3, .font--medium {
 
   @media #{$medium-and-up} {
     font-size: 15px;
+  }
+}
+
+.title-margin {
+  margin-bottom: 20px;
+
+  @media #{$medium-and-up} {
+    margin-bottom: 30px;
+  }
+
+  @media #{$large-and-up} {
+    margin-bottom: 40px;
   }
 }

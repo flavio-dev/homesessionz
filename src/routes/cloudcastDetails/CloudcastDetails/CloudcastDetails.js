@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import Turntable from 'components/Turntable'
 import ImagePano from 'components/ImagePano'
 import PlayPauseIcon from 'components/PlayPauseIcon'
-
-// TESTDATA\
-// import imageTemp from 'temp/image.jpeg'
+import Tag from 'components/Tag'
 
 import slugToKey from 'utils/slugToKey'
 
@@ -91,26 +89,44 @@ class CloudcastDetails extends Component {
 
     return (
       <div>
-        <div className='cd__top'>
-          <img className='cd__top__img' src={cast.pictures && cast.pictures['320wx320h']} />
-          <div className='cd__top__wrapper font--medium'>
-            <div
-              className='cd__top__play-pause'
-              onClick={this.playPauseTrigger}
-            >
-              <PlayPauseIcon reversed isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
-            </div>
-            <div>{cast.name}</div>
-            <div style={{display: 'none'}}>
-              <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
+        <section className='cd__top'>
+          <div className='cd__top__wrapper'>
+            <div className='cd__top__left'>
+              <div className='cd__top__left__title font--large'>
+                <div
+                  className='cd__top__left__play-pause'
+                  onClick={this.playPauseTrigger}
+                >
+                  <PlayPauseIcon
+                    reversed
+                    isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url}
+                  />
+                </div>
+                <div>{cast.name}</div>
+              </div>
+              <div className='cd__top__left__tags'>
+                {cast.tags && cast.tags.map((tag) => (
+                  <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        <ImagePano
-          urlSmall={cast.pictures && cast.pictures['640wx640h']}
-          urlLarge={cast.pictures && cast.pictures['1024wx1024h']}
-        />
-        {cast.audio_length}
+          <img className='cd__top__img' src={cast.pictures && cast.pictures['320wx320h']} />
+        </section>
+        <section>
+          <ImagePano
+            urlSmall={cast.pictures && cast.pictures['640wx640h']}
+            urlLarge={cast.pictures && cast.pictures['1024wx1024h']}
+          >
+            <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
+          </ImagePano>
+        </section>
+        <section className='cd__bottom last'>
+          <h2 className='title-margin'>about the show</h2>
+          <div className='cd__bottom__text'>
+            {cast.description}
+          </div>
+        </section>
       </div>
     )
   }
