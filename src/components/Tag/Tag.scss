@@ -1,11 +1,10 @@
 @import 'globals.scss';
 
 .tag {
-  background-color: $color-quiet-black;
+  background-color: $color-black;
   color: $color-white;
   margin-right: 5px;
   margin-bottom: 5px;
   padding: 5px;
-  text-transform: lowercase;
   white-space: nowrap;
 }

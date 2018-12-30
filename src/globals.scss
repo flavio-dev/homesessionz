@@ -18,8 +18,8 @@ $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
 $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
 
-$color-quiet-black: #0f1121;
-$color-quiet-black-opacity: rgba(15, 17, 33, 0.5);
+$color-black: #0f1121;
+$color-black-opacity: rgba(15, 17, 33, 0.5);
 $color-white: #fcfcfc;
 $color-grey: #c4c4c4;
 
@@ -50,7 +50,7 @@ $height-header-big: 105px;
   &:after {
     @include transitions(all);
     content: '';
-    background: $color-quiet-black-opacity;
+    background: $color-black-opacity;
     height: 100%;
     left: 0;
     opacity: 0;

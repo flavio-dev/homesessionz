@@ -36,7 +36,7 @@ class CloudcastBig extends Component {
     const isPlaying = this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url
 
     return (
-      <div className='cb'>
+      <div>
         <div className='cb__img cb__img--small'>
           <ImagePlayPause
             isPlaying={isPlaying}

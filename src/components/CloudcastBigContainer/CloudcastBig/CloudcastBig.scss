@@ -1,9 +1,5 @@
 @import "globals.scss";
 
-.cb {
-  text-transform: lowercase;
-}
-
 .cb__img {
   margin-bottom: 15px;
 
@@ -21,7 +17,7 @@
 }
 
 .cb__img-title {
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,$color-quiet-black-opacity 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,$color-black-opacity 100%);
   box-sizing: border-box;
   color: $color-white;
   bottom: 0;
@@ -32,7 +28,7 @@
 }
 
 .cb__title, .cb__text {
-  color: $color-quiet-black;
+  color: $color-black;
   display: block;
 }
 

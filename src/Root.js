@@ -9,6 +9,8 @@ import CloudcastDetailsContainer from 'routes/cloudcastDetails/CloudcastDetailsC
 import Contact from 'routes/contact/Contact'
 import About from 'routes/about/About'
 import Layout from 'components/Layout'
+import scrollIntoView from 'hocomponents/ScrollIntoView'
+
 import 'index.css'
 
 export const Root = ({ store, history }) => (
@@ -19,7 +21,7 @@ export const Root = ({ store, history }) => (
           <Route exact path='/' component={HomeContainer} />
           <Route exact path='/contact' component={Contact} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/:cloudcastId' component={CloudcastDetailsContainer} />
+          <Route exact path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
         </Switch>
       </Layout>
     </ConnectedRouter>

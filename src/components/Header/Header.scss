@@ -2,7 +2,7 @@
 
 .header {
   @include transitions(height);
-  background-color: $color-quiet-black;
+  background-color: $color-black;
   border-bottom: 5px solid $color-white;
   color: $color-white;
   height: 80px;

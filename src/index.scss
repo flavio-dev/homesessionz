@@ -21,8 +21,9 @@ th, td {
 
 body {
   background-color: $color-white;
-  color: $color-quiet-black;
+  color: $color-black;
   font-family: $base-font-family;
+  text-transform: lowercase;
 
   font-size: 15px;
 
