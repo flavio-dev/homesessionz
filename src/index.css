@@ -56,6 +56,7 @@ h2, .font--large {
       font-size: 25px; } }
 
 h3, .font--medium {
+  font-weight: bold;
   font-size: 18px; }
   @media only screen and (min-width: 601px) {
     h3, .font--medium {

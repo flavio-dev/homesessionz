@@ -75,6 +75,7 @@ h2, .font--large {
 }
 
 h3, .font--medium {
+  font-weight: bold;
   font-size: 18px;
 
   @media #{$medium-and-up} {

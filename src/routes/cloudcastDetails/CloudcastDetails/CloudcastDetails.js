@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Turntable from 'components/Turntable'
 import ImagePano from 'components/ImagePano'
 import PlayPauseIcon from 'components/PlayPauseIcon'
+import ImagePlayPause from 'components/ImagePlayPause'
 import Tag from 'components/Tag'
 
 import slugToKey from 'utils/slugToKey'
@@ -86,32 +87,46 @@ class CloudcastDetails extends Component {
 
   render() {
     const cast = this.state.currentCloudcast
+    const tags = <div className='cd__top__tags'>
+      {cast.tags && cast.tags.map((tag) => (
+        <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
+      ))}
+    </div>
+    const isPlaying = this.props.isPlaying && this.props.playingCloudcast === cast.url
+    const picture = cast.pictures && cast.pictures['320wx320h']
 
     return (
       <div>
-        <section className='cd__top'>
+        <section className='cd__top cd__top--large'>
           <div className='cd__top__wrapper'>
             <div className='cd__top__left'>
-              <div className='cd__top__left__title font--large'>
+              <div className='cd__top__left__title'>
                 <div
                   className='cd__top__left__play-pause'
                   onClick={this.playPauseTrigger}
                 >
                   <PlayPauseIcon
                     reversed
-                    isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url}
+                    isPlaying={isPlaying}
                   />
                 </div>
-                <div>{cast.name}</div>
+                <div className='font--large'>{cast.name}</div>
               </div>
-              <div className='cd__top__left__tags'>
-                {cast.tags && cast.tags.map((tag) => (
-                  <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
-                ))}
-              </div>
+              {tags}
             </div>
           </div>
-          <img className='cd__top__img' src={cast.pictures && cast.pictures['320wx320h']} />
+          <img className='cd__top__img' src={picture} />
+        </section>
+        <section className='cd__top cd__top--small'>
+          <div className='cd__top__img'>
+            <ImagePlayPause
+              isPlaying={isPlaying}
+              pictureUrl={picture}
+              playPauseTrigger={this.playPauseTrigger}
+            />
+          </div>
+          <div className='cd__top__title font--medium'>{cast.name}</div>
+          {tags}
         </section>
         <section>
           <ImagePano
