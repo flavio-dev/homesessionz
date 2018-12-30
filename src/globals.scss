@@ -44,7 +44,6 @@ $height-header-big: 105px;
 @mixin cloudcast-image($play-button-class, $is-playing-class) {
   background-color: $color-grey;
   cursor: pointer;
-  margin-bottom: 15px;
   position: relative;
   width: 100%;
 

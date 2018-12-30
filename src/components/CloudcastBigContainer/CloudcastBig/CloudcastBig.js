@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import PlayPauseIcon from 'components/PlayPauseIcon'
+import ImagePlayPause from 'components/ImagePlayPause'
 import Tag from 'components/Tag'
 
 import './CloudcastBig.css'
@@ -25,48 +25,35 @@ class CloudcastBig extends Component {
   }
 
   render() {
-    const smallPicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['320wx320h']
+    const smallPicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.extra_large
       ? this.props.cloudcast.pictures.extra_large
       : ''
 
-    const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['640wx640h']
+    const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures['1024wx1024h']
       ? this.props.cloudcast.pictures['1024wx1024h']
       : ''
 
-    let isPlaying = false
-    let classCloudcastImgSmall = 'cb__img-small'
-    let classCloudcastImgBig = 'cb__img-big'
-    if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
-      classCloudcastImgSmall = classCloudcastImgSmall + ' cb__img-playing'
-      classCloudcastImgBig = classCloudcastImgBig + ' cb__img-playing'
-      isPlaying = true
-    }
+    const isPlaying = this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url
 
     return (
       <div className='cb'>
-        <div
-          style={{
-            backgroundImage: 'url(' + smallPicUrl + ')'
-          }}
-          className={classCloudcastImgSmall}
-          onClick={this.playPauseTrigger}
-        >
-          <div className='cb__play-button'>
-            <PlayPauseIcon isPlaying={isPlaying} />
-          </div>
-          <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
+        <div className='cb__img cb__img--small'>
+          <ImagePlayPause
+            isPlaying={isPlaying}
+            pictureUrl={smallPicUrl}
+            playPauseTrigger={this.playPauseTrigger}
+            panoDisplay
+          />
         </div>
-        <div
-          style={{
-            backgroundImage: 'url(' + largePicUrl + ')'
-          }}
-          className={classCloudcastImgBig}
-          onClick={this.playPauseTrigger}
-        >
-          <div className='cb__play-button'>
-            <PlayPauseIcon isPlaying={isPlaying} />
-          </div>
-          <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
+        <div className='cb__img cb__img--large'>
+          <ImagePlayPause
+            isPlaying={isPlaying}
+            pictureUrl={largePicUrl}
+            playPauseTrigger={this.playPauseTrigger}
+            panoDisplay
+          >
+            <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
+          </ImagePlayPause>
         </div>
         {this.props.cloudcast.tags && this.props.cloudcast.tags.length &&
           <div className='cb__tags'>

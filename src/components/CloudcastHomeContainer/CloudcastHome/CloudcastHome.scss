@@ -34,14 +34,24 @@
 }
 
 .ch__img {
-  @include cloudcast-image(".ch__play-button", ".ch__img-playing");
-  padding-top: 100%;
+  margin-bottom: 15px;
 
   @media #{$small-and-down} {
-    width: 85px;
     margin-bottom: 0;
     margin-right: 15px;
-    padding-top: 85px;
+    width: 85px;
+  }
+
+  &.ch__img--large {
+    @media #{$small-and-down} {
+      display: none;
+    }
+  }
+
+  &.ch__img--small {
+    @media #{$medium-and-up} {
+      display: none;
+    }
   }
 }
 

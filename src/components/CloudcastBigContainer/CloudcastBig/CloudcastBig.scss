@@ -4,28 +4,19 @@
   text-transform: lowercase;
 }
 
-%cb__img {
-  @include cloudcast-image(".cb__play-button", ".cb__img-playing");
-  background-size: cover;
-  background-position: center;
-  padding-top: 56%;
+.cb__img {
+  margin-bottom: 15px;
 
-  @media #{$large-and-up} {
-    padding-top: 450px;
+  &.cb__img--large {
+    @media #{$small-and-down} {
+      display: none;
+    }
   }
-}
 
-.cb__img-small {
-  @extend %cb__img;
-  @media #{$medium-and-up} {
-    display: none;
-  }
-}
-
-.cb__img-big {
-  @extend %cb__img;
-  @media #{$small-and-down} {
-    display: none;
+  &.cb__img--small {
+    @media #{$medium-and-up} {
+      display: none;
+    }
   }
 }
 
@@ -35,32 +26,9 @@
   color: $color-white;
   bottom: 0;
   left: 0;
-  padding: 80px 10px 10px 10px;
+  padding: 80px 20px 20px 20px;
   position: absolute;
   width: 100%;
-
-  @media #{$small-and-down} {
-    display: none;
-  }
-
-  @media #{$medium-and-up} {
-    padding: 80px 20px 20px 20px;
-  }
-}
-
-.cb__play-button {
-  @include transitions(all);
-  left: 50%;
-  max-width: 350px;
-  position: absolute;
-  opacity: 0;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 40%;
-
-  @media #{$medium-and-up} {
-    width: 33%;
-  }
 }
 
 .cb__title, .cb__text {

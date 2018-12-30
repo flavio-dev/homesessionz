@@ -1,0 +1,35 @@
+@import "globals.scss";
+
+.ipp__img {
+  @include cloudcast-image(".ipp__play-button", ".ipp__img--playing");
+  padding-top: 100%;
+
+  &.ipp__img--pano {
+    background-size: cover;
+    background-position: center;
+    padding-top: 56%;
+
+    @media #{$large-and-up} {
+      padding-top: 450px;
+    }
+  }
+}
+
+.ipp__play-button {
+  @include transitions(all);
+  left: 50%;
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.ipp__img--pano .ipp__play-button {
+  max-width: 350px;
+  width: 40%;
+
+  @media #{$medium-and-up} {
+    width: 33%;
+  }
+}
