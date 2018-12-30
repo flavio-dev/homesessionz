@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import createHistory from 'history/createBrowserHistory'
+import { createBrowserHistory } from 'history'
 
 import Root from './Root'
 import createStore from './store'
 
 const initialState = window.___INITIAL_STATE__
-const history = createHistory()
+const history = createBrowserHistory()
 const store = createStore(initialState, history)
 
 // ========================================================

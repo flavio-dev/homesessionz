@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux'
 import appReducers from 'app/reducers'
-import { routerReducer } from 'react-router-redux'
+import { connectRouter } from 'connected-react-router'
 
-export const makeRootReducer = (asyncReducers) => {
+export const makeRootReducer = (history) => {
   return combineReducers({
     appReducers,
-    routing: routerReducer,
-    ...asyncReducers
+    router: connectRouter(history)
   })
 }

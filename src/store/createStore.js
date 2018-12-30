@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore, compose } from 'redux'
 import { makeRootReducer } from './reducers'
 import { rootSaga, sagaMiddleware } from './sagas'
-import { routerMiddleware } from 'react-router-redux'
+import { routerMiddleware } from 'connected-react-router'
 
 export default (initialState = {}, history) => {
   // ======================================================
@@ -14,7 +14,7 @@ export default (initialState = {}, history) => {
   // ======================================================
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const store = createStore(
-    makeRootReducer(),
+    makeRootReducer(history),
     initialState,
     composeEnhancers(
       applyMiddleware(...middleware)
