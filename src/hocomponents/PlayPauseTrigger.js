@@ -2,7 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-const playPauseTrigger = (WrappedComponent, mapStateToProps, mapActionCreators) => {
+import { setPlayingCloudcast, setIsPlaying } from 'app/actions'
+import { getIsPlaying, getPlayingCloudcast } from 'app/selectors'
+
+const playPauseTrigger = (WrappedComponent) => {
   const addPlayPauseTrigger = ({...props}) => {
     const playPauseTriggerPassedAsProps = () => {
       if (props.cloudcast.url) {
@@ -30,6 +33,16 @@ const playPauseTrigger = (WrappedComponent, mapStateToProps, mapActionCreators) 
     setIsPlaying: PropTypes.func.isRequired,
     setPlayingCloudcast: PropTypes.func.isRequired
   }
+
+  const mapActionCreators = (dispatch) => ({
+    setPlayingCloudcast: (url) => dispatch(setPlayingCloudcast(url)),
+    setIsPlaying: (isPlaying) => dispatch(setIsPlaying(isPlaying))
+  })
+
+  const mapStateToProps = (state) => ({
+    playingCloudcast: getPlayingCloudcast(state),
+    isPlaying: getIsPlaying(state)
+  })
 
   return connect(mapStateToProps, mapActionCreators)(addPlayPauseTrigger)
 }

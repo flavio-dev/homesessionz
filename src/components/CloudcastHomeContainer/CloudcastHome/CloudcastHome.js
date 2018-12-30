@@ -8,22 +8,6 @@ import Tag from 'components/Tag'
 import './CloudcastHome.css'
 
 class CloudcastHome extends Component {
-  playPauseTrigger = () => {
-    if (this.props.cloudcast.url) {
-      if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
-        // the current player playing is this one. so we pause.
-        this.props.setIsPlaying(false)
-      } else if (!this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
-        // the current player not playing. so we play.
-        this.props.setIsPlaying(true)
-      } else {
-        // another cloudcast is being played. we load this one and play
-        this.props.setPlayingCloudcast(this.props.cloudcast.url)
-        this.props.setIsPlaying(true)
-      }
-    }
-  }
-
   render() {
     const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.large
       ? this.props.cloudcast.pictures.large
@@ -40,14 +24,14 @@ class CloudcastHome extends Component {
           <ImagePlayPause
             isPlaying={isPlaying}
             pictureUrl={smallPicUrl}
-            playPauseTrigger={this.playPauseTrigger}
+            playPauseTrigger={this.props.playPauseTrigger}
           />
         </div>
         <div className='ch__img ch__img--large'>
           <ImagePlayPause
             isPlaying={isPlaying}
             pictureUrl={largePicUrl}
-            playPauseTrigger={this.playPauseTrigger}
+            playPauseTrigger={this.props.playPauseTrigger}
           />
         </div>
         <div className='ch__details'>
@@ -90,6 +74,7 @@ CloudcastHome.propTypes = {
   setIsPlaying: PropTypes.func.isRequired,
   cloudcast: PropTypes.object,
   playingCloudcast: PropTypes.string,
+  playPauseTrigger: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool
 }
 
