@@ -1,6 +1,6 @@
-import { connect } from 'react-redux'
 import { setPlayingCloudcast, setIsPlaying } from 'app/actions'
 import { getIsPlaying, getPlayingCloudcast } from 'app/selectors'
+import playPauseTrigger from 'hocomponents/PlayPauseTrigger'
 
 import CloudcastBig from './CloudcastBig'
 
@@ -14,4 +14,4 @@ const mapStateToProps = (state) => ({
   isPlaying: getIsPlaying(state)
 })
 
-export default connect(mapStateToProps, mapActionCreators)(CloudcastBig)
+export default playPauseTrigger(CloudcastBig, mapStateToProps, mapActionCreators)

@@ -8,22 +8,6 @@ import Tag from 'components/Tag'
 import './CloudcastBig.css'
 
 class CloudcastBig extends Component {
-  playPauseTrigger = () => {
-    if (this.props.cloudcast.url) {
-      if (this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
-        // the current player playing is this one. so we pause.
-        this.props.setIsPlaying(false)
-      } else if (!this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url) {
-        // the current player not playing. so we play.
-        this.props.setIsPlaying(true)
-      } else {
-        // another cloudcast is being played. we load this one and play
-        this.props.setPlayingCloudcast(this.props.cloudcast.url)
-        this.props.setIsPlaying(true)
-      }
-    }
-  }
-
   render() {
     const smallPicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.extra_large
       ? this.props.cloudcast.pictures.extra_large
@@ -41,7 +25,7 @@ class CloudcastBig extends Component {
           <ImagePlayPause
             isPlaying={isPlaying}
             pictureUrl={smallPicUrl}
-            playPauseTrigger={this.playPauseTrigger}
+            playPauseTrigger={this.props.playPauseTrigger}
             panoDisplay
           />
         </div>
@@ -49,7 +33,7 @@ class CloudcastBig extends Component {
           <ImagePlayPause
             isPlaying={isPlaying}
             pictureUrl={largePicUrl}
-            playPauseTrigger={this.playPauseTrigger}
+            playPauseTrigger={this.props.playPauseTrigger}
             panoDisplay
           >
             <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
@@ -91,6 +75,7 @@ class CloudcastBig extends Component {
 CloudcastBig.propTypes = {
   setPlayingCloudcast: PropTypes.func.isRequired,
   setIsPlaying: PropTypes.func.isRequired,
+  playPauseTrigger: PropTypes.func.isRequired,
   cloudcast: PropTypes.object,
   playingCloudcast: PropTypes.string,
   isPlaying: PropTypes.bool
