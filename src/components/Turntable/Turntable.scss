@@ -3,30 +3,26 @@
 .tt {
   margin: auto;
   position: relative;
-  height: 512px;
-  width: 512px;
+  width: 502px;
 }
 
-.tt__turntable, .tt__tonearm, .tt__vinyl {
+.tt__tonearm, .tt__vinyl {
   position: absolute;
 }
 
-.tt__turntable {
-  width: 512px;
-}
-
 .tt__tonearm {
-  top: 86px;
+  top: 45px;
   right: 42px;
+  width: 60px;
 }
 
 .tt__vinyl {
   @include transitions(opacity);
-  height: 322px;
-  left: 50px;
+  height: 324px;
+  left: 44px;
   opacity: 0;
-  top: 95px;
-  width: 322px;
+  top: 45px;
+  width: 324px;
 }
 
 .tt__vinyl--linear {
@@ -132,14 +128,14 @@
   }
 
   100% {
-    transform: rotate(25deg);
+    transform: rotate(28deg);
     transform-origin: top;
   }
 }
 
 @keyframes tonearmRotationBack {
   0% {
-    transform: rotate(25deg);
+    transform: rotate(28deg);
     transform-origin: top;
   }
 

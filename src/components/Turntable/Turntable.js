@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import VinylIcon from 'components/VinylIcon'
-
-import turntable from './images/turntable.png'
-import tonearm from './images/tonearm.png'
+import TurntableIcon from './TurntableIcon'
+import TonearmIcon from './TonearmIcon'
 
 import './Turntable.css'
 
@@ -34,12 +33,14 @@ class Turntable extends Component {
 
     return (
       <div className={classVar}>
-        <img src={turntable} className='tt__turntable' />
-        <img src={tonearm} className='tt__tonearm' />
+        <TurntableIcon />
         <div className='tt__vinyl tt__vinyl--ease'>
           <div className='tt__vinyl--linear'>
             <VinylIcon />
           </div>
+        </div>
+        <div className='tt__tonearm'>
+          <TonearmIcon />
         </div>
       </div>
     )
