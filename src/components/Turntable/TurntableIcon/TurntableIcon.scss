@@ -1,28 +1,6 @@
 @import 'globals.scss';
 
 .turntable-icon {
-  @include transitions(opacity);
-  position: relative;
-  width: 100%;
-
-  &:before {
-    content: '';
-    background: $color-white;
-    border-radius: 67%;
-    height: 81%;
-    left: 7.5%;
-    position: absolute;
-    opacity: 0;
-    top: 9%;
-    width: 67.5%;
- }
-
- &.turntable-icon--loaded:before {
-   opacity: 1;
- }
-}
-
-.turntable-icon__svg {
   fill: $color-white;
   width: 100%;
 }

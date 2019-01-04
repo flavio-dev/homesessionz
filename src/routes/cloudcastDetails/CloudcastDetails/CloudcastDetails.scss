@@ -65,6 +65,16 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  justify-content: center;
+
+  @media #{$medium-and-up} {
+    justify-content: flex-start;
+    margin-left: 110px;
+  }
+
+  @media #{$large-and-up} {
+    margin-left: 120px;
+  }
 }
 
 .cd__bottom {

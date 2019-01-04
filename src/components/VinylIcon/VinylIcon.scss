@@ -1,6 +1,23 @@
 @import 'globals.scss';
 
 .vinyl-icon {
+  @include transitions(opacity);
+  position: relative;
+
+  &:before {
+    content: '';
+    background: $color-white;
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+ }
+}
+
+.vinyl-icon__svg {
   fill: $color-black;
+  position: relative;
   width: 100%;
 }
