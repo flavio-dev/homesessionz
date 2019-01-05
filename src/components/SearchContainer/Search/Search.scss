@@ -6,7 +6,7 @@
 }
 
 .search__icon {
-  @include transitions(left);
+  @include slow-transitions(left);
   cursor: text;
   height: 20px;
   left: calc(100% - 20px);
