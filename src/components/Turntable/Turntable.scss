@@ -3,7 +3,15 @@
 .tt {
   margin: auto;
   position: relative;
-  width: 502px;
+  width: 250px;
+
+  @media #{$medium-and-up} {
+    width: 380px;
+  }
+
+  @media #{$large-and-up} {
+    width: 502px;
+  }
 }
 
 .tt__tonearm, .tt__vinyl {
@@ -11,18 +19,44 @@
 }
 
 .tt__tonearm {
-  top: 45px;
-  right: 42px;
-  width: 60px;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+
+  @media #{$medium-and-up} {
+    top: 30px;
+    right: 32px;
+    width: 47px;
+  }
+
+  @media #{$large-and-up} {
+    top: 45px;
+    right: 42px;
+    width: 60px;
+  }
 }
 
 .tt__vinyl {
   @include transitions(opacity);
-  height: 327px;
-  left: 43px;
+  height: 164px;
+  left: 21px;
   opacity: 0;
-  top: 44px;
-  width: 327px;
+  top: 21px;
+  width: 164px;
+
+  @media #{$medium-and-up} {
+    height: 251px;
+    left: 31px;
+    top: 31px;
+    width: 251px;
+  }
+
+  @media #{$large-and-up} {
+    height: 327px;
+    left: 43px;
+    top: 44px;
+    width: 327px;
+  }
 }
 
 .tt__vinyl--linear {
