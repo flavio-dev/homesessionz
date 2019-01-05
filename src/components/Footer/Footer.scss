@@ -17,6 +17,15 @@
   padding-top: 20px;
 }
 
+.footer__icons {
+  display: flex;
+  align-items: center;
+
+  a {
+    margin-right: 10px;
+  }
+}
+
 .footer__text {
   align-items: center;
   display: flex;

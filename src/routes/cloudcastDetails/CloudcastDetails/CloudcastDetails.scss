@@ -69,7 +69,6 @@
 
   @media #{$medium-and-up} {
     justify-content: flex-start;
-    margin-left: 110px;
   }
 
   @media #{$large-and-up} {
@@ -83,4 +82,10 @@
 
 .cd__bottom__text {
   white-space: pre-line;
+}
+
+.cd__bottom__duration {
+  display: flex;
+  font-weight: bold;
+  justify-content: flex-end;
 }

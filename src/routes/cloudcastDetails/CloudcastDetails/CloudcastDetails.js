@@ -8,6 +8,7 @@ import ImagePlayPause from 'components/ImagePlayPause'
 import Tag from 'components/Tag'
 
 import slugToKey from 'utils/slugToKey'
+import durationFormater from 'utils/durationFormater'
 
 import './CloudcastDetails.css'
 
@@ -125,11 +126,14 @@ class CloudcastDetails extends Component {
             <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
           </ImagePano>
         </section>
-        <section className='cd__bottom last'>
-          <h2 className='title-margin'>about the show</h2>
+        <section className='cd__bottom'>
+          <h2 className='title-margin'>about the sessiøn</h2>
           <div className='cd__bottom__text'>
             {cast.description}
           </div>
+        </section>
+        <section className='cd__bottom cd__bottom__duration last'>
+          <p>duration of the show: {durationFormater(parseInt(cast.audio_length, 10))}</p>
         </section>
       </div>
     )
