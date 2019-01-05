@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './Footer.css'
 
@@ -10,10 +11,16 @@ import HeartIcon from 'components/HeartIcon'
 export const Footer = () => (
   <div className='footer'>
     <div className='footer__inner'>
-      <div className='footer__icons'>
-        <a href='https://www.instagram.com/homesessionz/' target='_blank'><InstaIcon /></a>
-        <a href='https://www.mixcloud.com/homesessionz/' target='_blank'><MixcloudIcon /></a>
-        <a href='https://www.soundcloud.com/homesessionz/' target='_blank'><SoundcloudIcon /></a>
+      <div className='footer__inner__top-line'>
+        <div className='footer__icons'>
+          <a href='https://www.instagram.com/homesessionz/' target='_blank'><InstaIcon /></a>
+          <a href='https://www.mixcloud.com/homesessionz/' target='_blank'><MixcloudIcon /></a>
+          <a href='https://www.soundcloud.com/homesessionz/' target='_blank'><SoundcloudIcon /></a>
+        </div>
+        <div className='footer__links'>
+          <Link to='/contact'>cøntact</Link>
+          <Link to='/about'>abøut</Link>
+        </div>
       </div>
       <div className='footer__text'>
         <div className='footer__text__flavio'>

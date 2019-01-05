@@ -49,9 +49,7 @@
   }
 }
 
-.header__menu {
-  display: flex;
-  justify-content: space-between;
+.header__search {
   width: 180px;
 
   @media #{$medium-and-up} {

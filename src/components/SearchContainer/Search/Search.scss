@@ -1,0 +1,35 @@
+@import "globals.scss";
+
+.search {
+  background-color: $color-black;
+  position: relative;
+}
+
+.search__icon {
+  @include transitions(left);
+  cursor: text;
+  height: 20px;
+  left: calc(100% - 20px);
+  position: absolute;
+  top: 8px;
+  width: 20px;
+
+  &.search__icon--focused {
+    left: 10px;
+  }
+}
+
+.search__input {
+  @include transitions(border);
+  background-color: transparent;
+  border: 2px solid $color-black;
+  box-sizing: border-box;
+  color: $color-white;
+  padding: 5px 5px 5px 37px;
+  width: 100%;
+  z-index: 1;
+
+  &:focus {
+    border-color: $color-white;
+  }
+}

@@ -17,6 +17,12 @@
   padding-top: 20px;
 }
 
+.footer__inner__top-line {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .footer__icons {
   display: flex;
   align-items: center;
@@ -26,11 +32,17 @@
   }
 }
 
+.footer__links {
+  a:first-of-type {
+    margin-right: 10px;
+  }
+}
+
 .footer__text {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: x-small;
 }
 

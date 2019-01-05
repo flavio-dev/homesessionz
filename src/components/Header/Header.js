@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import Logo from 'components/Logo'
+import SearchContainer from 'components/SearchContainer'
 
 import './Header.css'
 
@@ -16,9 +17,8 @@ export const Header = () => (
       <Link to='/'>
         <Logo />
       </Link>
-      <div className='header__menu font--large'>
-        <Link to='/about'>abøut</Link>
-        <Link to='/contact'>cøntact</Link>
+      <div className='header__search font--large'>
+        <SearchContainer />
       </div>
     </div>
   </div>

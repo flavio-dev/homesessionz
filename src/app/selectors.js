@@ -26,3 +26,8 @@ export const getListCloudcastKeys = createSelector(
   [getAppReducers],
   appReducer => appReducer.listCloudcastKeys
 )
+
+export const getSearchText = createSelector(
+  [getAppReducers],
+  appReducer => appReducer.searchText
+)
