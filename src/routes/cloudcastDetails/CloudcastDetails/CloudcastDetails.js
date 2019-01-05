@@ -78,11 +78,19 @@ class CloudcastDetails extends Component {
 
   render() {
     const cast = this.state.currentCloudcast
-    const tags = <div className='cd__top__tags'>
-      {cast.tags && cast.tags.map((tag) => (
-        <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
-      ))}
-    </div>
+    const tags = cast.tags
+      ? <div className='cd__top__tags'>
+        {cast.tags.map((tag) => (
+          <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
+        ))}
+      </div>
+      : <div className='cd__top__tags'>
+        <Tag style={{width: 75}} name='&nbsp;' />
+        <Tag style={{width: 50}} name='&nbsp;' />
+        <Tag style={{width: 45}} name='&nbsp;' />
+        <Tag style={{width: 60}} name='&nbsp;' />
+        <Tag style={{width: 65}} name='&nbsp;' />
+      </div>
     const isPlaying = this.props.isPlaying && this.props.playingCloudcast === cast.url
     const picture = cast.pictures && cast.pictures['320wx320h']
 
@@ -101,12 +109,18 @@ class CloudcastDetails extends Component {
                     isPlaying={isPlaying}
                   />
                 </div>
+                {!cast.name && <div className='cd__top__title-placeholder' />}
                 <div className='font--large'>{cast.name}</div>
               </div>
               {tags}
             </div>
           </div>
-          <img className='cd__top__img' src={picture} />
+          <div className='cd__top__img'
+            style={{
+              backgroundImage: 'url(' + picture + ')',
+              backgroundSize: 'cover'
+            }}
+          />
         </section>
         <section className='cd__top cd__top--small'>
           <div className='cd__top__img'>
@@ -116,7 +130,8 @@ class CloudcastDetails extends Component {
               playPauseTrigger={this.playPauseTrigger}
             />
           </div>
-          <div className='cd__top__title font--medium'>{cast.name}</div>
+          {!cast.name && <div className='cd__top__title cd__top__title-placeholder' />}
+          {cast.name && <div className='cd__top__title font--medium'>{cast.name}</div>}
           {tags}
         </section>
         <section>

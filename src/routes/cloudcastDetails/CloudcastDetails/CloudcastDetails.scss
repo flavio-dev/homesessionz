@@ -7,8 +7,13 @@
 
   &.cd__top--large {
     .cd__top__img {
-      height: 33%;
+      padding-top: 33%;
       width: 33%;
+
+      @media #{$large-and-up} {
+        padding-top: 320px;
+        width: 320px;
+      }
     }
 
     @media #{$small-and-down} {
@@ -27,7 +32,9 @@
 }
 
 .cd__top__img {
+  background-color: $color-grey;
   max-width: 320px;
+  max-height: 320px;
   width: 100%;
 }
 
@@ -47,6 +54,17 @@
 
 .cd__top__title {
   margin-top: 20px;
+}
+
+.cd__top__title-placeholder {
+  background-color: $color-grey;
+  height: 21px;
+  width: 90%;
+
+  @media #{$medium-and-up} {
+    height: 29px;
+    width: 75%;
+  }
 }
 
 .cd__top__left__play-pause {
