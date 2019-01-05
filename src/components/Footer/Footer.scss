@@ -3,7 +3,7 @@
 .footer {
   background-color: $color-black;
   color: $color-white;
-  font-size: small;
+  font-size: medium;
   height: 128px;
   width: 100%;
 
@@ -29,12 +29,20 @@
 
   a {
     margin-right: 10px;
+
+    @media #{$medium-and-up} {
+      margin-right: 20px;
+    }
   }
 }
 
 .footer__links {
   a:first-of-type {
     margin-right: 10px;
+
+    @media #{$medium-and-up} {
+      margin-right: 20px;
+    }
   }
 }
 

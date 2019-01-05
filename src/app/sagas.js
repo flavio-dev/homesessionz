@@ -16,7 +16,7 @@ export function* getInitialListMixesFromGithub() {
   )
   var dateObj = new Date()
   var day = dateObj.getDate()
-  const indexFeatured = (((initialListOfMixes.length + 3) * day) % (initialListOfMixes.length - 1)) + 1
+  const indexFeatured = ((initialListOfMixes.length + day) % (initialListOfMixes.length - 1)) + 1
   yield put(setIndexIsFeaturedCloudcast(indexFeatured))
 
   for (let i = 0; i < initialListOfMixes.length; i++) {

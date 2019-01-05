@@ -100,6 +100,15 @@
   }
 }
 
+.cd__image-pano {
+  @include slow-transitions(opacity);
+  opacity: 0;
+
+  &.cd--visible {
+    opacity: 1;
+  }
+}
+
 .cd__bottom {
   @include default-wrapper-width();
   @include slow-transitions(opacity);

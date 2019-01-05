@@ -115,8 +115,8 @@ class CloudcastDetails extends Component {
     const picture = cast.pictures && cast.pictures['320wx320h']
 
     const topClass = this.state.top
-      ? 'cd__top cd--visible'
-      : 'cd__top'
+      ? 'cd--visible'
+      : ''
 
     const bottomClass = this.state.bottom
       ? 'cd__bottom cd--visible'
@@ -125,7 +125,7 @@ class CloudcastDetails extends Component {
     return (
       <div>
         <ScrollTrigger onEnter={() => this.onEnterViewport('top')} throttleScroll={750}>
-          <section className={topClass + ' cd__top--large'}>
+          <section className={topClass + ' cd__top cd__top--large'}>
             <div className='cd__top__wrapper'>
               <div className='cd__top__left'>
                 <div className='cd__top__left__title'>
@@ -151,7 +151,7 @@ class CloudcastDetails extends Component {
               }}
             />
           </section>
-          <section className={topClass + ' cd__top--small'}>
+          <section className={topClass + ' cd__top cd__top--small'}>
             <div className='cd__top__img'>
               <ImagePlayPause
                 isPlaying={isPlaying}
@@ -163,15 +163,15 @@ class CloudcastDetails extends Component {
             {cast.name && <div className='cd__top__title font--medium'>{cast.name}</div>}
             {tags}
           </section>
+          <section className={topClass + ' cd__image-pano'}>
+            <ImagePano
+              urlSmall={cast.pictures && cast.pictures['640wx640h']}
+              urlLarge={cast.pictures && cast.pictures['1024wx1024h']}
+            >
+              <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
+            </ImagePano>
+          </section>
         </ScrollTrigger>
-        <section>
-          <ImagePano
-            urlSmall={cast.pictures && cast.pictures['640wx640h']}
-            urlLarge={cast.pictures && cast.pictures['1024wx1024h']}
-          >
-            <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
-          </ImagePano>
-        </section>
         <ScrollTrigger onEnter={() => this.onEnterViewport('bottom')} throttleScroll={750}>
           <section className={bottomClass}>
             <h2 className='title-margin'>about the sessiøn</h2>
