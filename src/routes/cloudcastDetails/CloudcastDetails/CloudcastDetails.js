@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Linkify from 'react-linkify'
+import ScrollTrigger from 'react-scroll-trigger'
 
 import Turntable from 'components/Turntable'
 import ImagePano from 'components/ImagePano'
@@ -19,7 +20,9 @@ class CloudcastDetails extends Component {
 
     this.state = {
       currentCloudcast: {},
-      currentCloudcastKey: ''
+      currentCloudcastKey: '',
+      top: false,
+      bottom: false
     }
 
     if (props.match && props.match.params && props.match.params.cloudcastId) {
@@ -76,6 +79,23 @@ class CloudcastDetails extends Component {
     }
   }
 
+  onEnterViewport = (section) => {
+    console.log(section)
+    switch (section) {
+      case 'top':
+        this.setState({
+          top: true
+        })
+        break
+      case 'bottom':
+        this.setState({
+          bottom: true
+        })
+        break
+      default:
+    }
+  }
+
   render() {
     const cast = this.state.currentCloudcast
     const tags = cast.tags
@@ -94,46 +114,56 @@ class CloudcastDetails extends Component {
     const isPlaying = this.props.isPlaying && this.props.playingCloudcast === cast.url
     const picture = cast.pictures && cast.pictures['320wx320h']
 
+    const topClass = this.state.top
+      ? 'cd__top cd--visible'
+      : 'cd__top'
+
+    const bottomClass = this.state.bottom
+      ? 'cd__bottom cd--visible'
+      : 'cd__bottom'
+
     return (
       <div>
-        <section className='cd__top cd__top--large'>
-          <div className='cd__top__wrapper'>
-            <div className='cd__top__left'>
-              <div className='cd__top__left__title'>
-                <div
-                  className='cd__top__left__play-pause'
-                  onClick={this.playPauseTrigger}
-                >
-                  <PlayPauseIcon
-                    reversed
-                    isPlaying={isPlaying}
-                  />
+        <ScrollTrigger onEnter={() => this.onEnterViewport('top')} throttleScroll={750}>
+          <section className={topClass + ' cd__top--large'}>
+            <div className='cd__top__wrapper'>
+              <div className='cd__top__left'>
+                <div className='cd__top__left__title'>
+                  <div
+                    className='cd__top__left__play-pause'
+                    onClick={this.playPauseTrigger}
+                  >
+                    <PlayPauseIcon
+                      reversed
+                      isPlaying={isPlaying}
+                    />
+                  </div>
+                  {!cast.name && <div className='cd__top__title-placeholder' />}
+                  <div className='font--large'>{cast.name}</div>
                 </div>
-                {!cast.name && <div className='cd__top__title-placeholder' />}
-                <div className='font--large'>{cast.name}</div>
+                {tags}
               </div>
-              {tags}
             </div>
-          </div>
-          <div className='cd__top__img'
-            style={{
-              backgroundImage: 'url(' + picture + ')',
-              backgroundSize: 'cover'
-            }}
-          />
-        </section>
-        <section className='cd__top cd__top--small'>
-          <div className='cd__top__img'>
-            <ImagePlayPause
-              isPlaying={isPlaying}
-              pictureUrl={picture}
-              playPauseTrigger={this.playPauseTrigger}
+            <div className='cd__top__img'
+              style={{
+                backgroundImage: 'url(' + picture + ')',
+                backgroundSize: 'cover'
+              }}
             />
-          </div>
-          {!cast.name && <div className='cd__top__title cd__top__title-placeholder' />}
-          {cast.name && <div className='cd__top__title font--medium'>{cast.name}</div>}
-          {tags}
-        </section>
+          </section>
+          <section className={topClass + ' cd__top--small'}>
+            <div className='cd__top__img'>
+              <ImagePlayPause
+                isPlaying={isPlaying}
+                pictureUrl={picture}
+                playPauseTrigger={this.playPauseTrigger}
+              />
+            </div>
+            {!cast.name && <div className='cd__top__title cd__top__title-placeholder' />}
+            {cast.name && <div className='cd__top__title font--medium'>{cast.name}</div>}
+            {tags}
+          </section>
+        </ScrollTrigger>
         <section>
           <ImagePano
             urlSmall={cast.pictures && cast.pictures['640wx640h']}
@@ -142,15 +172,17 @@ class CloudcastDetails extends Component {
             <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
           </ImagePano>
         </section>
-        <section className='cd__bottom'>
-          <h2 className='title-margin'>about the sessiøn</h2>
-          <div className='cd__bottom__text'>
-            <Linkify>{cast.description}</Linkify>
-          </div>
-        </section>
-        <section className='cd__bottom cd__bottom__duration last'>
-          <p>duration of the show: {durationFormater(parseInt(cast.audio_length, 10))}</p>
-        </section>
+        <ScrollTrigger onEnter={() => this.onEnterViewport('bottom')} throttleScroll={750}>
+          <section className={bottomClass}>
+            <h2 className='title-margin'>about the sessiøn</h2>
+            <div className='cd__bottom__text'>
+              <Linkify>{cast.description}</Linkify>
+            </div>
+          </section>
+          <section className={bottomClass + ' cd__bottom__duration last'}>
+            <p>duration of the show: {durationFormater(parseInt(cast.audio_length, 10))}</p>
+          </section>
+        </ScrollTrigger>
       </div>
     )
   }

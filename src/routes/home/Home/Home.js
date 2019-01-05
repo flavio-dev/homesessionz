@@ -38,7 +38,6 @@ class Home extends Component {
   }
 
   onEnterViewport = (section) => {
-    console.log('cjsdiocjodsjcisdjoc section - ', section)
     switch (section) {
       case 'featured':
         this.setState({

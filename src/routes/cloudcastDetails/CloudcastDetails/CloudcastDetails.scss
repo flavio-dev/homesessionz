@@ -2,8 +2,14 @@
 
 .cd__top {
   @include default-wrapper-width();
+  @include slow-transitions(opacity);
   display: flex;
   justify-content: space-between;
+  opacity: 0;
+
+  &.cd--visible {
+    opacity: 1;
+  }
 
   &.cd__top--large {
     .cd__top__img {
@@ -96,6 +102,12 @@
 
 .cd__bottom {
   @include default-wrapper-width();
+  @include slow-transitions(opacity);
+  opacity: 0;
+
+  &.cd--visible {
+    opacity: 1;
+  }
 }
 
 .cd__bottom__text {
