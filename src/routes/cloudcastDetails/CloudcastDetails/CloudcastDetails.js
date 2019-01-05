@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import Linkify from 'react-linkify'
 
 import Turntable from 'components/Turntable'
 import ImagePano from 'components/ImagePano'
@@ -129,7 +130,7 @@ class CloudcastDetails extends Component {
         <section className='cd__bottom'>
           <h2 className='title-margin'>about the sessiøn</h2>
           <div className='cd__bottom__text'>
-            {cast.description}
+            <Linkify>{cast.description}</Linkify>
           </div>
         </section>
         <section className='cd__bottom cd__bottom__duration last'>

@@ -82,6 +82,10 @@
 
 .cd__bottom__text {
   white-space: pre-line;
+
+  a {
+    color: $color-black;
+  }
 }
 
 .cd__bottom__duration {
