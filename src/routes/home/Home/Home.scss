@@ -45,6 +45,15 @@
   @include default-wrapper-width();
 }
 
+.home__section__inner-featured, .home__section__inner-latest, .home__grid__inner {
+  @include slow-transitions(opacity);
+  opacity: 0;
+
+  &.home--visible {
+    opacity: 1;
+  }
+}
+
 .home__grid {
   background-color: $color-white;
 

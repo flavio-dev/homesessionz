@@ -42,6 +42,10 @@ $height-header-big: 105px;
     transition: $property .4s $timing-function;
 }
 
+@mixin slow-transitions($property, $timing-function: ease) {
+    transition: $property 1s $timing-function;
+}
+
 @mixin cloudcast-image($play-button-class, $is-playing-class) {
   background-color: $color-grey;
   cursor: pointer;

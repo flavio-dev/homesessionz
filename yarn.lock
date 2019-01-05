@@ -1565,6 +1565,10 @@ clean-css@4.1.x:
   dependencies:
     source-map "0.5.x"
 
+clean-react-props@^0.2.9:
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/clean-react-props/-/clean-react-props-0.2.11.tgz#59e967d871cc9c2dcc3e4cbe6bbeaaba9ccea6c7"
+
 cli-boxes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-1.0.0.tgz#4fa917c3e59c94a004cd61f8ee509da651687143"
@@ -4677,6 +4681,10 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
@@ -6165,6 +6173,14 @@ react-saga@^0.2.6:
     "@types/react" "~15"
     "@types/redux-saga" "^0.9.31"
     is-generator-function "^1.0.3"
+
+react-scroll-trigger@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/react-scroll-trigger/-/react-scroll-trigger-0.5.2.tgz#ff6ac50bf8ec940dc897fa9748b34c481ffd29dd"
+  dependencies:
+    clean-react-props "^0.2.9"
+    lodash.throttle "^4.1.1"
+    prop-types "^15.6.2"
 
 react@^16.7.0:
   version "16.7.0"

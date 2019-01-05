@@ -38,6 +38,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-saga": "^0.2.6",
+    "react-scroll-trigger": "^0.5.2",
     "redux-persist": "^5.10.0",
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0",

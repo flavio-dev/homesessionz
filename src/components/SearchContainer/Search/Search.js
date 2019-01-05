@@ -34,7 +34,6 @@ class Search extends Component {
   }
 
   render() {
-    console.log('this.state.isFocused = ', this.state.isFocused)
     return (
       <div className='search'>
         <div
