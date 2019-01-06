@@ -22,7 +22,8 @@ class CloudcastDetails extends Component {
       currentCloudcast: {},
       currentCloudcastKey: '',
       top: false,
-      bottom: false
+      bottom: false,
+      topImgHasLoaded: false
     }
 
     if (props.match && props.match.params && props.match.params.cloudcastId) {
@@ -80,7 +81,6 @@ class CloudcastDetails extends Component {
   }
 
   onEnterViewport = (section) => {
-    console.log(section)
     switch (section) {
       case 'top':
         this.setState({
@@ -94,6 +94,10 @@ class CloudcastDetails extends Component {
         break
       default:
     }
+  }
+
+  handleImageLoaded = () => {
+    this.setState({topImgHasLoaded: true})
   }
 
   render() {
@@ -112,7 +116,9 @@ class CloudcastDetails extends Component {
         <Tag style={{width: 65}} name='&nbsp;' />
       </div>
     const isPlaying = this.props.isPlaying && this.props.playingCloudcast === cast.url
-    const picture = cast.pictures && cast.pictures['320wx320h']
+    const picture320 = cast.pictures && cast.pictures['320wx320h']
+    const picture640 = cast.pictures && cast.pictures['640wx640h']
+    const picture1024 = cast.pictures && cast.pictures['1024wx1024h']
 
     const topClass = this.state.top
       ? 'cd--visible'
@@ -121,6 +127,8 @@ class CloudcastDetails extends Component {
     const bottomClass = this.state.bottom
       ? 'cd__bottom cd--visible'
       : 'cd__bottom'
+
+    const topImgClass = this.state.topImgHasLoaded ? 'cd__top__img cd__top__img--has-loaded' : 'cd__top__img'
 
     return (
       <div>
@@ -144,9 +152,10 @@ class CloudcastDetails extends Component {
                 {tags}
               </div>
             </div>
-            <div className='cd__top__img'
+            <img src={picture320} alt={cast.name} onLoad={this.handleImageLoaded} style={{display: 'none'}} />
+            <div className={topImgClass}
               style={{
-                backgroundImage: 'url(' + picture + ')',
+                backgroundImage: 'url(' + picture320 + ')',
                 backgroundSize: 'cover'
               }}
             />
@@ -155,7 +164,7 @@ class CloudcastDetails extends Component {
             <div className='cd__top__img'>
               <ImagePlayPause
                 isPlaying={isPlaying}
-                pictureUrl={picture}
+                pictureUrl={picture320}
                 playPauseTrigger={this.playPauseTrigger}
               />
             </div>
@@ -165,8 +174,8 @@ class CloudcastDetails extends Component {
           </section>
           <section className={topClass + ' cd__image-pano'}>
             <ImagePano
-              urlSmall={cast.pictures && cast.pictures['640wx640h']}
-              urlLarge={cast.pictures && cast.pictures['1024wx1024h']}
+              urlSmall={picture640}
+              urlLarge={picture1024}
             >
               <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
             </ImagePano>

@@ -1,8 +1,14 @@
 @import "globals.scss";
 
+.ipp {
+  background-color: $color-grey;
+}
+
 .ipp__img {
   @include cloudcast-image(".ipp__play-button", ".ipp__img--playing");
+  @include slow-transitions(opacity);
   padding-top: 100%;
+  opacity: 0;
 
   &.ipp__img--pano {
     background-size: cover;
@@ -12,6 +18,10 @@
     @media #{$large-and-up} {
       padding-top: 450px;
     }
+  }
+
+  &.ipp__img--has-loaded {
+    opacity: 1;
   }
 }
 

@@ -13,12 +13,18 @@
 
   &.cd__top--large {
     .cd__top__img {
+      @include slow-transitions(opacity);
+      opacity: 0;
       padding-top: 33%;
       width: 33%;
 
       @media #{$large-and-up} {
         padding-top: 320px;
         width: 320px;
+      }
+
+      &.cd__top__img--has-loaded {
+        opacity: 1;
       }
     }
 
@@ -38,7 +44,6 @@
 }
 
 .cd__top__img {
-  background-color: $color-grey;
   max-width: 320px;
   max-height: 320px;
   width: 100%;
@@ -60,6 +65,7 @@
 
 .cd__top__title {
   margin-top: 20px;
+  text-align: center;
 }
 
 .cd__top__title-placeholder {

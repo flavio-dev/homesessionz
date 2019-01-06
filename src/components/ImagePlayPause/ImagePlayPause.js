@@ -6,6 +6,21 @@ import PlayPauseIcon from 'components/PlayPauseIcon'
 import './ImagePlayPause.css'
 
 class ImagePlayPause extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      hasLoaded: false
+    }
+  }
+
+  showImageWithDelay = () => {
+    // delaying the showing of the image
+    setTimeout(() => {
+      this.setState({hasLoaded: true})
+    }, 500)
+  }
+
   render() {
     const { isPlaying, pictureUrl, panoDisplay, playPauseTrigger, children } = this.props
     let classCloudcastImg = panoDisplay ? 'ipp__img ipp__img--pano' : 'ipp__img'
@@ -13,19 +28,27 @@ class ImagePlayPause extends Component {
       classCloudcastImg = classCloudcastImg + ' ipp__img--playing'
     }
 
+    if (this.state.hasLoaded) {
+      classCloudcastImg = classCloudcastImg + ' ipp__img--has-loaded'
+    } else if (pictureUrl && pictureUrl.length) {
+      this.showImageWithDelay()
+    }
+
     return (
-      <div
-        style={{
-          backgroundImage: 'url(' + pictureUrl + ')',
-          backgroundSize: 'cover'
-        }}
-        className={classCloudcastImg}
-        onClick={playPauseTrigger}
-      >
-        <div className='ipp__play-button'>
-          <PlayPauseIcon isPlaying={isPlaying} />
+      <div className='ipp'>
+        <div
+          style={{
+            backgroundImage: 'url(' + pictureUrl + ')',
+            backgroundSize: 'cover'
+          }}
+          className={classCloudcastImg}
+          onClick={playPauseTrigger}
+        >
+          <div className='ipp__play-button'>
+            <PlayPauseIcon isPlaying={isPlaying} />
+          </div>
+          {children}
         </div>
-        {children}
       </div>
     )
   }
