@@ -177,7 +177,10 @@ class CloudcastDetails extends Component {
               urlSmall={picture640}
               urlLarge={picture1024}
             >
-              <Turntable isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url} />
+              <Turntable
+                isPlaying={this.props.isPlaying && this.props.playingCloudcast === cast.url}
+                playPauseTrigger={this.playPauseTrigger}
+              />
             </ImagePano>
           </section>
         </ScrollTrigger>

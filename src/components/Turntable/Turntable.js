@@ -33,7 +33,7 @@ class Turntable extends Component {
 
     return (
       <div className={classVar}>
-        <TurntableIcon />
+        <TurntableIcon playPauseTrigger={this.props.playPauseTrigger} />
         <div className='tt__vinyl tt__vinyl--ease'>
           <div className='tt__vinyl--linear'>
             <VinylIcon />
@@ -48,6 +48,7 @@ class Turntable extends Component {
 }
 
 Turntable.propTypes = {
+  playPauseTrigger: PropTypes.func,
   isPlaying: PropTypes.bool
 }
 

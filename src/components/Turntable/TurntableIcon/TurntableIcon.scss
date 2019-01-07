@@ -1,6 +1,22 @@
 @import 'globals.scss';
 
 .turntable-icon {
+  position: relative;
+  width: 100%;
+}
+
+.turntable-icon__svg {
   fill: $color-white;
   width: 100%;
+}
+
+.turntable-icon__action {
+  cursor: pointer;
+  border-radius: 20%;
+  bottom: 8%;
+  left: 5%;
+  position: absolute;
+  height: 9%;
+  width: 10%;
+  z-index: 1;
 }
