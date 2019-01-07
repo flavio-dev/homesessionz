@@ -23,13 +23,13 @@ class Search extends Component {
   focusOnInput = () => {
     if (!this.state.isFocused) {
       this.searchInput.current.focus()
-      this.setState({isFocused: true})
+      this.setState({ isFocused: true })
     }
   }
 
   blurOnInput = () => {
     if (this.state.isFocused) {
-      this.setState({isFocused: false})
+      this.setState({ isFocused: false })
     }
   }
 

@@ -2,7 +2,7 @@
 
 %ch {
   @media #{$small-and-down} {
-    align-items: start;
+    align-items: flex-start;
     display: flex;
     margin: 0 10px 30px;
     width: 100%;

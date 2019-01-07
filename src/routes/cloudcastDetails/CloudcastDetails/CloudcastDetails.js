@@ -43,7 +43,7 @@ class CloudcastDetails extends Component {
           key === state.currentCloudcastKey) {
         // if we don't have the currentCloudcast for the current key,
         // we need to set it if returned in props.
-        return {...state, currentCloudcast: props.cloudcastDetails[key]}
+        return { ...state, currentCloudcast: props.cloudcastDetails[key] }
       } else if (key !== state.currentCloudcastKey && props.cloudcastDetails[key]) {
         // if the current key changed, then we need to pick up the value of new current cloudcast
         return {
@@ -97,7 +97,7 @@ class CloudcastDetails extends Component {
   }
 
   handleImageLoaded = () => {
-    this.setState({topImgHasLoaded: true})
+    this.setState({ topImgHasLoaded: true })
   }
 
   render() {
@@ -109,11 +109,11 @@ class CloudcastDetails extends Component {
         ))}
       </div>
       : <div className='cd__top__tags'>
-        <Tag style={{width: 75}} name='&nbsp;' />
-        <Tag style={{width: 50}} name='&nbsp;' />
-        <Tag style={{width: 45}} name='&nbsp;' />
-        <Tag style={{width: 60}} name='&nbsp;' />
-        <Tag style={{width: 65}} name='&nbsp;' />
+        <Tag style={{ width: 75 }} name='&nbsp;' />
+        <Tag style={{ width: 50 }} name='&nbsp;' />
+        <Tag style={{ width: 45 }} name='&nbsp;' />
+        <Tag style={{ width: 60 }} name='&nbsp;' />
+        <Tag style={{ width: 65 }} name='&nbsp;' />
       </div>
     const isPlaying = this.props.isPlaying && this.props.playingCloudcast === cast.url
     const picture320 = cast.pictures && cast.pictures['320wx320h']
@@ -132,7 +132,7 @@ class CloudcastDetails extends Component {
 
     return (
       <div>
-        <ScrollTrigger onEnter={() => this.onEnterViewport('top')} throttleScroll={750}>
+        <ScrollTrigger onEnter={() => this.onEnterViewport('top')} throttleScroll={500}>
           <section className={topClass + ' cd__top cd__top--large'}>
             <div className='cd__top__wrapper'>
               <div className='cd__top__left'>
@@ -152,7 +152,7 @@ class CloudcastDetails extends Component {
                 {tags}
               </div>
             </div>
-            <img src={picture320} alt={cast.name} onLoad={this.handleImageLoaded} style={{display: 'none'}} />
+            <img src={picture320} alt={cast.name} onLoad={this.handleImageLoaded} style={{ display: 'none' }} />
             <div className={topImgClass}
               style={{
                 backgroundImage: 'url(' + picture320 + ')',
@@ -181,7 +181,7 @@ class CloudcastDetails extends Component {
             </ImagePano>
           </section>
         </ScrollTrigger>
-        <ScrollTrigger onEnter={() => this.onEnterViewport('bottom')} throttleScroll={750}>
+        <ScrollTrigger onEnter={() => this.onEnterViewport('bottom')} throttleScroll={500}>
           <section className={bottomClass}>
             <h2 className='title-margin'>about the sessiøn</h2>
             <div className='cd__bottom__text'>

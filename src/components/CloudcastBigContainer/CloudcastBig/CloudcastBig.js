@@ -48,11 +48,11 @@ class CloudcastBig extends Component {
         }
         {(!this.props.cloudcast.tags || !this.props.cloudcast.tags.length) &&
           <div className='cb__tags'>
-            <Tag style={{width: 75}} name='&nbsp;' />
-            <Tag style={{width: 50}} name='&nbsp;' />
-            <Tag style={{width: 45}} name='&nbsp;' />
-            <Tag style={{width: 60}} name='&nbsp;' />
-            <Tag style={{width: 65}} name='&nbsp;' />
+            <Tag style={{ width: 75 }} name='&nbsp;' />
+            <Tag style={{ width: 50 }} name='&nbsp;' />
+            <Tag style={{ width: 45 }} name='&nbsp;' />
+            <Tag style={{ width: 60 }} name='&nbsp;' />
+            <Tag style={{ width: 65 }} name='&nbsp;' />
           </div>
         }
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&

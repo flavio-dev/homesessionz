@@ -15,7 +15,7 @@ class ImagePano extends Component {
   showImageWithDelay = () => {
     // delaying the showing of the image
     setTimeout(() => {
-      this.setState({hasLoaded: true})
+      this.setState({ hasLoaded: true })
     }, 500)
   }
 

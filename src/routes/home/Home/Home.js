@@ -77,7 +77,7 @@ class Home extends Component {
         />
         <div className='home__wrapper'>
           <h1 className='home__title'>høme sessiønz</h1>
-          <ScrollTrigger onEnter={() => this.onEnterViewport('featured')} throttleScroll={750}>
+          <ScrollTrigger onEnter={() => this.onEnterViewport('featured')} throttleScroll={500}>
             <section className='home__section'>
               <div className={featuredClass}>
                 <h2 className='title-margin'>featured</h2>
@@ -85,7 +85,7 @@ class Home extends Component {
               </div>
             </section>
           </ScrollTrigger>
-          <ScrollTrigger onEnter={() => this.onEnterViewport('latest')} throttleScroll={750}>
+          <ScrollTrigger onEnter={() => this.onEnterViewport('latest')} throttleScroll={500}>
             <section className='home__section'>
               <div className={latestClass}>
                 <h2 className='title-margin'>latest</h2>
@@ -93,7 +93,7 @@ class Home extends Component {
               </div>
             </section>
           </ScrollTrigger>
-          <ScrollTrigger onEnter={() => this.onEnterViewport('grid')} throttleScroll={750}>
+          <ScrollTrigger onEnter={() => this.onEnterViewport('grid')} throttleScroll={500}>
             <section className='home__grid'>
               <hr />
               <section className={gridClass}>

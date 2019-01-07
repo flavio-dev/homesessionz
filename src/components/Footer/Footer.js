@@ -13,9 +13,21 @@ export const Footer = () => (
     <div className='footer__inner'>
       <div className='footer__inner__top-line'>
         <div className='footer__icons'>
-          <a href='https://www.instagram.com/homesessionz/' target='_blank'><InstaIcon /></a>
-          <a href='https://www.mixcloud.com/homesessionz/' target='_blank'><MixcloudIcon /></a>
-          <a href='https://www.soundcloud.com/homesessionz/' target='_blank'><SoundcloudIcon /></a>
+          <a href='https://www.instagram.com/homesessionz/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            <InstaIcon />
+          </a>
+          <a href='https://www.mixcloud.com/homesessionz/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            <MixcloudIcon />
+          </a>
+          <a href='https://www.soundcloud.com/homesessionz/'
+            target='_blank'
+            rel='noopener noreferrer'>
+            <SoundcloudIcon />
+          </a>
         </div>
         <div className='footer__links'>
           <Link to='/contact'>cøntact</Link>

@@ -6,7 +6,7 @@ import { setPlayingCloudcast, setIsPlaying } from 'app/actions'
 import { getIsPlaying, getPlayingCloudcast } from 'app/selectors'
 
 const playPauseTrigger = (WrappedComponent) => {
-  const addPlayPauseTrigger = ({...props}) => {
+  const addPlayPauseTrigger = ({ ...props }) => {
     const playPauseTriggerPassedAsProps = () => {
       if (props.cloudcast.url) {
         if (props.isPlaying && props.playingCloudcast === props.cloudcast.url) {
