@@ -7,6 +7,8 @@ import {
   setCloudcastDetails,
   setIndexIsFeaturedCloudcast,
   setIsFeaturedCloudcast,
+  setSearchResultsInName,
+  setSearchResultsInTags,
   SET_SEARCH_TEXT
 } from './actions'
 
@@ -46,7 +48,7 @@ function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
 }
 
 function* proceedSearch(action) {
-  let listOfCloudcastsByTag = []
+  let listOfCloudcastsByTags = []
   let listOfCloudcastsByName = []
   const searchText = action.text.toLowerCase()
   console.log('searchText = ', searchText)
@@ -56,7 +58,7 @@ function* proceedSearch(action) {
     const tags = cloucasts[key].tags
     for (let i = 0; i < tags.length; i++) {
       if (tags[i].name.toLowerCase().includes(searchText)) {
-        listOfCloudcastsByTag.push(cloucasts[key])
+        listOfCloudcastsByTags.push(cloucasts[key])
         break
       }
     }
@@ -67,8 +69,8 @@ function* proceedSearch(action) {
     }
   }
 
-  console.log('listOfCloudcastsByTag = ', listOfCloudcastsByTag)
-  console.log('listOfCloudcastsByName = ', listOfCloudcastsByName)
+  yield put(setSearchResultsInTags(listOfCloudcastsByTags))
+  yield put(setSearchResultsInName(listOfCloudcastsByName))
 }
 
 export function* watchProceedSearch() {

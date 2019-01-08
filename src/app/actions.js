@@ -4,6 +4,8 @@ export const SET_INDEX_IS_FEATURED_CLOUDCAST = 'SET_INDEX_IS_FEATURED_CLOUDCAST'
 export const SET_IS_PLAYING = 'SET_IS_PLAYING'
 export const SET_CLOUDCAST_DETAILS = 'SET_CLOUDCAST_DETAILS'
 export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT'
+export const SET_SEARCH_RESULTS_IN_NAME = 'SET_SEARCH_RESULTS_IN_NAME'
+export const SET_SEARCH_RESULTS_IN_TAGS = 'SET_SEARCH_RESULTS_IN_TAGS'
 
 export const setPlayingCloudcast = (url) => {
   return {
@@ -45,5 +47,19 @@ export const setSearchText = (text) => {
   return {
     type: SET_SEARCH_TEXT,
     text
+  }
+}
+
+export const setSearchResultsInName = (results) => {
+  return {
+    type: SET_SEARCH_RESULTS_IN_NAME,
+    results
+  }
+}
+
+export const setSearchResultsInTags = (results) => {
+  return {
+    type: SET_SEARCH_RESULTS_IN_TAGS,
+    results
   }
 }

@@ -1,4 +1,4 @@
-import { SET_SEARCH_TEXT } from '../actions'
+import { SET_SEARCH_TEXT } from '../../actions'
 
 const initialState = ''
 export const setSearchTextReducer = (state = initialState, action) => {

@@ -2,6 +2,11 @@ import { createSelector } from 'reselect'
 
 const getAppReducers = state => state.appReducers
 
+export const getSearchReducers = createSelector(
+  [getAppReducers],
+  appReducer => appReducer.searchReducers
+)
+
 export const getPlayingCloudcast = createSelector(
   [getAppReducers],
   appReducer => appReducer.playingCloudcast
@@ -28,11 +33,16 @@ export const getListCloudcastKeys = createSelector(
 )
 
 export const getSearchText = createSelector(
-  [getAppReducers],
-  appReducer => appReducer.searchText
+  [getSearchReducers],
+  searchReducer => searchReducer.text
 )
 
-export const getSearchResults = createSelector(
-  [getAppReducers],
-  appReducer => appReducer.searchResults
+export const getSearchResultsInName = createSelector(
+  [getSearchReducers],
+  searchReducer => searchReducer.resultsInName
+)
+
+export const getSearchResultsInTags = createSelector(
+  [getSearchReducers],
+  searchReducer => searchReducer.resultsInTags
 )
