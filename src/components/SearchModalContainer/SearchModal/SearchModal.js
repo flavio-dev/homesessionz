@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import CloudcastHomeContainer from 'components/CloudcastHomeContainer'
+
 import './SearchModal.css'
 
 class SearchModal extends Component {
   render() {
-    const showResultClass = this.props.searchText.length ? 'sm--visible' : ''
+    const { searchText, searchResultsInTags } = this.props
+    const showResultClass = searchText.length ? 'sm--visible' : ''
     return (
       <div className={'sm ' + showResultClass}>
         <section className='sm__inner'>
-          <h2>results for {this.props.searchText}...</h2>
+          <h2>results for {searchText}...</h2>
           <div className='sm__results'>
             <div>
               <h3>... in tags</h3>
               <div>
-                acodoi
+                {searchResultsInTags.map((result) => {
+                  return <CloudcastHomeContainer cloudcast={result} key={result.key} forceMobileView />
+                })}
               </div>
             </div>
           </div>
@@ -25,7 +30,8 @@ class SearchModal extends Component {
 }
 
 SearchModal.propTypes = {
-  searchText: PropTypes.string
+  searchText: PropTypes.string,
+  searchResultsInTags: PropTypes.array
 }
 
 export default SearchModal

@@ -21,6 +21,41 @@
 
 .ch {
   @extend %ch;
+
+  &.ch--force-mobile-view {
+    @media #{$medium-and-up} {
+      align-items: flex-start;
+      display: flex;
+      margin: 0 10px 30px;
+      width: 100%;
+    }
+
+    .ch__img {
+      margin-bottom: 0;
+      margin-right: 15px;
+      width: 85px;
+
+      &.ch__img--large {
+        display: block;
+      }
+
+      &.ch__img--small {
+
+      }
+    }
+
+    .ch__details {
+      flex: 1 1 65%;;
+    }
+
+    .ch__text-placeholder {
+      width: 50%;
+    }
+
+    .ch__tags > :not(:first-child) {
+      display: none;
+    }
+  }
 }
 
 .ch__placebo {

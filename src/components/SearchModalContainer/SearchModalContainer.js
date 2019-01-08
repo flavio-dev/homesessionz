@@ -8,7 +8,7 @@ const mapActionCreators = (dispatch) => ({})
 const mapStateToProps = (state) => ({
   searchText: getSearchText(state),
   searchResultsInName: getSearchResultsInName(state),
-  searchResultsInTag: getSearchResultsInTags(state)
+  searchResultsInTags: getSearchResultsInTags(state)
 })
 
 export default connect(mapStateToProps, mapActionCreators)(SearchModal)

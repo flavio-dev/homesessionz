@@ -1,3 +1,4 @@
+
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -9,49 +10,51 @@ import './CloudcastHome.css'
 
 class CloudcastHome extends Component {
   render() {
-    const largePicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.large
-      ? this.props.cloudcast.pictures.large
+    const { forceMobileView, cloudcast, isPlaying, playingCloudcast, playPauseTrigger } = this.props
+    const largePicUrl = cloudcast.pictures && cloudcast.pictures.large
+      ? cloudcast.pictures.large
       : ''
-    const smallPicUrl = this.props.cloudcast.pictures && this.props.cloudcast.pictures.medium_mobile
-      ? this.props.cloudcast.pictures.medium_mobile
+    const smallPicUrl = cloudcast.pictures && cloudcast.pictures.medium_mobile
+      ? cloudcast.pictures.medium_mobile
       : ''
 
-    const isPlaying = this.props.isPlaying && this.props.playingCloudcast === this.props.cloudcast.url
+    const isCloudcastPlaying = isPlaying && playingCloudcast === cloudcast.ur
+    const mobileViewClass = forceMobileView ? 'ch--force-mobile-view' : ''
 
     return (
-      <div className='ch'>
+      <div className={'ch ' + mobileViewClass}>
         <div className='ch__img ch__img--small'>
           <ImagePlayPause
-            isPlaying={isPlaying}
+            isPlaying={isCloudcastPlaying}
             pictureUrl={smallPicUrl}
-            playPauseTrigger={this.props.playPauseTrigger}
+            playPauseTrigger={playPauseTrigger}
           />
         </div>
         <div className='ch__img ch__img--large'>
           <ImagePlayPause
-            isPlaying={isPlaying}
+            isPlaying={isCloudcastPlaying}
             pictureUrl={largePicUrl}
-            playPauseTrigger={this.props.playPauseTrigger}
+            playPauseTrigger={playPauseTrigger}
           />
         </div>
         <div className='ch__details'>
-          {this.props.cloudcast.tags && this.props.cloudcast.tags.length &&
+          {cloudcast.tags && cloudcast.tags.length &&
             <div className='ch__tags'>
-              {this.props.cloudcast.tags.map((tag) => (
+              {cloudcast.tags.map((tag) => (
                 <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
               ))}
             </div>
           }
-          {(!this.props.cloudcast.tags || !this.props.cloudcast.tags.length) &&
+          {(!cloudcast.tags || !cloudcast.tags.length) &&
             <div className='ch__tags'>
               <Tag style={{ width: 75 }} name='&nbsp;' />
               <Tag style={{ width: 50 }} name='&nbsp;' />
             </div>
           }
-          {this.props.cloudcast.name && this.props.cloudcast.name.length &&
-            <Link to={this.props.cloudcast.slug} className='ch__text'>{this.props.cloudcast.name}</Link>
+          {cloudcast.name && cloudcast.name.length &&
+            <Link to={cloudcast.slug} className='ch__text'>{cloudcast.name}</Link>
           }
-          {(!this.props.cloudcast.name || !this.props.cloudcast.name.length) &&
+          {(!cloudcast.name || !cloudcast.name.length) &&
             <div className='ch__text-placeholder' />
           }
         </div>
@@ -75,7 +78,8 @@ CloudcastHome.propTypes = {
   cloudcast: PropTypes.object,
   playingCloudcast: PropTypes.string,
   playPauseTrigger: PropTypes.func.isRequired,
-  isPlaying: PropTypes.bool
+  isPlaying: PropTypes.bool,
+  forceMobileView: PropTypes.bool
 }
 
 export default CloudcastHome
