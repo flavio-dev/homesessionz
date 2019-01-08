@@ -6,9 +6,11 @@ import './Layout.css'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 import CloudcastPlayerContainer from 'components/CloudcastPlayerContainer'
+import SearchModalContainer from 'components/SearchModalContainer'
 
 export const Layout = ({ children }) => (
-  <div>
+  <div style={{ position: 'relative' }}>
+    <SearchModalContainer />
     <Header />
     <div className='layout'>
       {children}

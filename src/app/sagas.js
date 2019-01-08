@@ -1,4 +1,4 @@
-import { fork, put, call } from 'redux-saga/effects'
+import { fork, put, call, take, select } from 'redux-saga/effects'
 
 import whatwgFetch from 'utils/fetch'
 import getEnvUrlPrefix from 'utils/envUrl'
@@ -6,8 +6,11 @@ import getEnvUrlPrefix from 'utils/envUrl'
 import {
   setCloudcastDetails,
   setIndexIsFeaturedCloudcast,
-  setIsFeaturedCloudcast
+  setIsFeaturedCloudcast,
+  SET_SEARCH_TEXT
 } from './actions'
+
+import { getCloudcastDetails } from './selectors'
 
 export function* getInitialListMixesFromGithub() {
   const initialListOfMixes = yield call(
@@ -39,5 +42,34 @@ function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
     }
   } catch (error) {
     console.log('error')
+  }
+}
+
+export function* watchProceedSearch() {
+  while (true) {
+    let listOfCloudcastsByTag = []
+    let listOfCloudcastsByName = []
+    const searchTextFromAction = yield take(SET_SEARCH_TEXT)
+    const searchText = searchTextFromAction.text.toLowerCase()
+    console.log('searchText = ', searchText)
+    const cloucasts = yield select(getCloudcastDetails)
+    for (let key in cloucasts) {
+      // check for the tags
+      const tags = cloucasts[key].tags
+      for (let i = 0; i < tags.length; i++) {
+        if (tags[i].name.toLowerCase().includes(searchText)) {
+          listOfCloudcastsByTag.push(cloucasts[key])
+          break
+        }
+      }
+
+      // check for the name
+      if (cloucasts[key].name.toLowerCase().includes(searchText)) {
+        listOfCloudcastsByName.push(cloucasts[key])
+      }
+    }
+
+    console.log('listOfCloudcastsByTag = ', listOfCloudcastsByTag)
+    console.log('listOfCloudcastsByName = ', listOfCloudcastsByName)
   }
 }

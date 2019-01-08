@@ -1,0 +1,30 @@
+@import "globals.scss";
+
+.sm {
+  @include transitions(opacity);
+  background-color: $color-white-opacity;
+  opacity: 0;
+
+  &.sm--visible {
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    right: 0;
+    top: 85px;
+    z-index: 20;
+
+    @media #{$medium-and-up} {
+      top: 105px;
+    }
+
+    .sm__inner {
+      display: block;
+    }
+  }
+}
+
+.sm__inner {
+  @include default-wrapper-width();
+  display: none;
+}

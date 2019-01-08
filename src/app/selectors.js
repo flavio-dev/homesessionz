@@ -31,3 +31,8 @@ export const getSearchText = createSelector(
   [getAppReducers],
   appReducer => appReducer.searchText
 )
+
+export const getSearchResults = createSelector(
+  [getAppReducers],
+  appReducer => appReducer.searchResults
+)

@@ -6,7 +6,7 @@ export const setCloudcastDetailsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CLOUDCAST_DETAILS:
       let newState = { ...state }
-      newState[action.index.toString()] = null
+      delete newState[action.index.toString()]
       newState[slugToKey(action.details.slug)] = action.details
       return newState
     default:

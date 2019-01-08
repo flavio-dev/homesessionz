@@ -17,7 +17,7 @@ export const Header = () => (
       <Link to='/'>
         <Logo />
       </Link>
-      <div className='header__search font--large'>
+      <div className='header__search font--medium'>
         <SearchContainer />
       </div>
     </div>

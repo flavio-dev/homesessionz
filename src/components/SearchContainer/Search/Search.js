@@ -45,7 +45,7 @@ class Search extends Component {
         <input
           ref={this.searchInput}
           className='search__input'
-          type='search'
+          type='text'
           value={this.props.searchText} onChange={this.handleChange}
           onFocus={this.focusOnInput}
           onBlur={this.blurOnInput}
