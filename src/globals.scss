@@ -27,10 +27,10 @@ $color-grey: #c4c4c4;
 $height-header-small: 85px;
 $height-header-big: 105px;
 
-@mixin default-wrapper-width() {
+@mixin default-wrapper-width($maxwidth: $max-screen-width) {
   margin-left: auto;
   margin-right: auto;
-  max-width: $max-screen-width;
+  max-width: $maxwidth;
   width: $small-screen-inner-width;
 
   @media #{$medium-and-up} {

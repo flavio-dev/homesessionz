@@ -12,13 +12,20 @@ class ImagePlayPause extends Component {
     this.state = {
       hasLoaded: false
     }
+
+    this.timeout = null
   }
 
   showImageWithDelay = () => {
     // delaying the showing of the image
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       this.setState({ hasLoaded: true })
     }, 500)
+  }
+
+  componentWillUnmount() {
+    // in case we unmount and the setState still happening
+    clearTimeout(this.timeout)
   }
 
   render() {

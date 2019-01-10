@@ -28,4 +28,27 @@
 .sm__inner {
   @include default-wrapper-width();
   display: none;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.sm__results {
+  @media #{$large-and-up} {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.sm__results__in {
+  @media #{$large-and-up} {
+    width: 49%;
+  }
+}
+
+.sm__results__delimiter {
+  @media #{$large-and-up} {
+    display: block;
+  }
 }

@@ -51,11 +51,10 @@ function* proceedSearch(action) {
   let listOfCloudcastsByTags = []
   let listOfCloudcastsByName = []
   const searchText = action.text.toLowerCase()
-  console.log('searchText = ', searchText)
   const cloucasts = yield select(getCloudcastDetails)
   for (let key in cloucasts) {
     // check for the tags
-    const tags = cloucasts[key].tags
+    const tags = cloucasts[key].tags || []
     for (let i = 0; i < tags.length; i++) {
       if (tags[i].name.toLowerCase().includes(searchText)) {
         listOfCloudcastsByTags.push(cloucasts[key])
