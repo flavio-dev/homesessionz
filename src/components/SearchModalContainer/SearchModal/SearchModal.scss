@@ -48,6 +48,12 @@
 }
 
 .sm__results__delimiter {
+  border: 0;
+  border-left: 1px solid $color-black;
+  display: none;
+  height: calc(100vh - $height-header-big);
+  padding: 0;
+  width: 2px;
   @media #{$large-and-up} {
     display: block;
   }
