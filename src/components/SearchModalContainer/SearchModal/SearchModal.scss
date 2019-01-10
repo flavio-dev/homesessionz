@@ -3,21 +3,21 @@
 .sm {
   @include transitions(opacity);
   background-color: $color-white-opacity;
+  bottom: 0;
+  left: 0;
   opacity: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: $height-header-small;
+
+  @media #{$medium-and-up} {
+    top: $height-header-big;
+  }
 
   &.sm--visible {
-    bottom: 0;
-    left: 0;
     opacity: 1;
-    overflow: auto;
-    position: fixed;
-    right: 0;
-    top: $height-header-small;
     z-index: 20;
-
-    @media #{$medium-and-up} {
-      top: $height-header-big;
-    }
 
     .sm__inner {
       display: block;

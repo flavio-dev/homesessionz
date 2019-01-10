@@ -4,7 +4,7 @@
   @media #{$small-and-down} {
     align-items: flex-start;
     display: flex;
-    margin: 0 10px 30px;
+    margin: 0 0 30px;
     width: 100%;
   }
 
@@ -56,7 +56,7 @@
     @media #{$medium-and-up} {
       align-items: flex-start;
       display: flex;
-      margin: 0 10px 30px;
+      margin: 0 0 30px;
       width: 100%;
     }
   }

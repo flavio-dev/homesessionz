@@ -15,7 +15,7 @@ class SearchModal extends Component {
           <h2>results for {searchText}...</h2>
           <section className='sm__results'>
             <div className='sm__results__in'>
-              <h3>... in name</h3>
+              <h3 className='title-margin'>... in name</h3>
               <div>
                 {searchResultsInName.map((result) => {
                   return <CloudcastHomeContainer cloudcast={result} key={result.key} forceMobileView />
@@ -25,7 +25,7 @@ class SearchModal extends Component {
             </div>
             <hr className='sm__results__delimiter' />
             <div className='sm__results__in'>
-              <h3>... in tags</h3>
+              <h3 className='title-margin'>... in tags</h3>
               <div>
                 {searchResultsInTags.map((result) => {
                   return <CloudcastHomeContainer cloudcast={result} key={result.key} forceMobileView />
