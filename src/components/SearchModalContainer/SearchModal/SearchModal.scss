@@ -62,7 +62,7 @@
   @media #{$large-and-up} {
     border: 0;
     border-left: 1px solid $color-black;
-    height: calc(100vh - #{$height-header-big});
+    height: auto;
     width: 2px;
   }
 }

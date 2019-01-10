@@ -18,7 +18,7 @@ class CloudcastHome extends Component {
       ? cloudcast.pictures.medium_mobile
       : ''
 
-    const isCloudcastPlaying = isPlaying && playingCloudcast === cloudcast.ur
+    const isCloudcastPlaying = isPlaying && playingCloudcast === cloudcast.url
     const mobileViewClass = forceMobileView ? 'ch--force-mobile-view' : ''
 
     return (
