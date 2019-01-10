@@ -7,10 +7,11 @@ import './SearchModal.css'
 
 class SearchModal extends Component {
   render() {
-    const { searchText, searchResultsInTags, searchResultsInName } = this.props
-    const showResultClass = searchText.length ? 'sm--visible' : ''
+    const { searchText, isPlayerLoaded, searchResultsInTags, searchResultsInName } = this.props
+    const showResultClass = searchText.length ? ' sm--visible' : ''
+    const addPaddingForPlayer = isPlayerLoaded ? ' sm--has-player' : ''
     return (
-      <div className={'sm ' + showResultClass}>
+      <div className={'sm' + showResultClass + addPaddingForPlayer}>
         <section className='sm__inner'>
           <h2>results for {searchText}...</h2>
           <section className='sm__results'>
@@ -42,6 +43,7 @@ class SearchModal extends Component {
 
 SearchModal.propTypes = {
   searchText: PropTypes.string,
+  isPlayerLoaded: PropTypes.bool,
   searchResultsInName: PropTypes.array,
   searchResultsInTags: PropTypes.array
 }

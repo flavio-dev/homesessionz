@@ -23,6 +23,10 @@
       display: block;
     }
   }
+
+  &.sm--has-player {
+    padding-bottom: 60px;
+  }
 }
 
 .sm__inner {

@@ -9,7 +9,7 @@ import CloudcastPlayerContainer from 'components/CloudcastPlayerContainer'
 import SearchModalContainer from 'components/SearchModalContainer'
 
 export const Layout = ({ children, hasSearchText }) => (
-  <div>
+  <div style={{ position: 'relative' }}>
     <SearchModalContainer />
     <Header />
     <div className={hasSearchText ? 'layout layout--fixed' : 'layout'}>

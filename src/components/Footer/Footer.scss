@@ -2,9 +2,11 @@
 
 .footer {
   background-color: $color-black;
+  bottom: 0;
   color: $color-white;
   font-size: medium;
-  height: 128px;
+  height: $height-footer;
+  position: absolute;
   width: 100%;
 
   a {

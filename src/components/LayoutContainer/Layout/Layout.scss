@@ -2,6 +2,8 @@
 
 .layout {
   padding-top: $height-header-small;
+  padding-bottom: $height-footer;
+  z-index: 5;
 
   @media #{$medium-and-up} {
     padding-top: $height-header-big;
