@@ -9,13 +9,14 @@
     bottom: 0;
     left: 0;
     opacity: 1;
+    overflow: auto;
     position: fixed;
     right: 0;
-    top: 85px;
+    top: $height-header-small;
     z-index: 20;
 
     @media #{$medium-and-up} {
-      top: 105px;
+      top: $height-header-big;
     }
 
     .sm__inner {

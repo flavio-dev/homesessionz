@@ -8,11 +8,11 @@ import Footer from 'components/Footer'
 import CloudcastPlayerContainer from 'components/CloudcastPlayerContainer'
 import SearchModalContainer from 'components/SearchModalContainer'
 
-export const Layout = ({ children }) => (
+export const Layout = ({ children, hasSearchText }) => (
   <div style={{ position: 'relative' }}>
     <SearchModalContainer />
     <Header />
-    <div className='layout'>
+    <div className={hasSearchText ? 'layout layout--fixed' : 'layout'}>
       {children}
     </div>
     <Footer />
@@ -21,7 +21,8 @@ export const Layout = ({ children }) => (
 )
 
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  hasSearchText: PropTypes.bool
 }
 
 export default Layout

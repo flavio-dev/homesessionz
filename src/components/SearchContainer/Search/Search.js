@@ -28,16 +28,16 @@ class Search extends Component {
   }
 
   blurOnInput = () => {
-    if (this.state.isFocused) {
+    if (this.state.isFocused && !this.props.searchText.length) {
       this.setState({ isFocused: false })
     }
   }
 
   render() {
     return (
-      <div className='search'>
+      <div className={this.state.isFocused ? 'search search--focused' : 'search'}>
         <div
-          className={this.state.isFocused ? 'search__icon search__icon--focused' : 'search__icon'}
+          className='search__icon'
           onClick={this.focusOnInput}
         >
           <SearchIcon />

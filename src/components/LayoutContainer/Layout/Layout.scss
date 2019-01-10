@@ -1,0 +1,17 @@
+@import "globals.scss";
+
+.layout {
+  padding-top: $height-header-small;
+
+  @media #{$medium-and-up} {
+    padding-top: $height-header-big;
+  }
+}
+
+.layout--fixed {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
