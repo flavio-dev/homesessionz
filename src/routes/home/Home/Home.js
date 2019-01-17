@@ -8,9 +8,9 @@ import Video from 'components/Video'
 
 import './Home.css'
 
-import smallHomeVid from './homeSmall.m4v'
-import mediumHomeVid from './homeMedium.m4v'
-import largeHomeVid from './homeLarge.m4v'
+import smallHomeVid from './homeMobile.mp4'
+import mediumHomeVid from './homeTablet.mp4'
+import largeHomeVid from './homeDesktop.mp4'
 
 class Home extends Component {
   constructor(props) {
