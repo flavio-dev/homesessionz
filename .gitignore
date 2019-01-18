@@ -11,6 +11,7 @@
 *~
 *.sass-cache
 src/**/*.css
+src/index.css
 
 # OS or Editor folders
 .DS_Store
