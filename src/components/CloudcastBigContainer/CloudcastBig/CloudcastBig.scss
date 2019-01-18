@@ -39,6 +39,7 @@
 }
 
 .cb__title-placeholder {
+  animation: flash 1s ease infinite;
   background-color: $color-grey;
   height: 21px;
   width: 50%;
@@ -59,6 +60,7 @@
 }
 
 .cb__text-placeholder {
+  animation: flash 1s ease infinite;
   background-color: $color-grey;
   height: 18px;
   width: 95%;

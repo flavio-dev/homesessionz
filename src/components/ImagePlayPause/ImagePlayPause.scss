@@ -1,6 +1,7 @@
 @import "globals.scss";
 
 .ipp {
+  animation: flash 1s ease infinite;
   background-color: $color-grey;
 }
 

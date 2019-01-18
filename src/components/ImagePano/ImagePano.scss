@@ -1,6 +1,7 @@
 @import 'globals.scss';
 
 .ip {
+  animation: flash 1s ease infinite;
   background-color: $color-grey;
 }
 
