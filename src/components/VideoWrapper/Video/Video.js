@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import './Video.css'
 
 export const Video = ({ smallVid, mediumVid, largeVid }) => (
-  <div className='video__Wrapper'>
+  <div className='video__wrapper'>
     <video autoPlay muted loop className='video__small'>
       <source src={smallVid} type='video/mp4' />
     </video>

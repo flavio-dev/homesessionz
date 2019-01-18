@@ -1,27 +1,35 @@
-import React, { Component } from 'react'
-import styles from './Contact.css'
+import React from 'react'
 
-class Contact extends Component {
-  render() {
-    return (
-      <div className={styles.Contact}>
-        <div>contact page to do</div>
-        <form
-          className={styles.ContactForm}
-          name='afm_form_af054f1d'
-          id='afm_form_af054f1d'
-          action='http://free.allforms.mailjol.net/u/af054f1d.php'
-          method='POST'
-        >
-          <input type='text' name='name' placeholder='name*' />
-          <input type='text' name='email' placeholder='email*' />
-          <input type='text' name='subject' placeholder='subject*' />
-          <textarea rows='4' name='message' placeholder='message' />
-          <input type='submit' name='submit' value='send' />
+import VideoWrapper from 'components/VideoWrapper'
+
+import './Contact.css'
+
+import smallHomeVid from './contactMobile.mp4'
+import mediumHomeVid from './contactTablet.mp4'
+import largeHomeVid from './contactDesktop.mp4'
+
+export const Contact = () => (
+  <VideoWrapper
+    smallVid={smallHomeVid}
+    mediumVid={mediumHomeVid}
+    largeVid={largeHomeVid}
+    title='cøntact'
+  >
+    <section className='last'>
+      <div className='contact font--medium'>
+        <form method='POST' action='https://formspree.io/myshoestravel@gmail.com'>
+          <div className='contact__form'>
+            <div className='contact__form__email-name'>
+              <input type='name' name='name' placeholder='name' />
+              <input type='email' name='email' placeholder='email*' />
+            </div>
+            <textarea name='message' placeholder='message' rows='4' />
+            <button type='submit'>send</button>
+          </div>
         </form>
       </div>
-    )
-  }
-}
+    </section>
+  </VideoWrapper>
+)
 
 export default Contact

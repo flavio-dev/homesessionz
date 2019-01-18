@@ -14,11 +14,10 @@
   width: 20px;
 }
 
-.search__input {
+input[type="text"].search__input {
   @include transitions(border-color);
   background-color: transparent;
-  border: 2px solid $color-black;
-  box-sizing: border-box;
+  border-color: $color-black;
   color: $color-white;
   padding: 8px 8px 8px 37px;
   width: 100%;
@@ -29,7 +28,7 @@
     left: 10px;
   }
 
-  .search__input {
+  input[type="text"].search__input {
     border-color: $color-white;
   }
 }

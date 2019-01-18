@@ -33,6 +33,7 @@ body {
 }
 
 section {
+  background-color: $color-white;
   padding-top: 30px;
 
   @media #{$medium-and-up} {
@@ -53,6 +54,22 @@ section {
     @media #{$large-and-up} {
       padding-bottom: 50px;
     }
+  }
+}
+
+p {
+  margin-bottom: 15px;
+
+  @media #{$medium-and-up} {
+    margin-bottom: 25px;
+  }
+
+  @media #{$large-and-up} {
+    margin-bottom: 35px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
   }
 }
 
@@ -101,5 +118,44 @@ h3, .font--medium {
 
   @media #{$large-and-up} {
     margin-bottom: 40px;
+  }
+}
+
+input[type="text"],
+input[type="name"],
+input[type="email"],
+textarea {
+  @include transitions(border);
+  background-color: $color-white;
+  border: 2px solid $color-black-opacity;
+  box-sizing: border-box;
+  padding: 8px 15px;
+
+  &:focus {
+    border-color: $color-black;
+  }
+
+  &::placeholder {
+    color: $color-black-opacity;
+  }
+}
+
+button {
+  @include transitions(all);
+  background-color: $color-black;
+  border: 2px solid $color-black;
+  color: $color-white;
+  cursor: pointer;
+  padding: 8px 15px;
+
+  @media #{$small-and-down} {
+    width: 100%;
+  }
+
+  @media #{$medium-and-up} {
+    &:hover {
+      background-color: $color-white;
+      color: $color-black;
+    }
   }
 }

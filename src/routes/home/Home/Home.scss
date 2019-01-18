@@ -1,51 +1,10 @@
 @import "globals.scss";
 
-.home__wrapper {
-  padding-top: 56.25%;
-  position: relative;
-
-  @media #{$large-and-up} {
-    padding-top: 582px;
-  }
-}
-
-.home__title {
-  color: $color-white;
-  cursor: default;
-  display: flex;
-  font-weight: bold;
-  justify-content: center;
-  margin-top: 22%;
-  position: absolute;
-  text-shadow: 4px 4px 2px $color-black-opacity;
-  top: 0;
-  width: 100%;
-
-  @media #{$small-and-down} {
-    font-size: 35px;
-    font-size: 11vw;
-  }
-
-  @media #{$medium-and-up} {
-    font-size: 65px;
-    font-size: 10vw;
-  }
-
-  @media #{$large-and-up} {
-    margin-top: 230px;
-    font-size: 120px;
-  }
-}
-
 .home__section {
-  background-color: $color-white;
-}
-
-.home__section__inner {
   @include default-wrapper-width();
 }
 
-.home__section__inner-featured, .home__section__inner-latest, .home__grid__inner {
+.home__section-featured, .home__section-latest, .home__grid__inner {
   @include slow-transitions(opacity);
   opacity: 0;
 
@@ -55,8 +14,6 @@
 }
 
 .home__grid {
-  background-color: $color-white;
-
   hr {
     border: 0;
     border-top: 1px solid $color-black;

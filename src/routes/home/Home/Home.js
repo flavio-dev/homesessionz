@@ -4,7 +4,7 @@ import ScrollTrigger from 'react-scroll-trigger'
 import CloudcastHomeContainer from 'components/CloudcastHomeContainer'
 import CloudcastHomePlacebo from 'components/CloudcastHomeContainer/CloudcastHomePlacebo'
 import CloudcastBigContainer from 'components/CloudcastBigContainer'
-import Video from 'components/Video'
+import VideoWrapper from 'components/VideoWrapper'
 
 import './Home.css'
 
@@ -61,62 +61,59 @@ class Home extends Component {
   render() {
     const firstCloudcast = this.state.cloudcastDetails[this.state.listCloudcastKeys[0]] || {}
     const featuredClass = this.state.featured
-      ? 'home__section__inner home__section__inner-featured home--visible'
-      : 'home__section__inner home__section__inner-featured'
+      ? 'home__section home__section-featured home--visible'
+      : 'home__section home__section-featured'
     const latestClass = this.state.latest
-      ? 'home__section__inner home__section__inner-latest home--visible'
-      : 'home__section__inner home__section__inner-latest'
+      ? 'home__section home__section-latest home--visible'
+      : 'home__section home__section-latest'
     const gridClass = this.state.grid ? 'home__grid__inner home--visible' : 'home__grid__inner'
 
     return (
-      <div>
-        <Video
-          smallVid={smallHomeVid}
-          mediumVid={mediumHomeVid}
-          largeVid={largeHomeVid}
-        />
-        <div className='home__wrapper'>
-          <h1 className='home__title'>høme sessiønz</h1>
-          <ScrollTrigger onEnter={() => this.onEnterViewport('featured')} throttleScroll={500}>
-            <section className='home__section'>
-              <div className={featuredClass}>
-                <h2 className='title-margin'>featured</h2>
-                <CloudcastBigContainer cloudcast={this.state.isFeaturedCloudcast.cloudcast} />
-              </div>
-            </section>
-          </ScrollTrigger>
-          <ScrollTrigger onEnter={() => this.onEnterViewport('latest')} throttleScroll={500}>
-            <section className='home__section'>
-              <div className={latestClass}>
-                <h2 className='title-margin'>latest</h2>
-                <CloudcastBigContainer cloudcast={firstCloudcast} />
-              </div>
-            </section>
-          </ScrollTrigger>
-          <ScrollTrigger onEnter={() => this.onEnterViewport('grid')} throttleScroll={500}>
-            <section className='home__grid'>
-              <hr />
-              <section className={gridClass}>
-                {this.state.listCloudcastKeys.map((key, index) => {
-                  if (index === 0 || index === this.state.isFeaturedCloudcast.index) {
-                    return null
-                  }
+      <VideoWrapper
+        smallVid={smallHomeVid}
+        mediumVid={mediumHomeVid}
+        largeVid={largeHomeVid}
+        title='høme sessiønz'
+      >
+        <ScrollTrigger onEnter={() => this.onEnterViewport('featured')} throttleScroll={500}>
+          <section>
+            <div className={featuredClass}>
+              <h2 className='title-margin'>featured</h2>
+              <CloudcastBigContainer cloudcast={this.state.isFeaturedCloudcast.cloudcast} />
+            </div>
+          </section>
+        </ScrollTrigger>
+        <ScrollTrigger onEnter={() => this.onEnterViewport('latest')} throttleScroll={500}>
+          <section>
+            <div className={latestClass}>
+              <h2 className='title-margin'>latest</h2>
+              <CloudcastBigContainer cloudcast={firstCloudcast} />
+            </div>
+          </section>
+        </ScrollTrigger>
+        <ScrollTrigger onEnter={() => this.onEnterViewport('grid')} throttleScroll={500}>
+          <section className='home__grid'>
+            <hr />
+            <section className={gridClass}>
+              {this.state.listCloudcastKeys.map((key, index) => {
+                if (index === 0 || index === this.state.isFeaturedCloudcast.index) {
+                  return null
+                }
 
-                  const cloudcast = this.state.cloudcastDetails[key]
-                  if (cloudcast) {
-                    return <CloudcastHomeContainer cloudcast={cloudcast} key={key} />
-                  } else {
-                    return null
-                  }
-                })}
-                <CloudcastHomePlacebo />
-                <CloudcastHomePlacebo />
-                <CloudcastHomePlacebo />
-              </section>
+                const cloudcast = this.state.cloudcastDetails[key]
+                if (cloudcast) {
+                  return <CloudcastHomeContainer cloudcast={cloudcast} key={key} />
+                } else {
+                  return null
+                }
+              })}
+              <CloudcastHomePlacebo />
+              <CloudcastHomePlacebo />
+              <CloudcastHomePlacebo />
             </section>
-          </ScrollTrigger>
-        </div>
-      </div>
+          </section>
+        </ScrollTrigger>
+      </VideoWrapper>
     )
   }
 }

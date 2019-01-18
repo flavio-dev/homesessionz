@@ -1,17 +1,47 @@
 @import "globals.scss";
 
-.Contact {
-
+.contact {
+  @include default-wrapper-width();
 }
 
-.ContactForm {
-  input[type="text"], textarea {
-    display: block;
-    margin-bottom: 15px;
-    width: 88%;
+.contact__form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 
-    @media #{$medium-and-up} {
-      width: 250px;
+  input, textarea {
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  @media #{$medium-and-up} {
+    textarea {
+      max-width: 500px;
     }
+  }
+
+  @media #{$large-and-up} {
+    textarea {
+      max-width: 600px;
+    }
+  }
+}
+
+.contact__form__email-name {
+  width: 100%;
+
+  @media #{$medium-and-up} {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+
+    input {
+      width: 48%;
+    }
+  }
+
+  @media #{$large-and-up} {
+    max-width: 600px;
   }
 }

@@ -63,6 +63,10 @@ class CloudcastDetails extends Component {
     return state
   }
 
+  componentWillUnmount() {
+    console.log('CKADIOCOADJCIOAD')
+  }
+
   playPauseTrigger = () => {
     const cast = this.state.currentCloudcast
     if (cast.url) {

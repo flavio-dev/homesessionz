@@ -19,8 +19,8 @@ export const Root = ({ store, history }) => (
       <LayoutContainer>
         <Switch>
           <Route exact path='/' component={HomeContainer} />
-          <Route exact path='/contact' component={Contact} />
-          <Route exact path='/about' component={About} />
+          <Route exact path='/contact' component={scrollIntoView(Contact)} />
+          <Route exact path='/about' component={scrollIntoView(About)} />
           <Route exact path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
         </Switch>
       </LayoutContainer>

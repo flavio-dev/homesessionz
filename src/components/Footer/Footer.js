@@ -30,8 +30,8 @@ export const Footer = () => (
           </a>
         </div>
         <div className='footer__links'>
-          <Link to='/contact'>cøntact</Link>
           <Link to='/about'>abøut</Link>
+          <Link to='/contact'>cøntact</Link>
         </div>
       </div>
       <div className='footer__text'>

@@ -1,4 +1,5 @@
 @import "globals.scss";
 
-.About {
+.about {
+  @include default-wrapper-width();
 }
