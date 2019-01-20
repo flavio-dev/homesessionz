@@ -12,9 +12,9 @@ class SearchModal extends Component {
     const addPaddingForPlayer = isPlayerLoaded ? ' sm--has-player' : ''
     return (
       <div className={'sm' + showResultClass + addPaddingForPlayer}>
-        <section className='sm__inner'>
+        <section className='sm__inner no-background'>
           <h2>results for {searchText}...</h2>
-          <section className='sm__results'>
+          <section className='sm__results no-background'>
             <div className='sm__results__in'>
               <h3 className='title-margin'>... in name</h3>
               <div>

@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import ImagePlayPause from 'components/ImagePlayPause'
-import Tag from 'components/Tag'
+import TagContainer from 'components/TagContainer'
+import Tag from 'components/TagContainer/Tag'
+import TagAll from 'components/TagAll'
 
 import './CloudcastBig.css'
 
@@ -42,17 +44,18 @@ class CloudcastBig extends Component {
         {this.props.cloudcast.tags && this.props.cloudcast.tags.length &&
           <div className='cb__tags'>
             {this.props.cloudcast.tags.map((tag) => {
-              return <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
+              return <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>
             })}
+            <TagAll tags={this.props.cloudcast.tags} />
           </div>
         }
         {(!this.props.cloudcast.tags || !this.props.cloudcast.tags.length) &&
           <div className='cb__tags'>
-            <Tag style={{ width: 75 }} name='&nbsp;' />
-            <Tag style={{ width: 50 }} name='&nbsp;' />
-            <Tag style={{ width: 45 }} name='&nbsp;' />
-            <Tag style={{ width: 60 }} name='&nbsp;' />
-            <Tag style={{ width: 65 }} name='&nbsp;' />
+            <Tag style={{ width: 75 }} name='&nbsp;' placeholder />
+            <Tag style={{ width: 50 }} name='&nbsp;' placeholder />
+            <Tag style={{ width: 45 }} name='&nbsp;' placeholder />
+            <Tag style={{ width: 60 }} name='&nbsp;' placeholder />
+            <Tag style={{ width: 65 }} name='&nbsp;' placeholder />
           </div>
         }
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&

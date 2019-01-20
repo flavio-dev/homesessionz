@@ -16,6 +16,13 @@ class Search extends Component {
     this.searchInput = React.createRef()
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (!state.isFocused && props.searchText.length) {
+      return { isFocused: true }
+    }
+    return state
+  }
+
   handleChange = (e) => {
     this.props.setSearchText(e.target.value)
   }

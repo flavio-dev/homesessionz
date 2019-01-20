@@ -1,0 +1,22 @@
+@import 'globals.scss';
+
+.ta {
+  cursor: cell;
+  position: relative;
+
+  &:hover .ta__tags {
+    display: flex;
+  }
+}
+
+.ta__tags {
+  background-color: $color-white;
+  display: none;
+  flex-wrap: wrap;
+  left: 5px;
+  padding: 10px;
+  position: absolute;
+  top: -50px;
+  z-index: 15;
+  // box shadow
+}
