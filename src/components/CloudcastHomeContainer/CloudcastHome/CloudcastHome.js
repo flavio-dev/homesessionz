@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import ImagePlayPause from 'components/ImagePlayPause'
-import Tag from 'components/Tag'
+import Tag from 'components/TagContainer/Tag'
 
 import './CloudcastHome.css'
 

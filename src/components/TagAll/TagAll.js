@@ -1,7 +1,8 @@
 import React, { Fragment, Component } from 'react'
 import PropTypes from 'prop-types'
 
-import Tag from 'components/Tag'
+import Tag from 'components/TagContainer/Tag'
+import MoreTagIcon from './MoreTagIcon'
 
 import './TagAll.css'
 
@@ -31,7 +32,12 @@ class TagAll extends Component {
     ]
 
     return <div className='ta'>
-      <Tag name='...' />
+      <span
+        className='ta__tag'
+        onClick={() => console.log('KCOADPOCA')}
+      >
+        <MoreTagIcon />
+      </span>
       <div className='ta__tags'>
         {listTags.map((tag) => (
           <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>

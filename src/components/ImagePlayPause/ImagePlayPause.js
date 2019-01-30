@@ -35,14 +35,15 @@ class ImagePlayPause extends Component {
       classCloudcastImg = classCloudcastImg + ' ipp__img--playing'
     }
 
+    let classIpp = 'ipp'
     if (this.state.hasLoaded) {
-      classCloudcastImg = classCloudcastImg + ' ipp__img--has-loaded'
+      classIpp = classIpp + ' ipp--has-loaded'
     } else if (pictureUrl && pictureUrl.length) {
       this.showImageWithDelay()
     }
 
     return (
-      <div className='ipp'>
+      <div className={classIpp}>
         <div
           style={{
             backgroundImage: 'url(' + pictureUrl + ')',

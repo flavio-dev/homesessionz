@@ -3,6 +3,14 @@
 .ipp {
   animation: flash 1s ease infinite;
   background-color: $color-grey;
+
+  &.ipp--has-loaded {
+    animation: 0;
+
+    .ipp__img {
+      opacity: 1;
+    }
+  }
 }
 
 .ipp__img {
@@ -19,10 +27,6 @@
     @media #{$large-and-up} {
       padding-top: 450px;
     }
-  }
-
-  &.ipp__img--has-loaded {
-    opacity: 1;
   }
 }
 

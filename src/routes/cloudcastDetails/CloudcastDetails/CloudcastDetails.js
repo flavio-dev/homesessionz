@@ -7,7 +7,7 @@ import Turntable from 'components/Turntable'
 import ImagePano from 'components/ImagePano'
 import PlayPauseIcon from 'components/PlayPauseIcon'
 import ImagePlayPause from 'components/ImagePlayPause'
-import Tag from 'components/Tag'
+import Tag from 'components/TagContainer/Tag'
 
 import slugToKey from 'utils/slugToKey'
 import durationFormater from 'utils/durationFormater'

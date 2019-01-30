@@ -9,6 +9,13 @@
   }
 }
 
+.ta__tag {
+  background-color: $color-black;
+  display: flex;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
 .ta__tags {
   background-color: $color-white;
   display: none;
