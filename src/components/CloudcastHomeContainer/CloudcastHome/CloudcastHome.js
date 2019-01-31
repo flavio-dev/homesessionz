@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 
 import ImagePlayPause from 'components/ImagePlayPause'
 import Tag from 'components/TagContainer/Tag'
+import TagContainer from 'components/TagContainer'
+import TagAll from 'components/TagAll'
 
 import './CloudcastHome.css'
 
@@ -41,8 +43,9 @@ class CloudcastHome extends Component {
           {cloudcast.tags && cloudcast.tags.length &&
             <div className='ch__tags'>
               {cloudcast.tags.map((tag) => (
-                <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
+                <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>
               ))}
+              <TagAll tags={this.props.cloudcast.tags} />
             </div>
           }
           {(!cloudcast.tags || !cloudcast.tags.length) &&

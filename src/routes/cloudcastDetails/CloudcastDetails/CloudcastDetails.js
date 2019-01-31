@@ -8,6 +8,7 @@ import ImagePano from 'components/ImagePano'
 import PlayPauseIcon from 'components/PlayPauseIcon'
 import ImagePlayPause from 'components/ImagePlayPause'
 import Tag from 'components/TagContainer/Tag'
+import TagContainer from 'components/TagContainer'
 
 import slugToKey from 'utils/slugToKey'
 import durationFormater from 'utils/durationFormater'
@@ -63,10 +64,6 @@ class CloudcastDetails extends Component {
     return state
   }
 
-  componentWillUnmount() {
-    console.log('CKADIOCOADJCIOAD')
-  }
-
   playPauseTrigger = () => {
     const cast = this.state.currentCloudcast
     if (cast.url) {
@@ -109,7 +106,7 @@ class CloudcastDetails extends Component {
     const tags = cast.tags
       ? <div className='cd__top__tags'>
         {cast.tags.map((tag) => (
-          <Fragment key={tag.key}><Tag name={tag.name} /></Fragment>
+          <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>
         ))}
       </div>
       : <div className='cd__top__tags'>

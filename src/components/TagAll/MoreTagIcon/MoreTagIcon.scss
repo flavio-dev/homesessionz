@@ -1,7 +1,12 @@
 @import 'globals.scss';
 
-.heart-icon {
+.mt-icon {
   fill: $color-white;
-  height: 17px;
-  width: 17px;
+  height: 15px;
+  width: 15px;
+
+  @media #{$medium-and-up} {
+    height: 17px;
+    width: 17px;
+  }
 }

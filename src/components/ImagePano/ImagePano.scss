@@ -3,6 +3,14 @@
 .ip {
   animation: flash 1s ease infinite;
   background-color: $color-grey;
+
+  &.ip--has-loaded {
+    animation: 0;
+
+    .ip__img {
+      opacity: 1;
+    }
+  }
 }
 
 .ip__img {
@@ -39,10 +47,6 @@
     position: absolute;
     top: 0;
     width: 100%;
- }
-
- &.ip__img--has-loaded {
-   opacity: 1;
  }
 }
 

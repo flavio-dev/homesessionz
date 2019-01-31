@@ -21,21 +21,21 @@ class ImagePano extends Component {
 
   render() {
     const { urlLarge, urlSmall, children } = this.props
-    let classIpImg = 'ip__img'
+    let classIp = 'ip'
     if (this.state.hasLoaded) {
-      classIpImg = classIpImg + ' ip__img--has-loaded'
+      classIp = classIp + ' ip--has-loaded'
     } else if (urlLarge && urlLarge.length) {
       this.showImageWithDelay()
     }
 
     return (
-      <div className='ip'>
+      <div className={classIp}>
         <div className='ip--large'>
           <div
             style={{
               backgroundImage: 'url(' + urlLarge || '' + ')'
             }}
-            className={classIpImg}
+            className='ip__img'
           >
             <div className='ip__content'>{children}</div>
           </div>
@@ -45,7 +45,7 @@ class ImagePano extends Component {
             style={{
               backgroundImage: 'url(' + urlSmall || '' + ')'
             }}
-            className={classIpImg}
+            className='ip__img'
           >
             <div className='ip__content'>{children}</div>
           </div>

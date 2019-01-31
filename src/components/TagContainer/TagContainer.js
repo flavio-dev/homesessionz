@@ -4,7 +4,7 @@ import { setSearchText } from 'app/actions'
 import Tag from './Tag'
 
 const mapActionCreators = (dispatch) => ({
-  setSearchText: (text) => dispatch(setSearchText(text))
+  setSearchText: (text) => dispatch(setSearchText(text.toLowerCase()))
 })
 
 const mapStateToProps = (state) => ({})
