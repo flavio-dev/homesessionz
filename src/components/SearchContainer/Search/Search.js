@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import SearchIcon from './SearchIcon'
+import ClearIcon from './ClearIcon'
 
 import './Search.css'
 
@@ -40,9 +41,22 @@ class Search extends Component {
     }
   }
 
+  clearInput = () => {
+    this.props.clearSearchText()
+    this.searchInput.current.focus()
+  }
+
   render() {
+    let classSearch = this.state.isFocused ? 'search search--focused' : 'search'
+    classSearch = this.props.searchText.length ? classSearch + ' search--has-text' : classSearch
     return (
-      <div className={this.state.isFocused ? 'search search--focused' : 'search'}>
+      <div className={classSearch}>
+        <div
+          className='search__clear-icon'
+          onClick={this.clearInput}
+        >
+          <ClearIcon />
+        </div>
         <div
           className='search__icon'
           onClick={this.focusOnInput}
@@ -64,6 +78,7 @@ class Search extends Component {
 
 Search.propTypes = {
   setSearchText: PropTypes.func,
+  clearSearchText: PropTypes.func,
   searchText: PropTypes.string
 }
 

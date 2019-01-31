@@ -4,6 +4,7 @@ export const SET_INDEX_IS_FEATURED_CLOUDCAST = 'SET_INDEX_IS_FEATURED_CLOUDCAST'
 export const SET_IS_PLAYING = 'SET_IS_PLAYING'
 export const SET_CLOUDCAST_DETAILS = 'SET_CLOUDCAST_DETAILS'
 export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT'
+export const CLEAR_SEARCH_TEXT = 'CLEAR_SEARCH_TEXT'
 export const SET_SEARCH_RESULTS_IN_NAME = 'SET_SEARCH_RESULTS_IN_NAME'
 export const SET_SEARCH_RESULTS_IN_TAGS = 'SET_SEARCH_RESULTS_IN_TAGS'
 
@@ -49,6 +50,10 @@ export const setSearchText = (text) => {
     text
   }
 }
+
+export const clearSearchText = () => ({
+  type: CLEAR_SEARCH_TEXT
+})
 
 export const setSearchResultsInName = (results) => {
   return {
