@@ -45,7 +45,10 @@ class CloudcastHome extends Component {
               {cloudcast.tags.map((tag) => (
                 <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>
               ))}
-              <TagAll tags={this.props.cloudcast.tags} />
+              <TagAll
+                tags={cloudcast.tags}
+                cloudcastName={cloudcast.name}
+              />
             </div>
           }
           {(!cloudcast.tags || !cloudcast.tags.length) &&

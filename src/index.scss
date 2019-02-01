@@ -19,7 +19,7 @@ th, td {
   vertical-align: baseline;
 }
 
-body {
+body, .toast {
   background-color: $color-white;
   color: $color-black;
   font-family: $base-font-family;
@@ -30,6 +30,14 @@ body {
   @media #{$medium-and-up} {
     font-size: 17px;
   }
+}
+
+.toast {
+  border-bottom: 3px solid $color-white;
+}
+
+.toast-progressbar {
+  background-color: $color-black;
 }
 
 section {
