@@ -11,7 +11,7 @@ class TagAll extends Component {
   showMoreTags = () => {
     const Msg = () => (<div>
       <div><strong>"{this.props.cloudcastName}"</strong> includes music sounding like:</div>
-      <div className='ta__toast__tags'>
+      <div className='tags-wrapper'>
         {this.props.tags.map((tag) => (
           <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>
         ))}
@@ -21,7 +21,8 @@ class TagAll extends Component {
   }
 
   render() {
-    return <div className='ta'>
+    const classTa = this.props.placeholder ? 'ta ta__tag--placeholder' : 'ta'
+    return <div className={classTa}>
       <span
         className='ta__tag'
         onClick={this.showMoreTags}
@@ -34,7 +35,8 @@ class TagAll extends Component {
 
 TagAll.propTypes = {
   tags: PropTypes.array,
-  cloudcastName: PropTypes.string
+  cloudcastName: PropTypes.string,
+  placeholder: PropTypes.bool
 }
 
 export default TagAll

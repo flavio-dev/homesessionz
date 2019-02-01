@@ -93,13 +93,8 @@
 }
 
 .cd__top__tags {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  justify-content: center;
-
-  @media #{$medium-and-up} {
-    justify-content: flex-start;
+  @media #{$small-and-down} {
+    justify-content: center;
   }
 
   @media #{$large-and-up} {

@@ -46,7 +46,7 @@ class CloudcastBig extends Component {
             {this.props.cloudcast.tags.map((tag) => {
               return <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>
             })}
-            <TagAll tags={this.props.cloudcast.tags} />
+            <TagAll tags={this.props.cloudcast.tags} cloudcastName={this.props.cloudcast.name} />
           </div>
         }
         {(!this.props.cloudcast.tags || !this.props.cloudcast.tags.length) &&
@@ -56,6 +56,7 @@ class CloudcastBig extends Component {
             <Tag style={{ width: 45 }} name='&nbsp;' placeholder />
             <Tag style={{ width: 60 }} name='&nbsp;' placeholder />
             <Tag style={{ width: 65 }} name='&nbsp;' placeholder />
+            <TagAll placeholder />
           </div>
         }
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&

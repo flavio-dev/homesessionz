@@ -133,6 +133,13 @@ h3, .font--medium {
   }
 }
 
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
 input[type="text"],
 input[type="name"],
 input[type="email"],

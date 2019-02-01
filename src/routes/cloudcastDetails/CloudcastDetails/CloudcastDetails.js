@@ -75,7 +75,7 @@ class CloudcastDetails extends Component {
         this.props.setIsPlaying(true)
       } else {
         // another cloudcast is being played. we load this one and play
-        this.props.setPlayingCloudcast(cast.url)
+        this.props.setPlayingCloudcast(cast.url, cast.name.toLowerCase())
         this.props.setIsPlaying(true)
       }
     }
@@ -104,17 +104,17 @@ class CloudcastDetails extends Component {
   render() {
     const cast = this.state.currentCloudcast
     const tags = cast.tags
-      ? <div className='cd__top__tags'>
+      ? <div className='cd__top__tags tags-wrapper'>
         {cast.tags.map((tag) => (
           <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>
         ))}
       </div>
-      : <div className='cd__top__tags'>
-        <Tag style={{ width: 75 }} name='&nbsp;' />
-        <Tag style={{ width: 50 }} name='&nbsp;' />
-        <Tag style={{ width: 45 }} name='&nbsp;' />
-        <Tag style={{ width: 60 }} name='&nbsp;' />
-        <Tag style={{ width: 65 }} name='&nbsp;' />
+      : <div className='cd__top__tags tags-wrapper'>
+        <Tag style={{ width: 75 }} name='&nbsp;' placeholder />
+        <Tag style={{ width: 50 }} name='&nbsp;' placeholder />
+        <Tag style={{ width: 45 }} name='&nbsp;' placeholder />
+        <Tag style={{ width: 60 }} name='&nbsp;' placeholder />
+        <Tag style={{ width: 65 }} name='&nbsp;' placeholder />
       </div>
     const isPlaying = this.props.isPlaying && this.props.playingCloudcast === cast.url
     const picture320 = cast.pictures && cast.pictures['320wx320h']

@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { toast } from 'react-toastify'
+
+import MsgPlaying from 'components/MsgPlaying'
 
 import { setPlayingCloudcast, setIsPlaying } from 'app/actions'
 import { getIsPlaying, getPlayingCloudcast } from 'app/selectors'
@@ -17,7 +20,7 @@ const playPauseTrigger = (WrappedComponent) => {
           props.setIsPlaying(true)
         } else {
           // another cloudcast is being played. we load this one and play
-          props.setPlayingCloudcast(props.cloudcast.url)
+          props.setPlayingCloudcast(props.cloudcast.url, props.cloudcast.name.toLowerCase())
           props.setIsPlaying(true)
         }
       }
@@ -35,7 +38,10 @@ const playPauseTrigger = (WrappedComponent) => {
   }
 
   const mapActionCreators = (dispatch) => ({
-    setPlayingCloudcast: (url) => dispatch(setPlayingCloudcast(url)),
+    setPlayingCloudcast: (url, name) => {
+      dispatch(setPlayingCloudcast(url))
+      toast.success(<MsgPlaying name={name} />)
+    },
     setIsPlaying: (isPlaying) => dispatch(setIsPlaying(isPlaying))
   })
 

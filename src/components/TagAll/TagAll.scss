@@ -16,9 +16,6 @@
   padding: 5px;
 }
 
-.ta__toast__tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-top: 20px;
+.ta__tag--placeholder {
+  animation: flash 1s ease infinite;
 }
