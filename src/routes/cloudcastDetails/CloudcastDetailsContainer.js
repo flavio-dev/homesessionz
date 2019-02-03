@@ -1,7 +1,4 @@
-import React from 'react'
 import { connect } from 'react-redux'
-import { toast } from 'react-toastify'
-import MsgPlaying from 'components/MsgPlaying'
 import { getCloudcastDetails, getIsPlaying, getPlayingCloudcast } from 'app/selectors'
 import { setPlayingCloudcast, setIsPlaying } from 'app/actions'
 
@@ -9,8 +6,7 @@ import CloudcastDetails from './CloudcastDetails'
 
 const mapActionCreators = (dispatch) => ({
   setPlayingCloudcast: (url, name) => {
-    dispatch(setPlayingCloudcast(url))
-    toast.success(<MsgPlaying name={name} />)
+    dispatch(setPlayingCloudcast(url, name))
   },
   setIsPlaying: (isPlaying) => dispatch(setIsPlaying(isPlaying))
 })

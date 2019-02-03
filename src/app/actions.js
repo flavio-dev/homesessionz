@@ -8,10 +8,11 @@ export const CLEAR_SEARCH_TEXT = 'CLEAR_SEARCH_TEXT'
 export const SET_SEARCH_RESULTS_IN_NAME = 'SET_SEARCH_RESULTS_IN_NAME'
 export const SET_SEARCH_RESULTS_IN_TAGS = 'SET_SEARCH_RESULTS_IN_TAGS'
 
-export const setPlayingCloudcast = (url) => {
+export const setPlayingCloudcast = (url, name) => {
   return {
     type: SET_PLAYING_CLOUDCAST,
-    url
+    url,
+    name
   }
 }
 
