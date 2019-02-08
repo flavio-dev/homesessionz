@@ -32,12 +32,36 @@ body, .toast {
   }
 }
 
+.toast-container, .toast, .toast--error {
+  @media #{$medium-and-up} {
+    width: 500px;
+  }
+}
+
 .toast {
-  border-bottom: 3px solid $color-white;
+  border: 2px solid $color-black;
+  fill: $color-black;
+  padding: 12px 12px 12px 12px;
+
+  .toast-progressbar {
+    background-color: $color-black;
+  }
+}
+
+.toast--error {
+  background-color: $color-black;
+  border: 2px solid $color-white;
+  color: $color-white;
+  fill: $color-white;
+  padding: 12px 12px 12px 12px;
+
+  .toast-progressbar {
+    background-color: $color-white;
+  }
 }
 
 .toast-progressbar {
-  background-color: $color-black;
+  height: 3px;
 }
 
 section {
@@ -160,21 +184,27 @@ textarea {
 }
 
 button {
-  @include transitions(all);
-  background-color: $color-black;
-  border: 2px solid $color-black;
-  color: $color-white;
   cursor: pointer;
   padding: 8px 15px;
 
   @media #{$small-and-down} {
     width: 100%;
   }
+}
+
+button, .button-style {
+  @include transitions(all);
+  background-color: $color-black;
+  border: 2px solid $color-black;
+  color: $color-white;
+  fill: $color-white;
 
   @media #{$medium-and-up} {
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $color-white;
       color: $color-black;
+      fill: $color-black;
     }
   }
 }

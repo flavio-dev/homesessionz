@@ -5,7 +5,7 @@ import './Tag.css'
 
 export const Tag = ({ name, style, placeholder, setSearchText }) => (
   <span
-    className={placeholder ? 'font--small tag tag--placeholder' : 'font--small tag'}
+    className={placeholder ? 'font--small tag tag--placeholder button-style' : 'font--small tag button-style'}
     style={style}
     onClick={() => setSearchText(name)}
   >

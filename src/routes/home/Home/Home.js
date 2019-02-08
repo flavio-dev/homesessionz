@@ -59,6 +59,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log('RENDERING THE HOME')
     const firstCloudcast = this.state.cloudcastDetails[this.state.listCloudcastKeys[0]] || {}
     const featuredClass = this.state.featured
       ? 'home__section home__section-featured home--visible'

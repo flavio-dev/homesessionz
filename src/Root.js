@@ -21,9 +21,10 @@ export const Root = ({ store, history }) => (
   <Provider store={store}>
     <ToastContainer
       transition={Slide}
+      className='toast-container'
       toastClassName='toast'
-      closeButton={<CloseIcon />}
       progressClassName='toast-progressbar'
+      closeButton={<CloseIcon />}
     />
     <ConnectedRouter history={history}>
       <LayoutContainer>

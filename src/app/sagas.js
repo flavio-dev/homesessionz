@@ -1,7 +1,11 @@
+import React from 'react'
 import { fork, put, call, takeLatest, select } from 'redux-saga/effects'
+import { toast } from 'react-toastify'
 
 import whatwgFetch from 'utils/fetch'
 import getEnvUrlPrefix from 'utils/envUrl'
+
+import MsgError from 'components/Msgs/MsgError'
 
 import {
   setCloudcastDetails,
@@ -15,20 +19,26 @@ import {
 import { getCloudcastDetails } from './selectors'
 
 export function* getInitialListMixesFromGithub() {
-  const initialListOfMixes = yield call(
-    whatwgFetch,
-    'https://raw.githubusercontent.com/flavio-dev/homesessionzserver/master/data.json'
-  )
-  var dateObj = new Date()
-  var day = dateObj.getDate()
-  const indexFeatured = ((initialListOfMixes.length + day) % (initialListOfMixes.length - 1)) + 1
-  yield put(setIndexIsFeaturedCloudcast(indexFeatured))
+  try {
+    const initialListOfMixes = yield call(
+      whatwgFetch,
+      'https://raw.githubusercontent.com/flavio-dev/homesessionzserver/master/data.json'
+    )
+    var dateObj = new Date()
+    var day = dateObj.getDate()
+    const indexFeatured = ((initialListOfMixes.length + day) % (initialListOfMixes.length - 1)) + 1
+    yield put(setIndexIsFeaturedCloudcast(indexFeatured))
 
-  for (let i = 0; i < initialListOfMixes.length; i++) {
-    yield put(setCloudcastDetails({
-      slug: i.toString()
-    }, i))
-    yield fork(getCloudcastDetailsCall, initialListOfMixes[i], i, i === indexFeatured)
+    for (let i = 0; i < initialListOfMixes.length; i++) {
+      yield put(setCloudcastDetails({
+        slug: i.toString()
+      }, i))
+      yield fork(getCloudcastDetailsCall, initialListOfMixes[i], i, i === indexFeatured)
+    }
+  } catch(e) {
+    toast.error(<MsgError text='failing to retrieve the list of sessionz' />, {
+      className: 'toast--error'
+    })
   }
 }
 
@@ -42,8 +52,10 @@ function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
     if (isFeatured) {
       yield put(setIsFeaturedCloudcast(cloudDetails))
     }
-  } catch (error) {
-    console.log('error')
+  } catch (e) {
+    toast.error(<MsgError text='error retrieving the sessionz' />, {
+      className: 'toast--error'
+    })
   }
 }
 

@@ -33,7 +33,7 @@ class ImagePano extends Component {
         <div className='ip--large'>
           <div
             style={{
-              backgroundImage: 'url(' + urlLarge || '' + ')'
+              backgroundImage: 'url(' + urlLarge + ')'
             }}
             className='ip__img'
           >
@@ -43,7 +43,7 @@ class ImagePano extends Component {
         <div className='ip--small'>
           <div
             style={{
-              backgroundImage: 'url(' + urlSmall || '' + ')'
+              backgroundImage: 'url(' + urlSmall + ')'
             }}
             className='ip__img'
           >

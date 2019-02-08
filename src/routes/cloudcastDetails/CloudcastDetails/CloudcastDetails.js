@@ -102,6 +102,7 @@ class CloudcastDetails extends Component {
   }
 
   render() {
+    console.log('RENDERING THE CLOUDCAST DETAILS')
     const cast = this.state.currentCloudcast
     const tags = cast.tags
       ? <div className='cd__top__tags tags-wrapper'>

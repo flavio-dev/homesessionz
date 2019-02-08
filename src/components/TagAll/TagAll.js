@@ -24,7 +24,7 @@ class TagAll extends Component {
     const classTa = this.props.placeholder ? 'ta ta__tag--placeholder' : 'ta'
     return <div className={classTa}>
       <span
-        className='ta__tag'
+        className='ta__tag button-style'
         onClick={this.showMoreTags}
       >
         <MoreTagIcon />
