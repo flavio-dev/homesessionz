@@ -193,7 +193,7 @@ class CloudcastDetails extends Component {
             </div>
           </section>
           <section className={bottomClass + ' cd__bottom__duration last'}>
-            <p>duration of the show: {durationFormater(parseInt(cast.audio_length, 10))}</p>
+            <p>duration: {durationFormater(parseInt(cast.audio_length, 10))}</p>
           </section>
         </ScrollTrigger>
       </div>
