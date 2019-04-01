@@ -22,6 +22,11 @@ export const getIsPlaying = createSelector(
   appReducer => appReducer.isPlaying
 )
 
+export const getHasCloudLoaded = createSelector(
+  [getAppReducers],
+  appReducer => appReducer.hasMixcloudEmbedLoaded
+)
+
 export const getCloudcastDetails = createSelector(
   [getAppReducers],
   appReducer => appReducer.cloudcastDetails

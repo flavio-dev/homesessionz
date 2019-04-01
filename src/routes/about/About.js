@@ -19,9 +19,9 @@ export const About = () => (
       <div className='about'>
         <h2 className='title-margin'>høme sessiønz...</h2>
         <p>
-          ... is a serie of events designed to make a connection between a music selector & a small audience.
+          ... are a series of events designed to make a connection between a music selector & a small audience.
           <br />
-          no booth, no phones, no physical barrieres.<br />
+          no booth, no phones, no physical barriers.<br />
           h/s aims to rebuild the bond between interaction & communication, music & people.
         </p>
         <p>

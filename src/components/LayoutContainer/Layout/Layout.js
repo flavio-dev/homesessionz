@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import './Layout.css'
 
 import Header from 'components/Header'
-import Footer from 'components/Footer'
+import FooterContainer from 'components/FooterContainer'
 import CloudcastPlayerContainer from 'components/CloudcastPlayerContainer'
 import SearchModalContainer from 'components/SearchModalContainer'
 
@@ -15,7 +15,7 @@ export const Layout = ({ children, hasSearchText }) => (
     <div className={hasSearchText ? 'layout layout--fixed' : 'layout'}>
       {children}
     </div>
-    <Footer />
+    <FooterContainer />
     <CloudcastPlayerContainer />
   </div>
 )

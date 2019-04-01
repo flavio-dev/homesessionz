@@ -59,6 +59,10 @@
   justify-content: space-between;
   margin-top: 40px;
   font-size: x-small;
+
+  &.footer__text--extra-space {
+    margin-top: 130px;
+  }
 }
 
 .footer__text__flavio {

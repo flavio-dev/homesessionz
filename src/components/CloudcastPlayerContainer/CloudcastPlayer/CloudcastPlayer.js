@@ -9,7 +9,7 @@ class CloudcastPlayer extends Component {
     return <div className='cp'>
       <MixcloudPlayer
         url={this.props.playingCloudcast}
-        height='60px'
+        height='120px'
         width='100%'
         playing={this.props.isPlaying}
         onPlay={() => {
@@ -22,6 +22,9 @@ class CloudcastPlayer extends Component {
             this.props.setIsPlaying(false)
           }
         }}
+        onReady={() => {
+          this.props.setHasCloudLoaded()
+        }}
       />
     </div>
   }
@@ -29,6 +32,7 @@ class CloudcastPlayer extends Component {
 
 CloudcastPlayer.propTypes = {
   setIsPlaying: PropTypes.func,
+  setHasCloudLoaded: PropTypes.func,
   playingCloudcast: PropTypes.string,
   isPlaying: PropTypes.bool.isRequired
 }
