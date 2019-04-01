@@ -6,18 +6,21 @@ import './CloudcastPlayer.css'
 
 class CloudcastPlayer extends Component {
   render() {
-    return <div className='CloudcastPlayer'>
+    console.log('## CDOICAIOCDIOCDCDIO rendering CloudcastPlayer')
+    return <div className='cp'>
       <MixcloudPlayer
         url={this.props.playingCloudcast}
         height='60px'
         width='100%'
         playing={this.props.isPlaying}
         onPlay={() => {
+          console.log('ONPLAY')
           if (!this.props.isPlaying) {
             this.props.setIsPlaying(true)
           }
         }}
         onPause={() => {
+          console.log('ONPAUSE');
           if (this.props.isPlaying) {
             this.props.setIsPlaying(false)
           }
