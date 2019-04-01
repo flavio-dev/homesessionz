@@ -30,9 +30,7 @@ export const Root = ({ store, history }) => (
     <ConnectedRouter history={history}>
       <LayoutContainer>
         <Suspense fallback={
-          <LayoutContainer>
-            <LoadingScreen />
-          </LayoutContainer>
+          <LoadingScreen />
         }>
           <Switch>
             <Route exact path='/' component={HomeContainer} />
