@@ -10,6 +10,11 @@
 
   a {
     color: $color-white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -29,10 +34,11 @@
   align-items: center;
 
   a {
-    margin-right: 10px;
+    display: flex;
+    margin-left: 10px;
 
     @media #{$medium-and-up} {
-      margin-right: 20px;
+      margin-left: 20px;
     }
   }
 }

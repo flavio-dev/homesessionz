@@ -12,6 +12,10 @@ export const Footer = () => (
   <div className='footer'>
     <div className='footer__inner'>
       <div className='footer__inner__top-line'>
+        <div className='footer__links'>
+          <Link to='/about'>abøut</Link>
+          <Link to='/contact'>cøntact</Link>
+        </div>
         <div className='footer__icons'>
           <a href='https://www.instagram.com/homesessionz/'
             target='_blank'
@@ -28,10 +32,6 @@ export const Footer = () => (
             rel='noopener noreferrer'>
             <SoundcloudIcon />
           </a>
-        </div>
-        <div className='footer__links'>
-          <Link to='/about'>abøut</Link>
-          <Link to='/contact'>cøntact</Link>
         </div>
       </div>
       <div className='footer__text'>

@@ -111,12 +111,11 @@ p {
 }
 
 a {
-    @media #{$medium-and-up} {
-        text-decoration: none;
-    }
+  color: $color-black;
+  text-decoration: underline;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
