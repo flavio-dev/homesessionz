@@ -65,7 +65,6 @@ class CloudcastDetails extends Component {
   }
 
   playPauseTrigger = () => {
-    console.log('## clicking on playPauseTrigger ');
     const cast = this.state.currentCloudcast
     if (cast.url) {
       if (this.props.isPlaying && this.props.playingCloudcast === cast.url) {
@@ -103,7 +102,6 @@ class CloudcastDetails extends Component {
   }
 
   render() {
-    console.log('RENDERING THE CLOUDCAST DETAILS')
     const cast = this.state.currentCloudcast
     const tags = cast.tags
       ? <div className='cd__top__tags tags-wrapper'>

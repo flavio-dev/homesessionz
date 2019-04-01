@@ -35,7 +35,7 @@ export function* getInitialListMixesFromGithub() {
       }, i))
       yield fork(getCloudcastDetailsCall, initialListOfMixes[i], i, i === indexFeatured)
     }
-  } catch(e) {
+  } catch (e) {
     toast.error(<MsgError text='failing to retrieve the list of sessionz' />, {
       className: 'toast--error'
     })

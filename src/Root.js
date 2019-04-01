@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 
 import LayoutContainer from 'components/LayoutContainer'
 import CloseIcon from 'components/CloseIcon'
+import LoadingScreen from 'components/LoadingScreen'
 import scrollIntoView from 'hocomponents/ScrollIntoView'
 
 import 'index.css'
@@ -28,18 +29,19 @@ export const Root = ({ store, history }) => (
     />
     <ConnectedRouter history={history}>
       <Suspense fallback={
-          <LayoutContainer>
-            <div>Loading...</div>
-          </LayoutContainer>
-        }>
-        <Switch>
-          <LayoutContainer>
+        <LayoutContainer>
+          <LoadingScreen />
+        </LayoutContainer>
+      }>
+        <LayoutContainer>
+          <Switch>
             <Route exact path='/' component={HomeContainer} />
-            <Route exact path='/contact' component={scrollIntoView(Contact)} />
-            <Route exact path='/about' component={scrollIntoView(About)} />
-            <Route exact path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
-          </LayoutContainer>
-        </Switch>
+            <Route path='/contact' component={scrollIntoView(Contact)} />
+            <Route path='/about' component={scrollIntoView(About)} />
+            <Route path='/test' component={LoadingScreen} />
+            <Route path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
+          </Switch>
+        </LayoutContainer>
       </Suspense>
     </ConnectedRouter>
   </Provider>
