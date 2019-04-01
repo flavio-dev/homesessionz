@@ -27,16 +27,20 @@ export const Root = ({ store, history }) => (
       closeButton={<CloseIcon />}
     />
     <ConnectedRouter history={history}>
-      <LayoutContainer>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Switch>
+      <Suspense fallback={
+          <LayoutContainer>
+            <div>Loading...</div>
+          </LayoutContainer>
+        }>
+        <Switch>
+          <LayoutContainer>
             <Route exact path='/' component={HomeContainer} />
             <Route exact path='/contact' component={scrollIntoView(Contact)} />
             <Route exact path='/about' component={scrollIntoView(About)} />
             <Route exact path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
-          </Switch>
-        </Suspense>
-      </LayoutContainer>
+          </LayoutContainer>
+        </Switch>
+      </Suspense>
     </ConnectedRouter>
   </Provider>
 )
