@@ -28,12 +28,12 @@ export const Root = ({ store, history }) => (
       closeButton={<CloseIcon />}
     />
     <ConnectedRouter history={history}>
-      <Suspense fallback={
-        <LayoutContainer>
-          <LoadingScreen />
-        </LayoutContainer>
-      }>
-        <LayoutContainer>
+      <LayoutContainer>
+        <Suspense fallback={
+          <LayoutContainer>
+            <LoadingScreen />
+          </LayoutContainer>
+        }>
           <Switch>
             <Route exact path='/' component={HomeContainer} />
             <Route path='/contact' component={scrollIntoView(Contact)} />
@@ -41,8 +41,8 @@ export const Root = ({ store, history }) => (
             <Route path='/test' component={LoadingScreen} />
             <Route path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
           </Switch>
-        </LayoutContainer>
-      </Suspense>
+        </Suspense>
+      </LayoutContainer>
     </ConnectedRouter>
   </Provider>
 )

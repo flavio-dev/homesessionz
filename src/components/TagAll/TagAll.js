@@ -10,7 +10,7 @@ import './TagAll.css'
 class TagAll extends Component {
   showMoreTags = () => {
     const Msg = () => (<div>
-      <div><strong>"{this.props.cloudcastName}"</strong> includes music sounding like:</div>
+      <div>all the tags for <strong>"{this.props.cloudcastName}"</strong>:</div>
       <div className='tags-wrapper'>
         {this.props.tags.map((tag) => (
           <Fragment key={tag.key}><TagContainer name={tag.name} /></Fragment>

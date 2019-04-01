@@ -43,6 +43,7 @@
     "react-router-dom": "^5.0.0",
     "react-saga": "^0.2.6",
     "react-scroll-trigger": "^0.5.2",
+    "react-sizes": "^1.0.4",
     "react-toastify": "^4.5.2",
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0",

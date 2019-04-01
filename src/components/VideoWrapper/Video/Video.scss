@@ -2,40 +2,40 @@
 
 .video__wrapper {
   background-color: $color-black;
+  height: 100%;
   position: fixed;
   width: 100%;
   z-index: -10;
 }
 
-%video {
+.video {
   object-fit: cover;
   width: 100%;
-}
-
-.video__small {
-  @extend %video;
-  display: none;
-
-  @media #{$small-and-down} {
-    display: block;
-  }
-}
-
-.video__medium {
-  @extend %video;
-  display: none;
-
-  @media #{$medium-only} {
-    display: block;
-  }
-}
-
-.video__large {
-  @extend %video;
-  display: none;
-  height: 582px;
-
   @media #{$large-and-up} {
-    display: block;
+    height: 582px;
   }
 }
+//   display: none;
+//
+//   @media #{$small-and-down} {
+//     display: block;
+//   }
+// }
+//
+// .video__medium {
+//   @extend %video;
+//   display: none;
+//
+//   @media #{$medium-only} {
+//     display: block;
+//   }
+// }
+//
+// .video__large {
+//   @extend %video;
+//   display: none;
+//
+//   @media #{$large-and-up} {
+//     display: block;
+//   }
+// }

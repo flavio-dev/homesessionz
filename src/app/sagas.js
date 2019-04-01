@@ -53,7 +53,7 @@ function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
       yield put(setIsFeaturedCloudcast(cloudDetails))
     }
   } catch (e) {
-    toast.error(<MsgError text='error retrieving the sessionz' />, {
+    toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastKey} />, {
       className: 'toast--error'
     })
   }
