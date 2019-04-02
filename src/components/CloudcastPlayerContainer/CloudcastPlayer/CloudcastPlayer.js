@@ -9,9 +9,17 @@ class CloudcastPlayer extends Component {
     return <div className='cp'>
       <MixcloudPlayer
         url={this.props.playingCloudcast}
-        height='120px'
+        height='60px'
         width='100%'
         playing={this.props.isPlaying}
+        config={{
+          mixcloud: {
+            options: {
+              mini: true,
+              light: true
+            }
+          }
+        }}
         onPlay={() => {
           if (!this.props.isPlaying) {
             this.props.setIsPlaying(true)
