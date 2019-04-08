@@ -45,6 +45,7 @@
     "react-scroll-trigger": "^0.5.2",
     "react-sizes": "^1.0.4",
     "react-toastify": "^4.5.2",
+    "react-transition-group": "^2.8.0",
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0",
     "resolve": "1.8.1",
