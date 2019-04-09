@@ -12,6 +12,7 @@ import TagContainer from 'components/TagContainer'
 
 import slugToKey from 'utils/slugToKey'
 import durationFormater from 'utils/durationFormater'
+import getTracklist from 'utils/getTracklist'
 
 import './CloudcastDetails.css'
 
@@ -34,6 +35,11 @@ class CloudcastDetails extends Component {
         this.state.currentCloudcast = this.props.cloudcastDetails[key]
       }
     }
+  }
+
+  componentDidMount() {
+    const tracklist = getTracklist()
+    console.log('componentDidMount tracklist = ', tracklist)
   }
 
   static getDerivedStateFromProps(props, state) {
