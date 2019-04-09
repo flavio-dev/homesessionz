@@ -12,7 +12,6 @@ import TagContainer from 'components/TagContainer'
 
 import slugToKey from 'utils/slugToKey'
 import durationFormater from 'utils/durationFormater'
-import getTracklist from 'utils/getTracklist'
 
 import './CloudcastDetails.css'
 
@@ -38,8 +37,13 @@ class CloudcastDetails extends Component {
   }
 
   componentDidMount() {
-    const tracklist = getTracklist()
-    console.log('componentDidMount tracklist = ', tracklist)
+    // const tracklist = getTracklist()
+    // console.log('componentDidMount tracklist = ', tracklist)
+    console.log('this.state = ', this.state);
+    console.log('this.props.cloudcastDetails = ', this.props.cloudcastDetails);
+    if (this.props.cloudcastDetails[this.state.currentCloudcastKey]) {
+      this.props.getTracklist(this.state.currentCloudcast.cloudcastFetchKeyFetch)
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -50,6 +54,7 @@ class CloudcastDetails extends Component {
           key === state.currentCloudcastKey) {
         // if we don't have the currentCloudcast for the current key,
         // we need to set it if returned in props.
+        props.getTracklist(props.cloudcastDetails[key].cloudcastFetchKeyFetch)
         return { ...state, currentCloudcast: props.cloudcastDetails[key] }
       } else if (key !== state.currentCloudcastKey && props.cloudcastDetails[key]) {
         // if the current key changed, then we need to pick up the value of new current cloudcast

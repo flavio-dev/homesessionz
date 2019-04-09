@@ -8,6 +8,7 @@ export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT'
 export const CLEAR_SEARCH_TEXT = 'CLEAR_SEARCH_TEXT'
 export const SET_SEARCH_RESULTS_IN_NAME = 'SET_SEARCH_RESULTS_IN_NAME'
 export const SET_SEARCH_RESULTS_IN_TAGS = 'SET_SEARCH_RESULTS_IN_TAGS'
+export const GET_TRACKLIST = 'GET_TRACKLIST'
 
 export const setPlayingCloudcast = (url, name) => {
   return {
@@ -74,3 +75,8 @@ export const setSearchResultsInTags = (results) => {
     results
   }
 }
+
+export const getTracklist = (cloudcastFetchKey) => ({
+  type: GET_TRACKLIST,
+  cloudcastFetchKey
+})

@@ -13,7 +13,8 @@ import {
   setIsFeaturedCloudcast,
   setSearchResultsInName,
   setSearchResultsInTags,
-  SET_SEARCH_TEXT
+  SET_SEARCH_TEXT,
+  GET_TRACKLIST
 } from './actions'
 
 import { getCloudcastDetails } from './selectors'
@@ -46,7 +47,8 @@ function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
   const prefixUrl = getEnvUrlPrefix()
   const url = prefixUrl + '/cloudcast' + cloudcastKey
   try {
-    const cloudDetails = yield call(whatwgFetch, url)
+    let cloudDetails = yield call(whatwgFetch, url)
+    cloudDetails.cloudcastFetchKeyFetch = cloudcastKey
 
     yield put(setCloudcastDetails(cloudDetails, index))
     if (isFeatured) {
@@ -86,4 +88,25 @@ function* proceedSearch(action) {
 
 export function* watchProceedSearch() {
   yield takeLatest(SET_SEARCH_TEXT, proceedSearch)
+}
+
+export function* getTracklist(action) {
+  console.log('action.cloudcastFetchKey = ', action.cloudcastFetchKey);
+  const prefixUrl = getEnvUrlPrefix()
+  const cloudcastFetchKey = action.cloudcastFetchKey
+  const url = prefixUrl + '/cloudcast/tracklist' + cloudcastFetchKey
+  console.log('CALLING  ', url);
+  try {
+    const extraInfo = yield call(whatwgFetch, url)
+    console.log('extraInfo = ', extraInfo)
+
+  } catch (e) {
+    toast.error(<MsgError text={'error retrieving the tracklist ' + cloudcastFetchKey} />, {
+      className: 'toast--error'
+    })
+  }
+}
+
+export function* watchGetTracklist() {
+  yield takeLatest(GET_TRACKLIST, getTracklist)
 }
