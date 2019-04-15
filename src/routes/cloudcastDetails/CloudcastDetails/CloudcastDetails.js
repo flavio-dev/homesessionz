@@ -5,7 +5,7 @@ import ScrollTrigger from 'react-scroll-trigger'
 
 import Turntable from 'components/Turntable'
 import ImagePano from 'components/ImagePano'
-import PlayPauseIcon from 'components/PlayPauseIcon'
+import PlayPauseIconContainer from 'components/PlayPauseIconContainer'
 import ImagePlayPause from 'components/ImagePlayPause'
 import Tag from 'components/TagContainer/Tag'
 import TagContainer from 'components/TagContainer'
@@ -142,10 +142,7 @@ class CloudcastDetails extends Component {
                     className='cd__top__left__play-pause'
                     onClick={this.playPauseTrigger}
                   >
-                    <PlayPauseIcon
-                      reversed
-                      isPlaying={isPlaying}
-                    />
+                    <PlayPauseIconContainer isPlaying={isPlaying} cloudcastKey={cast.slugToKey} reversed />
                   </div>
                   {!cast.name && <div className='cd__top__title-placeholder' />}
                   <h2>{cast.name}</h2>

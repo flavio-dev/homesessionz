@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import PlayPauseIcon from 'components/PlayPauseIcon'
+import PlayPauseIconContainer from 'components/PlayPauseIconContainer'
 
 import './ImagePlayPause.css'
 
@@ -29,7 +29,7 @@ class ImagePlayPause extends Component {
   }
 
   render() {
-    const { isPlaying, pictureUrl, panoDisplay, playPauseTrigger, children } = this.props
+    const { isPlaying, pictureUrl, panoDisplay, playPauseTrigger, children, cloudcastKey } = this.props
     let classCloudcastImg = panoDisplay ? 'ipp__img ipp__img--pano' : 'ipp__img'
     if (isPlaying) {
       classCloudcastImg = classCloudcastImg + ' ipp__img--playing'
@@ -53,8 +53,9 @@ class ImagePlayPause extends Component {
           onClick={playPauseTrigger}
         >
           <div className='ipp__play-button'>
-            <PlayPauseIcon isPlaying={isPlaying} />
+            <PlayPauseIconContainer isPlaying={isPlaying} cloudcastKey={cloudcastKey} />
           </div>
+
           {children}
         </div>
       </div>

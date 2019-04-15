@@ -44,37 +44,38 @@ export function* getInitialListMixesFromGithub() {
   }
 }
 
-function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
+function* getCloudcastDetailsCall(cloudcastUrl, index, isFeatured) {
   const prefixUrl = getEnvUrlPrefix()
-  const url = prefixUrl + '/cloudcast' + cloudcastKey
+  const url = prefixUrl + '/cloudcast' + cloudcastUrl
   try {
     let cloudDetails = yield call(whatwgFetch, url)
-    cloudDetails.cloudcastFetchKeyFetch = cloudcastKey
+    const slugToKeyValue = slugToKey(cloudDetails.slug)
+    cloudDetails.cloudcastFetchKeyFetch = cloudcastUrl
+    cloudDetails.extraDetails = {}
+    cloudDetails.slugToKey = slugToKeyValue
 
     yield put(setCloudcastDetails(cloudDetails, index))
     if (isFeatured) {
       yield put(setIsFeaturedCloudcast(cloudDetails))
     }
 
-    const slugToKeyId = slugToKey(cloudDetails.slug)
-    yield call(getCloudcastExtraDetailsCall, cloudcastKey, slugToKeyId)
+    yield call(getCloudcastExtraDetailsCall, cloudcastUrl, slugToKeyValue)
   } catch (e) {
-    toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastKey} />, {
+    toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastUrl} />, {
       className: 'toast--error'
     })
   }
 }
 
-function* getCloudcastExtraDetailsCall(cloudcastKey, slugToKeyId) {
+function* getCloudcastExtraDetailsCall(cloudcastUrl, cloudcastKey) {
   const prefixUrl = getEnvUrlPrefix()
-  const url = prefixUrl + '/cloudcast/extrainfo' + cloudcastKey
+  const url = prefixUrl + '/cloudcast/extrainfo' + cloudcastUrl
   try {
     let cloudExtraDetails = yield call(whatwgFetch, url)
-    cloudExtraDetails.cloudcastFetchKeyFetch = cloudcastKey
 
-    yield put(setCloudcastExtraDetails(cloudExtraDetails, slugToKeyId))
+    yield put(setCloudcastExtraDetails(cloudExtraDetails, cloudcastKey))
   } catch (e) {
-    // toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastKey} />, {
+    // toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastUrl} />, {
     //   className: 'toast--error'
     // })
   }

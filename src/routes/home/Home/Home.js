@@ -31,6 +31,7 @@ class Home extends Component {
 
   static getDerivedStateFromProps(props, state) {
     let newState = Object.assign({}, state)
+    console.log('props.cloudcastDetails = ', props.cloudcastDetails)
     newState.listCloudcastKeys = props.listCloudcastKeys
     newState.cloudcastDetails = props.cloudcastDetails
     newState.isFeaturedCloudcast = props.isFeaturedCloudcast

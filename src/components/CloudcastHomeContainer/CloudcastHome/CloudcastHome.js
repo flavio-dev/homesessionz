@@ -30,6 +30,7 @@ class CloudcastHome extends Component {
             isPlaying={isCloudcastPlaying}
             pictureUrl={smallPicUrl}
             playPauseTrigger={playPauseTrigger}
+            cloudcastKey={cloudcast.slugToKey}
           />
         </div>
         <div className='ch__img ch__img--large'>
@@ -37,6 +38,7 @@ class CloudcastHome extends Component {
             isPlaying={isCloudcastPlaying}
             pictureUrl={largePicUrl}
             playPauseTrigger={playPauseTrigger}
+            cloudcastKey={cloudcast.slugToKey}
           />
         </div>
         <div className='ch__details'>
