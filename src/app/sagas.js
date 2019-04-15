@@ -4,17 +4,18 @@ import { toast } from 'react-toastify'
 
 import whatwgFetch from 'utils/fetch'
 import getEnvUrlPrefix from 'utils/envUrl'
+import slugToKey from 'utils/slugToKey'
 
 import MsgError from 'components/Msgs/MsgError'
 
 import {
   setCloudcastDetails,
+  setCloudcastExtraDetails,
   setIndexIsFeaturedCloudcast,
   setIsFeaturedCloudcast,
   setSearchResultsInName,
   setSearchResultsInTags,
-  SET_SEARCH_TEXT,
-  GET_TRACKLIST
+  SET_SEARCH_TEXT
 } from './actions'
 
 import { getCloudcastDetails } from './selectors'
@@ -54,10 +55,28 @@ function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
     if (isFeatured) {
       yield put(setIsFeaturedCloudcast(cloudDetails))
     }
+
+    const slugToKeyId = slugToKey(cloudDetails.slug)
+    yield call(getCloudcastExtraDetailsCall, cloudcastKey, slugToKeyId)
   } catch (e) {
     toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastKey} />, {
       className: 'toast--error'
     })
+  }
+}
+
+function* getCloudcastExtraDetailsCall(cloudcastKey, slugToKeyId) {
+  const prefixUrl = getEnvUrlPrefix()
+  const url = prefixUrl + '/cloudcast/extrainfo' + cloudcastKey
+  try {
+    let cloudExtraDetails = yield call(whatwgFetch, url)
+    cloudExtraDetails.cloudcastFetchKeyFetch = cloudcastKey
+
+    yield put(setCloudcastExtraDetails(cloudExtraDetails, slugToKeyId))
+  } catch (e) {
+    // toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastKey} />, {
+    //   className: 'toast--error'
+    // })
   }
 }
 
@@ -88,25 +107,4 @@ function* proceedSearch(action) {
 
 export function* watchProceedSearch() {
   yield takeLatest(SET_SEARCH_TEXT, proceedSearch)
-}
-
-export function* getTracklist(action) {
-  console.log('action.cloudcastFetchKey = ', action.cloudcastFetchKey);
-  const prefixUrl = getEnvUrlPrefix()
-  const cloudcastFetchKey = action.cloudcastFetchKey
-  const url = prefixUrl + '/cloudcast/tracklist' + cloudcastFetchKey
-  console.log('CALLING  ', url);
-  try {
-    const extraInfo = yield call(whatwgFetch, url)
-    console.log('extraInfo = ', extraInfo)
-
-  } catch (e) {
-    toast.error(<MsgError text={'error retrieving the tracklist ' + cloudcastFetchKey} />, {
-      className: 'toast--error'
-    })
-  }
-}
-
-export function* watchGetTracklist() {
-  yield takeLatest(GET_TRACKLIST, getTracklist)
 }
