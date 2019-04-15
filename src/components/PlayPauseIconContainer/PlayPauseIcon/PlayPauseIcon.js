@@ -1,32 +1,52 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
+import CircularProgressbar from 'react-circular-progressbar';
+
+import 'react-circular-progressbar/dist/styles.css';
 
 import PlayIcon from './PlayIcon'
 import PauseIcon from './PauseIcon'
 
 class PlayPauseIcon extends Component {
-    render() {
-      const { isPlaying, cloudcastKey, reversed, cloudcastDetails } = this.props
-      const previewAudio = cloudcastDetails[cloudcastKey] && cloudcastDetails[cloudcastKey].extraDetails && cloudcastDetails[cloudcastKey].extraDetails.previewUrl
-      const audio = new Audio(previewAudio)
+  constructor(props) {
+    super(props)
 
-      console.log('audio.duration = ', audio.duration)
-
-      return <div
-        onMouseEnter={() => {
-          if (!isPlaying) {
-            audio.play()
-          }
-        }}
-        onMouseLeave={() => {
-          if (!isPlaying) {
-            audio.pause()
-          }
-        }}
-      >
-        {isPlaying ? <PauseIcon reversed={reversed} /> : <PlayIcon reversed={reversed} />}
-      </div>
+    this.state = {
+      audio: null,
+      percentage: 0
     }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (!state.audio &&
+      props.cloudcastDetails[props.cloudcastKey] &&
+      props.cloudcastDetails[props.cloudcastKey].extraDetails
+      && props.cloudcastDetails[props.cloudcastKey].extraDetails.previewUrl) {
+      return { audio: new Audio(props.cloudcastDetails[props.cloudcastKey].extraDetails.previewUrl) }
+    }
+  }
+
+  render() {
+    const { isPlaying, reversed } = this.props
+    let percentage = this.state.audio ? (this.state.audio.currentTime * 100) / this.state.audio.duration : 0
+    return (
+      <Fragment>
+        <CircularProgressbar percentage={percentage} />
+        <div
+          onMouseEnter={() => {
+            // console.log('audio.currentTime = ', audio.currentTime)
+            // console.log('audio.duration = ', audio.duration)
+            this.state.audio.play()
+          }}
+          onMouseLeave={() => {
+            this.state.audio.pause()
+          }}
+        >
+          {isPlaying ? <PauseIcon reversed={reversed} /> : <PlayIcon reversed={reversed} />}
+        </div>
+      </Fragment>
+    )
+  }
 }
 
 PlayPauseIcon.propTypes = {
