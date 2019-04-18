@@ -9,7 +9,7 @@ import mediumHomeVid from './aboutTablet.mp4'
 import largeHomeVid from './aboutDesktop.mp4'
 
 export const About = () => (
-  <div class='page'>
+  <div className='page'>
     <VideoWrapper
       smallVid={smallHomeVid}
       mediumVid={mediumHomeVid}

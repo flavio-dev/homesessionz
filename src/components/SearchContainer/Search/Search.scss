@@ -10,8 +10,12 @@
   height: 21px;
   left: calc(100% - 21px);
   position: absolute;
-  top: 11px;
+  top: 9px;
   width: 21px;
+
+  @media #{$medium-and-up} {
+    top: 11px;
+  }
 }
 
 input[type="text"].search__input {
@@ -30,8 +34,12 @@ input[type="text"].search__input {
   opacity: 0;
   position: absolute;
   right: 10px;
-  top: 11px;
+  top: 9px;
   width: 21px;
+
+  @media #{$medium-and-up} {
+    top: 11px;
+  }
 }
 
 .search--focused {

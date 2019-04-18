@@ -9,6 +9,8 @@ import MixcloudIcon from 'components/MixcloudIcon'
 import SoundcloudIcon from 'components/SoundcloudIcon'
 import HeartIcon from 'components/HeartIcon'
 
+import thisYear from 'utils/thisYear'
+
 export const Footer = ({ hasCloudLoaded }) => (
   <div className='footer'>
     <div className='footer__inner'>
@@ -39,7 +41,7 @@ export const Footer = ({ hasCloudLoaded }) => (
         <div className='footer__text__flavio'>
           made with <HeartIcon /> by <a href='https://github.com/flavio-dev'>flaviø</a>
         </div>
-        <div>copyrights 2019</div>
+        <div>copyrights {thisYear()}</div>
       </div>
     </div>
   </div>

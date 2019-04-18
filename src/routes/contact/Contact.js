@@ -9,7 +9,7 @@ import mediumHomeVid from './contactTablet.mp4'
 import largeHomeVid from './contactDesktop.mp4'
 
 export const Contact = () => (
-  <div class='page'>
+  <div className='page'>
     <VideoWrapper
       smallVid={smallHomeVid}
       mediumVid={mediumHomeVid}

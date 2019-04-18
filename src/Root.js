@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { ConnectedRouter } from 'connected-react-router'
 import { Route, Switch } from 'react-router-dom'
@@ -38,7 +38,7 @@ export const Root = ({ store, history }) => (
         <Route render={({location}) => {
           console.log('location = ', location)
           return <TransitionGroup>
-            <CSSTransition className='fade' timeout={300} key={location.key}>
+            <CSSTransition className='fade' timeout={500} key={location.key}>
               <Switch>
                 <Route exact path='/' component={HomeContainer} />
                 <Route path='/contact' component={scrollIntoView(Contact)} />
