@@ -5,11 +5,11 @@ import { Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ToastContainer, Slide } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+// import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import LayoutContainer from 'components/LayoutContainer'
 import CloseIcon from 'components/CloseIcon'
-import LoadingScreen from 'components/LoadingScreen'
+// import LoadingScreen from 'components/LoadingScreen'
 import scrollIntoView from 'hocomponents/ScrollIntoView'
 
 import 'index.css'
@@ -35,20 +35,12 @@ export const Root = ({ store, history }) => (
     />
     <ConnectedRouter history={history}>
       <LayoutContainer>
-        <Route render={({ location }) => {
-          console.log('location = ', location)
-          return <TransitionGroup>
-            <CSSTransition className='fade' timeout={500} key={location.key}>
-              <Switch>
-                <Route exact path='/' component={HomeContainer} />
-                <Route path='/contact' component={scrollIntoView(Contact)} />
-                <Route path='/about' component={scrollIntoView(About)} />
-                <Route path='/test' component={LoadingScreen} />
-                <Route path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
-        }} />
+        <Switch>
+          <Route exact path='/' component={HomeContainer} />
+          <Route path='/contact' component={scrollIntoView(Contact)} />
+          <Route path='/about' component={scrollIntoView(About)} />
+          <Route path='/:cloudcastId' component={scrollIntoView(CloudcastDetailsContainer)} />
+        </Switch>
       </LayoutContainer>
     </ConnectedRouter>
   </Provider>

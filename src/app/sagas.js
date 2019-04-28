@@ -33,7 +33,7 @@ export function* getInitialListMixesFromGithub() {
 
     for (let i = 0; i < initialListOfMixes.length; i++) {
       yield put(setCloudcastDetails({
-        slug: i.toString()
+        slugToKey: i.toString()
       }, i))
       yield fork(getCloudcastDetailsCall, initialListOfMixes[i], i, i === indexFeatured)
     }
