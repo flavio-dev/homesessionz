@@ -1,5 +1,5 @@
 export const thisYear = () => {
-  const dt = new Date();
+  const dt = new Date()
   return dt.getFullYear()
 }
 

@@ -12,6 +12,7 @@ import TagContainer from 'components/TagContainer'
 
 import slugToKey from 'utils/slugToKey'
 import durationFormater from 'utils/durationFormater'
+import decodeHtml from 'utils/decodeHtml'
 
 import './CloudcastDetails.css'
 
@@ -120,6 +121,7 @@ class CloudcastDetails extends Component {
     const picture320 = cast.pictures && cast.pictures['320wx320h']
     const picture640 = cast.pictures && cast.pictures['640wx640h']
     const picture1024 = cast.pictures && cast.pictures['1024wx1024h']
+    const listFeaturingArtists = cast.extraDetails && cast.extraDetails.featuringArtistList
 
     const topClass = this.state.top
       ? 'cd--visible'
@@ -192,6 +194,18 @@ class CloudcastDetails extends Component {
               <Linkify>{cast.description}</Linkify>
             </div>
           </section>
+          {listFeaturingArtists && !!listFeaturingArtists.length &&
+            <section className={bottomClass}>
+              <h2 className='title-margin'>playing tracks by</h2>
+              {listFeaturingArtists.map((artist, index) => {
+                if (index === (listFeaturingArtists.length - 1)) {
+                  return <span key={artist}>{artist}...</span>
+                } else {
+                  return <span key={artist}>{decodeHtml(artist)},&nbsp;</span>
+                }
+              })}
+            </section>
+          }
           <section className={bottomClass + ' cd__bottom__duration last'}>
             <p>duration: {durationFormater(parseInt(cast.audio_length, 10))}</p>
           </section>

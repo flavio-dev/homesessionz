@@ -4,11 +4,13 @@ import { toast } from 'react-toastify'
 
 import whatwgFetch from 'utils/fetch'
 import getEnvUrlPrefix from 'utils/envUrl'
+import slugToKey from 'utils/slugToKey'
 
 import MsgError from 'components/Msgs/MsgError'
 
 import {
   setCloudcastDetails,
+  setCloudcastExtraDetails,
   setIndexIsFeaturedCloudcast,
   setIsFeaturedCloudcast,
   setSearchResultsInName,
@@ -42,20 +44,40 @@ export function* getInitialListMixesFromGithub() {
   }
 }
 
-function* getCloudcastDetailsCall(cloudcastKey, index, isFeatured) {
+function* getCloudcastDetailsCall(cloudcastUrl, index, isFeatured) {
   const prefixUrl = getEnvUrlPrefix()
-  const url = prefixUrl + '/cloudcast' + cloudcastKey
+  const url = prefixUrl + '/cloudcast' + cloudcastUrl
   try {
-    const cloudDetails = yield call(whatwgFetch, url)
+    let cloudDetails = yield call(whatwgFetch, url)
+    const slugToKeyValue = slugToKey(cloudDetails.slug)
+    cloudDetails.cloudcastFetchKeyFetch = cloudcastUrl
+    cloudDetails.extraDetails = {}
+    cloudDetails.slugToKey = slugToKeyValue
 
     yield put(setCloudcastDetails(cloudDetails, index))
     if (isFeatured) {
       yield put(setIsFeaturedCloudcast(cloudDetails))
     }
+
+    yield call(getCloudcastExtraDetailsCall, cloudcastUrl, slugToKeyValue)
   } catch (e) {
-    toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastKey} />, {
+    toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastUrl} />, {
       className: 'toast--error'
     })
+  }
+}
+
+function* getCloudcastExtraDetailsCall(cloudcastUrl, cloudcastKey) {
+  const prefixUrl = getEnvUrlPrefix()
+  const url = prefixUrl + '/cloudcast/extrainfo' + cloudcastUrl
+  try {
+    let cloudExtraDetails = yield call(whatwgFetch, url)
+
+    yield put(setCloudcastExtraDetails(cloudExtraDetails, cloudcastKey))
+  } catch (e) {
+    // toast.error(<MsgError text={'error retrieving the sessionz ' + cloudcastUrl} />, {
+    //   className: 'toast--error'
+    // })
   }
 }
 

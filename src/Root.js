@@ -35,7 +35,7 @@ export const Root = ({ store, history }) => (
     />
     <ConnectedRouter history={history}>
       <LayoutContainer>
-        <Route render={({location}) => {
+        <Route render={({ location }) => {
           console.log('location = ', location)
           return <TransitionGroup>
             <CSSTransition className='fade' timeout={500} key={location.key}>

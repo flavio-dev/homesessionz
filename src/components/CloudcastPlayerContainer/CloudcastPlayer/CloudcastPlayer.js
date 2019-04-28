@@ -15,8 +15,7 @@ class CloudcastPlayer extends Component {
         config={{
           mixcloud: {
             options: {
-              mini: true,
-              light: true
+              mini: true
             }
           }
         }}
