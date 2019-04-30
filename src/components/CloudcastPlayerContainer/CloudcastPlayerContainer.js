@@ -6,7 +6,9 @@ import CloudcastPlayer from './CloudcastPlayer'
 
 const mapActionCreators = (dispatch) => ({
   setIsPlaying: (isPlaying) => dispatch(setIsPlaying(isPlaying)),
-  setHasCloudLoaded: () => dispatch(setHasCloudLoaded())
+  setHasCloudLoaded: () => dispatch(setHasCloudLoaded()),
+  onPlay: () => dispatch(setIsPlaying(true)),
+  onPause: () => dispatch(setIsPlaying(false))
 })
 
 const mapStateToProps = (state) => ({
