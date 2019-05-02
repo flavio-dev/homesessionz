@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 
 import setPlayingCloudcastReducer from './playingCloudcast'
 import setIsFeaturedCloudcastReducer from './isFeaturedCloudcast'
-import setIsPlayingReducer from './isPlaying'
+import playingReducers from './playing'
 import setHasCloudLoadedReducer from './hasCloudLoaded'
 import setCloudcastDetailsReducer from './cloudcastDetails'
 import setListCloudcastKeysReducer from './listCloudcastKeys'
@@ -14,6 +14,6 @@ export default combineReducers({
   cloudcastDetails: setCloudcastDetailsReducer,
   listCloudcastKeys: setListCloudcastKeysReducer,
   hasMixcloudEmbedLoaded: setHasCloudLoadedReducer,
-  isPlaying: setIsPlayingReducer,
+  playing: playingReducers,
   searchReducers: searchReducers
 })

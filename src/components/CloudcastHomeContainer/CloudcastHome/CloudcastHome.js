@@ -81,7 +81,6 @@ CloudcastHome.defaultProps = {
 
 CloudcastHome.propTypes = {
   setPlayingCloudcast: PropTypes.func.isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
   cloudcast: PropTypes.object,
   playingCloudcast: PropTypes.string,
   playPauseTrigger: PropTypes.func.isRequired,

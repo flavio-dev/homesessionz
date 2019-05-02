@@ -7,6 +7,11 @@ export const getSearchReducers = createSelector(
   appReducer => appReducer.searchReducers
 )
 
+export const getPlayingReducers = createSelector(
+  [getAppReducers],
+  appReducer => appReducer.playing
+)
+
 export const getPlayingCloudcast = createSelector(
   [getAppReducers],
   appReducer => appReducer.playingCloudcast
@@ -18,8 +23,13 @@ export const getIsFeaturedCloudcast = createSelector(
 )
 
 export const getIsPlaying = createSelector(
-  [getAppReducers],
-  appReducer => appReducer.isPlaying
+  [getPlayingReducers],
+  playingReducer => playingReducer.isPlaying
+)
+
+export const getReqPlaying = createSelector(
+  [getPlayingReducers],
+  playingReducer => playingReducer.reqPlaying
 )
 
 export const getHasCloudLoaded = createSelector(

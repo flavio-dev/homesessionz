@@ -2,6 +2,7 @@ export const SET_PLAYING_CLOUDCAST = 'SET_PLAYING_CLOUDCAST'
 export const SET_IS_FEATURED_CLOUDCAST = 'SET_IS_FEATURED_CLOUDCAST'
 export const SET_INDEX_IS_FEATURED_CLOUDCAST = 'SET_INDEX_IS_FEATURED_CLOUDCAST'
 export const SET_IS_PLAYING = 'SET_IS_PLAYING'
+export const SET_REQ_PLAYING = 'SET_REQ_PLAYING'
 export const SET_HAS_CLOUD_LOADED = 'SET_HAS_CLOUD_LOADED'
 export const SET_CLOUDCAST_DETAILS = 'SET_CLOUDCAST_DETAILS'
 export const SET_CLOUDCAST_EXTRA_DETAILS = 'SET_CLOUDCAST_EXTRA_DETAILS'
@@ -36,6 +37,13 @@ export const setIsPlaying = (isPlaying) => {
   return {
     type: SET_IS_PLAYING,
     isPlaying
+  }
+}
+
+export const setReqPlaying = (reqPlaying) => {
+  return {
+    type: SET_REQ_PLAYING,
+    reqPlaying
   }
 }
 

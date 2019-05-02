@@ -1,4 +1,4 @@
-import { SET_IS_PLAYING } from '../actions'
+import { SET_IS_PLAYING } from '../../actions'
 
 const initialState = false
 export const setIsPlayingReducer = (state = initialState, action) => {

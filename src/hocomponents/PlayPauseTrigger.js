@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { setPlayingCloudcast, setIsPlaying } from 'app/actions'
+import { setPlayingCloudcast, setReqPlaying } from 'app/actions'
 import { getIsPlaying, getPlayingCloudcast } from 'app/selectors'
 
 const playPauseTrigger = (WrappedComponent) => {
@@ -11,14 +11,14 @@ const playPauseTrigger = (WrappedComponent) => {
       if (props.cloudcast.url) {
         if (props.isPlaying && props.playingCloudcast === props.cloudcast.url) {
           // the current player playing is this one. so we pause.
-          props.setIsPlaying(false)
+          props.setReqPlaying(false)
         } else if (!props.isPlaying && props.playingCloudcast === props.cloudcast.url) {
           // the current player not playing. so we play.
-          props.setIsPlaying(true)
+          props.setReqPlaying(true)
         } else {
           // another cloudcast is being played. we load this one and play
           props.setPlayingCloudcast(props.cloudcast.url, props.cloudcast.name.toLowerCase())
-          props.setIsPlaying(true)
+          props.setReqPlaying(true)
         }
       }
     }
@@ -30,7 +30,7 @@ const playPauseTrigger = (WrappedComponent) => {
     cloudcast: PropTypes.object,
     isPlaying: PropTypes.bool,
     playingCloudcast: PropTypes.string,
-    setIsPlaying: PropTypes.func.isRequired,
+    setReqPlaying: PropTypes.func.isRequired,
     setPlayingCloudcast: PropTypes.func.isRequired
   }
 
@@ -38,7 +38,7 @@ const playPauseTrigger = (WrappedComponent) => {
     setPlayingCloudcast: (url, name) => {
       dispatch(setPlayingCloudcast(url, name))
     },
-    setIsPlaying: (isPlaying) => dispatch(setIsPlaying(isPlaying))
+    setReqPlaying: (isPlaying) => dispatch(setReqPlaying(isPlaying))
   })
 
   const mapStateToProps = (state) => ({

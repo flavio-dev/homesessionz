@@ -70,14 +70,14 @@ class CloudcastDetails extends Component {
     if (cast.url) {
       if (this.props.isPlaying && this.props.playingCloudcast === cast.url) {
         // the current player playing is this one. so we pause.
-        this.props.setIsPlaying(false)
+        this.props.setReqPlaying(false)
       } else if (!this.props.isPlaying && this.props.playingCloudcast === cast.url) {
         // the current player not playing. so we play.
-        this.props.setIsPlaying(true)
+        this.props.setReqPlaying(true)
       } else {
         // another cloudcast is being played. we load this one and play
         this.props.setPlayingCloudcast(cast.url, cast.name.toLowerCase())
-        this.props.setIsPlaying(true)
+        this.props.setReqPlaying(true)
       }
     }
   }
@@ -219,7 +219,7 @@ CloudcastDetails.propTypes = {
   match: PropTypes.object,
   cloudcastDetails: PropTypes.object,
   setPlayingCloudcast: PropTypes.func.isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
+  setReqPlaying: PropTypes.func.isRequired,
   playingCloudcast: PropTypes.string,
   isPlaying: PropTypes.bool
 }

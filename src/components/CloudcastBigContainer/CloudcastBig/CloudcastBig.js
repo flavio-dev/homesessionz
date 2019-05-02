@@ -78,7 +78,6 @@ class CloudcastBig extends Component {
 
 CloudcastBig.propTypes = {
   setPlayingCloudcast: PropTypes.func.isRequired,
-  setIsPlaying: PropTypes.func.isRequired,
   playPauseTrigger: PropTypes.func.isRequired,
   cloudcast: PropTypes.object,
   playingCloudcast: PropTypes.string,
