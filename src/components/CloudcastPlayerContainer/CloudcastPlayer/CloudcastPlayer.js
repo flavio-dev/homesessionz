@@ -27,7 +27,6 @@ class CloudcastPlayer extends Component {
           }
         }}
         onPlay={() => {
-          console.log('onplay this.props.isPlaying = ', this.props.isPlaying)
           if (!this.props.isPlaying) {
             this.timeout = setTimeout(() => {
               this.props.setIsPlaying(true)
@@ -36,7 +35,6 @@ class CloudcastPlayer extends Component {
           }
         }}
         onPause={() => {
-          console.log('onpause this.props.isPlaying = ', this.props.isPlaying)
           clearTimeout(this.timeout)
           if (this.props.isPlaying) {
             this.props.setIsPlaying(false)
@@ -44,7 +42,6 @@ class CloudcastPlayer extends Component {
           }
         }}
         onReady={() => {
-          console.log('onready')
           this.props.setHasCloudLoaded()
         }}
       />
