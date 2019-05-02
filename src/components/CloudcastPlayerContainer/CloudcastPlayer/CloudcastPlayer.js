@@ -10,12 +10,24 @@ class CloudcastPlayer extends Component {
 
     // introducing a timeout for countering the issue with the mixcloud widget
     this.timeout = null
+
+    this.state = {
+      playingCloudcast: ''
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if (state.playingCloudcast !== props.playingCloudcast) {
+      props.setIsPlaying(false)
+      return { playingCloudcast: props.playingCloudcast }
+    }
+    return state
   }
 
   render() {
     return <div className='cp'>
       <MixcloudPlayer
-        url={this.props.playingCloudcast}
+        url={this.state.playingCloudcast}
         height='60px'
         width='100%'
         playing={this.props.reqPlaying}
