@@ -1,3 +1,3 @@
-import CloudcastPlayer from './CloudcastPlayer'
+import CloudcastPlayer from './CloudcastPlayerOld'
 
 export default CloudcastPlayer

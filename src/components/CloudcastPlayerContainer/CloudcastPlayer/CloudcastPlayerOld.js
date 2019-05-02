@@ -5,6 +5,18 @@ import PropTypes from 'prop-types'
 import './CloudcastPlayer.css'
 
 class CloudcastPlayer extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      started: false
+    }
+  }
+
+  handleStart = () => {
+    this.setState({started: true})
+  }
+
   render() {
     return <div className='cp'>
       <MixcloudPlayer
@@ -21,6 +33,7 @@ class CloudcastPlayer extends Component {
         }}
         onStart={() => {
           console.log('onStart')
+          this.handleStart()
         }}
         onPlay={() => {
           console.log('onPlay')
@@ -37,7 +50,6 @@ class CloudcastPlayer extends Component {
         onReady={() => {
           console.log('onReady')
           this.props.setHasCloudLoaded()
-          this.props.setIsPlaying(true)
         }}
       />
     </div>
