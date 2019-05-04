@@ -63,9 +63,11 @@ class CloudcastPlayer extends Component {
 
 CloudcastPlayer.propTypes = {
   setIsPlaying: PropTypes.func,
+  setReqPlaying: PropTypes.func,
   setHasCloudLoaded: PropTypes.func,
   playingCloudcast: PropTypes.string,
-  isPlaying: PropTypes.bool.isRequired
+  isPlaying: PropTypes.bool.isRequired,
+  reqPlaying: PropTypes.bool.isRequired
 }
 
 export default CloudcastPlayer
