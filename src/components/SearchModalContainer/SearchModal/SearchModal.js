@@ -7,7 +7,7 @@ import './SearchModal.css'
 
 class SearchModal extends Component {
   render() {
-    const { searchText, isPlayerLoaded, searchResultsInTags, searchResultsInName } = this.props
+    const { searchText, isPlayerLoaded, searchResultsInTags, searchResultsInName, clearSearchText } = this.props
     const showResultClass = searchText.length ? ' sm--visible' : ''
     const addPaddingForPlayer = isPlayerLoaded ? ' sm--has-player' : ''
     return (
@@ -19,7 +19,12 @@ class SearchModal extends Component {
               <h3 className='title-margin'>... in name</h3>
               <div>
                 {searchResultsInName.map((result) => {
-                  return <CloudcastHomeContainer cloudcast={result} key={result.key} forceMobileView />
+                  return <CloudcastHomeContainer
+                    cloudcast={result}
+                    key={result.key}
+                    forceMobileView
+                    clearSearchText={clearSearchText}
+                  />
                 })}
                 {!searchResultsInName.length && <div>no results</div>}
               </div>
@@ -29,7 +34,12 @@ class SearchModal extends Component {
               <h3 className='title-margin'>... in tags</h3>
               <div>
                 {searchResultsInTags.map((result) => {
-                  return <CloudcastHomeContainer cloudcast={result} key={result.key} forceMobileView />
+                  return <CloudcastHomeContainer
+                    cloudcast={result}
+                    key={result.key}
+                    forceMobileView
+                    clearSearchText={clearSearchText}
+                  />
                 })}
                 {!searchResultsInTags.length && <div>no results</div>}
               </div>
@@ -45,7 +55,8 @@ SearchModal.propTypes = {
   searchText: PropTypes.string,
   isPlayerLoaded: PropTypes.bool,
   searchResultsInName: PropTypes.array,
-  searchResultsInTags: PropTypes.array
+  searchResultsInTags: PropTypes.array,
+  clearSearchText: PropTypes.func
 }
 
 export default SearchModal

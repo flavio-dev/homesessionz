@@ -1,9 +1,12 @@
 import { connect } from 'react-redux'
 import { getSearchResultsInName, getSearchResultsInTags, getSearchText, getPlayingCloudcast } from 'app/selectors'
+import { clearSearchText } from 'app/actions'
 
 import SearchModal from './SearchModal'
 
-const mapActionCreators = (dispatch) => ({})
+const mapActionCreators = (dispatch) => ({
+  clearSearchText: () => dispatch(clearSearchText())
+})
 
 const mapStateToProps = (state) => ({
   searchText: getSearchText(state),

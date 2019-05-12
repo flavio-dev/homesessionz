@@ -12,7 +12,7 @@ import './CloudcastHome.css'
 
 class CloudcastHome extends Component {
   render() {
-    const { forceMobileView, cloudcast, isPlaying, playingCloudcast, playPauseTrigger } = this.props
+    const { forceMobileView, cloudcast, isPlaying, playingCloudcast, playPauseTrigger, clearSearchText } = this.props
     const largePicUrl = cloudcast.pictures && cloudcast.pictures.large
       ? cloudcast.pictures.large
       : ''
@@ -58,7 +58,12 @@ class CloudcastHome extends Component {
               <TagAll placeholder />
             </div>
           }
-          {cloudcast.name && cloudcast.name.length &&
+          {cloudcast.name && cloudcast.name.length && clearSearchText &&
+            <div onClick={clearSearchText}>
+              <Link to={cloudcast.slug} className='ch__text font--medium'>{cloudcast.name}</Link>
+            </div>
+          }
+          {cloudcast.name && cloudcast.name.length && !clearSearchText &&
             <Link to={cloudcast.slug} className='ch__text font--medium'>{cloudcast.name}</Link>
           }
           {(!cloudcast.name || !cloudcast.name.length) &&
@@ -85,7 +90,8 @@ CloudcastHome.propTypes = {
   playingCloudcast: PropTypes.string,
   playPauseTrigger: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool,
-  forceMobileView: PropTypes.bool
+  forceMobileView: PropTypes.bool,
+  clearSearchText: PropTypes.func
 }
 
 export default CloudcastHome
