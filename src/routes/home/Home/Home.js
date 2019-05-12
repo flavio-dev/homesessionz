@@ -78,7 +78,7 @@ class Home extends Component {
         <ScrollTrigger onEnter={() => this.onEnterViewport('featured')} throttleScroll={500}>
           <section>
             <div className={featuredClass}>
-              <h2 className='title-margin'>featured</h2>
+              <h2 className='title-margin font--extra-large'>featured</h2>
               <CloudcastBigContainer cloudcast={this.state.isFeaturedCloudcast.cloudcast} />
             </div>
           </section>
@@ -86,7 +86,7 @@ class Home extends Component {
         <ScrollTrigger onEnter={() => this.onEnterViewport('latest')} throttleScroll={500}>
           <section>
             <div className={latestClass}>
-              <h2 className='title-margin'>latest</h2>
+              <h2 className='title-margin font--extra-large'>latest</h2>
               <CloudcastBigContainer cloudcast={firstCloudcast} />
             </div>
           </section>

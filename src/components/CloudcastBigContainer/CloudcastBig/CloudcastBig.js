@@ -38,7 +38,7 @@ class CloudcastBig extends Component {
             playPauseTrigger={this.props.playPauseTrigger}
             panoDisplay
           >
-            <div className='cb__img-title font--medium'>{this.props.cloudcast.name}</div>
+            <div className='cb__img-title font--large'>{this.props.cloudcast.name}</div>
           </ImagePlayPause>
         </div>
         {this.props.cloudcast.tags && this.props.cloudcast.tags.length &&
@@ -60,7 +60,7 @@ class CloudcastBig extends Component {
           </div>
         }
         {this.props.cloudcast.name && this.props.cloudcast.name.length &&
-          <Link to={this.props.cloudcast.slug} className='cb__title font--medium'>{this.props.cloudcast.name}</Link>
+          <Link to={this.props.cloudcast.slug} className='cb__title font--large'>{this.props.cloudcast.name}</Link>
         }
         {(!this.props.cloudcast.name || !this.props.cloudcast.name.length) &&
           <div className='cb__title-placeholder'>{this.props.cloudcast.name}</div>

@@ -41,7 +41,7 @@
 
 .header__placeholder {
   display: none;
-  font-size: 28px;
+  font-size: 34px;
   font-weight: bold;
 
   @media #{$medium-and-up} {
@@ -50,7 +50,7 @@
   }
 
   @media #{$large-and-up} {
-    width: 230px;
+    width: 280px;
   }
 }
 
@@ -62,6 +62,6 @@
   }
 
   @media #{$large-and-up} {
-    width: 230px;
+    width: 280px;
   }
 }

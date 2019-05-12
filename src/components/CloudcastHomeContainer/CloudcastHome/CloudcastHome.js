@@ -59,7 +59,7 @@ class CloudcastHome extends Component {
             </div>
           }
           {cloudcast.name && cloudcast.name.length &&
-            <Link to={cloudcast.slug} className='ch__text'>{cloudcast.name}</Link>
+            <Link to={cloudcast.slug} className='ch__text font--medium'>{cloudcast.name}</Link>
           }
           {(!cloudcast.name || !cloudcast.name.length) &&
             <div className='ch__text-placeholder' />
