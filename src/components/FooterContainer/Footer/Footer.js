@@ -6,7 +6,6 @@ import './Footer.css'
 
 import InstaIcon from 'components/InstaIcon'
 import MixcloudIcon from 'components/MixcloudIcon'
-import SoundcloudIcon from 'components/SoundcloudIcon'
 import HeartIcon from 'components/HeartIcon'
 
 import thisYear from 'utils/thisYear'
