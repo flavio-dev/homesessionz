@@ -30,11 +30,6 @@ export const Footer = ({ hasCloudLoaded }) => (
             rel='noopener noreferrer'>
             <MixcloudIcon />
           </a>
-          <a href='https://www.soundcloud.com/homesessionz/'
-            target='_blank'
-            rel='noopener noreferrer'>
-            <SoundcloudIcon />
-          </a>
         </div>
       </div>
       <div className={hasCloudLoaded ? 'footer__text footer__text--extra-space' : 'footer__text'}>
