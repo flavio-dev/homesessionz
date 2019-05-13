@@ -199,7 +199,7 @@ class CloudcastDetails extends Component {
               <h2 className='title-margin'>playing tracks by</h2>
               {listFeaturingArtists.map((artist, index) => {
                 if (index === (listFeaturingArtists.length - 1)) {
-                  return <span key={artist}>{artist}...</span>
+                  return <span key={artist}>{decodeHtml(artist)}...</span>
                 } else {
                   return <span key={artist}>{decodeHtml(artist)},&nbsp;</span>
                 }
