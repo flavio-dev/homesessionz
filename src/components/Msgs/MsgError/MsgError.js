@@ -7,7 +7,7 @@ import '../Msgs.css'
 
 export const MsgError = ({ text }) => (
   <div className='msg'>
-    <CrossIcon inMsg />
+    <div className='msg__icon'><CrossIcon /></div>
     <div className='msg__texts'>
       <div className='msg__text--bold msg--top'>oops!</div>
       <div>{text}</div>

@@ -15,6 +15,16 @@
   padding: 5px;
 }
 
+.ta__tag__icon {
+  height: 15px;
+  width: 15px;
+
+  @media #{$medium-and-up} {
+    height: 17px;
+    width: 17px;
+  }
+}
+
 .ta__tag--placeholder {
   animation: flash 1s ease infinite;
 }

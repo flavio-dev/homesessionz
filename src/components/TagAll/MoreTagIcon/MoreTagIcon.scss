@@ -1,17 +1,6 @@
 @import 'globals.scss';
 
 .mt-icon {
-  height: 15px;
-  width: 15px;
-
-  @media #{$medium-and-up} {
-    height: 17px;
-    width: 17px;
-  }
-}
-
-.mt-icon--msg {
-  height: 26px;
-  margin-right: 10px;
-  width: 26px;
+  height: 100%;
+  width: 100%;
 }

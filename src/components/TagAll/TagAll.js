@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { toast } from 'react-toastify'
 
@@ -19,7 +19,7 @@ class TagAll extends Component {
         className='ta__tag button-style'
         onClick={this.showMoreTags}
       >
-        <MoreTagIcon />
+        <div className='ta__tag__icon'><MoreTagIcon /></div>
       </span>
     </div>
   }

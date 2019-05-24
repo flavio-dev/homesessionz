@@ -8,7 +8,7 @@ import '../Msgs.css'
 
 export const MsgTags = ({ cloudcastName, tags }) => (
   <div className='msg'>
-    <MoreTagIcon inMsg />
+    <div className='msg__icon'><MoreTagIcon /></div>
     <div className='msg__texts'>
       <div>all the tags for <strong>{cloudcastName}</strong>:</div>
       <div className='tags-wrapper'>
