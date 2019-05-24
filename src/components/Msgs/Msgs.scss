@@ -1,13 +1,21 @@
 @import "globals.scss";
 
 .msg {
+  display: flex;
+}
+
+.msg__texts {
+  margin-top: 3px;
+}
+
+.msg__text--bold {
   font-weight: bold;
 }
 
-.msg--bottom {
-  margin-top: 20px;
+.msg__text--bottom {
+  margin-top: 10px;
 }
 
-.msg--top {
-  margin-bottom: 20px;
+.msg__text--top {
+  margin-bottom: 10px;
 }

@@ -2,8 +2,8 @@ import React from 'react'
 
 import './VinylIcon.css'
 
-export const VinylIcon = () => (
-  <div className='vinyl-icon'>
+export const VinylIcon = ({ inMsg }) => (
+  <div className={inMsg ? 'vinyl-icon vinyl-icon--msg' : 'vinyl-icon'}>
     <svg className='vinyl-icon__svg' viewBox='0 0 55.334 55.334'>
       <g>
         <circle cx='27.667' cy='27.667' r='3.618' />

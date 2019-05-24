@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import SearchIcon from './SearchIcon'
-import ClearIcon from './ClearIcon'
+import CrossIcon from 'components/CrossIcon'
 
 import './Search.css'
 
@@ -55,7 +55,7 @@ class Search extends Component {
           className='search__clear-icon'
           onClick={this.clearInput}
         >
-          <ClearIcon />
+          <CrossIcon />
         </div>
         <div
           className='search__icon'

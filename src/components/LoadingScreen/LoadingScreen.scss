@@ -25,13 +25,3 @@
 .ls__text {
   text-align: center;
 }
-
-@keyframes vinylRotationRunning {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
