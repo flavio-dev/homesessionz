@@ -21,7 +21,8 @@ export const MsgTags = ({ cloudcastName, tags }) => (
 )
 
 MsgTags.propTypes = {
-  name: PropTypes.string
+  cloudcastName: PropTypes.string,
+  tags: PropTypes.array
 }
 
 export default MsgTags
