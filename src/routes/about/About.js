@@ -31,7 +31,7 @@ export const About = () => (
             freedom for the selector to play whatever they feel like, for however long they want.<br />
             opportunity for the artist to share his/her art expression directly with the audience.<br />
             this results in a unique journey, between impromptu cross art form collaborations & free flow,
-            in the intimacy of a flat in berlin.
+            in the intimacy of a berlin flat.
           </p>
         </div>
       </section>
