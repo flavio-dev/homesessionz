@@ -58,6 +58,10 @@
   }
 }
 
+.cd__top__left {
+  width: 100%;
+}
+
 .cd__top__left__title {
   align-items: center;
   display: flex;
@@ -115,6 +119,7 @@
   @include default-wrapper-width();
   @include slow-transitions(opacity);
   opacity: 0;
+  overflow: hidden;
 
   &.cd--visible {
     opacity: 1;

@@ -117,6 +117,8 @@ class CloudcastDetails extends Component {
         <Tag style={{ width: 60 }} name='&nbsp;' placeholder />
         <Tag style={{ width: 65 }} name='&nbsp;' placeholder />
       </div>
+    let name = cast.name || ''
+    name = name.replace(/\u00a0/g, ' ')
     const isPlaying = this.props.isPlaying && this.props.playingCloudcast === cast.url
     const picture320 = cast.pictures && cast.pictures['320wx320h']
     const picture640 = cast.pictures && cast.pictures['640wx640h']
@@ -149,13 +151,13 @@ class CloudcastDetails extends Component {
                       isPlaying={isPlaying}
                     />
                   </div>
-                  {!cast.name && <div className='cd__top__title-placeholder' />}
-                  <h2 className='font--extra-large'>{cast.name}</h2>
+                  {!name.length && <div className='cd__top__title-placeholder' />}
+                  <h2 className='font--extra-large'>{name}</h2>
                 </div>
                 {tags}
               </div>
             </div>
-            <img src={picture320} alt={cast.name} onLoad={this.handleImageLoaded} style={{ display: 'none' }} />
+            <img src={picture320} alt={name} onLoad={this.handleImageLoaded} style={{ display: 'none' }} />
             <div className={topImgClass}
               style={{
                 backgroundImage: 'url(' + picture320 + ')',
@@ -171,8 +173,8 @@ class CloudcastDetails extends Component {
                 playPauseTrigger={this.playPauseTrigger}
               />
             </div>
-            {!cast.name && <div className='cd__top__title cd__top__title-placeholder' />}
-            {!!cast.name && cast.name.length && <h2 className='cd__top__title font--extra-large'>{cast.name}</h2>}
+            {!name.length && <div className='cd__top__title cd__top__title-placeholder' />}
+            {!!name.length && <h2 className='cd__top__title font--extra-large'>{name}</h2>}
             {tags}
           </section>
           <section className={topClass + ' cd__image-pano'}>
