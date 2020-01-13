@@ -172,7 +172,7 @@ class CloudcastDetails extends Component {
               />
             </div>
             {!cast.name && <div className='cd__top__title cd__top__title-placeholder' />}
-            {cast.name && <h2 className='cd__top__title font--extra-large'>{cast.name}</h2>}
+            {!!cast.name && cast.name.length && <h2 className='cd__top__title font--extra-large'>{cast.name}</h2>}
             {tags}
           </section>
           <section className={topClass + ' cd__image-pano'}>
