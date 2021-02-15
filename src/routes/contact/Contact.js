@@ -18,7 +18,7 @@ export const Contact = () => (
     >
       <section className='last'>
         <div className='contact font--medium'>
-          <form method='POST' action='https://formspree.io/myshoestravel@gmail.com'>
+          <form method='POST' action='https://formspree.io/f/xqkgopgk'>
             <div className='contact__form'>
               <div className='contact__form__email-name'>
                 <input type='name' name='name' placeholder='name' />
